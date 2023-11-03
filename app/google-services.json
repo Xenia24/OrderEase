@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "379381896549",
+    "project_id": "agenda-panaderia",
+    "storage_bucket": "agenda-panaderia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379381896549:android:c54a8d0e4f6db376113d8c",
+        "android_client_info": {
+          "package_name": "com.example.agenda_panaderia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7cRveS6NggLKo7gbJIt6zL0xvpWMDTDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

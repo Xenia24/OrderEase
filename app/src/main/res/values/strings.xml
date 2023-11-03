@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Agenda Panaderia</string>
+
+    <!--Main Activity-->
+    <string name="Btn_Login">Login</string>
+    <string name="Btn_Registro">Registro</string>
+    <!--Actividad Registro-->
+    <string name="CrearCuenta">Crear una cuenta</string>
+    <string name="NombreEt">Nombres</string>
+    <string name="CoreoEt">Correo electronico</string>
+    <string name="Contrasena">Contraseña</string>
+    <string name="ConfirmarContrasena">Confirmar Contraseña</string>
+    <string name="RegistrarUsuario">Registrar</string>
+    <string name="Tengounacuenta">Tengo una cuenta</string>
+    </resources>
