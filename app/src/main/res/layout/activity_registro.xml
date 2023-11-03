@@ -109,7 +109,8 @@
             android:fontFamily="@font/variablefont_wght"
             android:textSize="18sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/naranjado"/>
         <TextView
             android:id="@+id/Tengounacuenta"
             android:text="@string/Tengounacuenta"
