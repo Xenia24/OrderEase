@@ -33,14 +33,17 @@
         android:fontFamily="@font/variablefont_wght"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/naranjado"
+        />
     <Button
         android:id="@+id/Btn_Registro"
         android:text="@string/Btn_Registro"
         android:fontFamily="@font/variablefont_wght"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/naranjado"/>
 </androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>
