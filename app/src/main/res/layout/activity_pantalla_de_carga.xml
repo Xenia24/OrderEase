@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pantalla_De_Carga">
+    tools:context=".Pantalla_De_Carga"
+    android:background="@color/verde">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
