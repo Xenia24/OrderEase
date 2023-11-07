@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/verde"
+    android:layout_height="match_parent"
+    tools:context=".Contactos.Agregar_Contactos">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/Uid_Usuario"
+            android:text="@string/Id_Usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="@font/variablefont_wght"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/agregar_usuario"/>
+
+        <EditText
+            android:id="@+id/Nombre_c"
+            android:hint="@string/Nombre_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/variablefont_wght"
+            android:layout_marginTop="10dp"
+            android:inputType="textPersonName"
+            />
+
+        <EditText
+            android:id="@+id/Apellido_c"
+            android:hint="@string/Apellido_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/variablefont_wght"
+            android:inputType="textPersonName"
+            />
+
+        <EditText
+            android:id="@+id/Correo_c"
+            android:hint="@string/Correo_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/variablefont_wght"
+            android:inputType="textEmailAddress"/>
+
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/Telefono_c"
+                android:text="@string/Telefono_c"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:inputType="phone" />
+
+            <ImageView
+                android:id="@+id/Editar_Telefono_C"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:src="@drawable/telefono"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <EditText
+            android:id="@+id/Direccion_c"
+            android:hint="@string/Direccion_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/variablefont_wght"
+            android:inputType="text"/>
+
+
+
+
+        <Button
+            android:id="@+id/Btn_guardar_contacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Btn_guardar_contacto"
+            android:fontFamily="@font/variablefont_wght"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</ScrollView>

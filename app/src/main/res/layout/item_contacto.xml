@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/verde"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    android:padding="0.2dp"
+    android:clickable="true"
+    app:cardCornerRadius="10dp"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/Imagen_c_Item"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/person"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/Id_c_Item"
+                android:text="@string/Id_c_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/Uid_c_Item"
+                android:text="@string/Uid_c_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/nombre_c_Item"
+                android:text="@string/nombre_c_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/apellido_c_Item"
+                android:text="@string/apellido_c_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/Correo_c_Item"
+                android:text="@string/Correo_c_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/telefono_c_Item"
+                android:text="@string/telefono_c_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/direccion_c_Item"
+                android:text="@string/direccion_c_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:textSize="18sp" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.cardview.widget.CardView>

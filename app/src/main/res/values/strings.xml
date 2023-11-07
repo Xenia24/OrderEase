@@ -12,4 +12,107 @@
     <string name="ConfirmarContrasena">Confirmar Contraseña</string>
     <string name="RegistrarUsuario">Registrar</string>
     <string name="Tengounacuenta">Tengo una cuenta</string>
-    </resources>
+
+    <!--    Actividad Login-->
+    <string name="IniciarS">Iniciar Sesion</string>
+    <string name="CorreoL">Correo electronico</string>
+    <string name="PasswordL">Contraseña</string>
+    <string name="Btn_LoginI">Ingresar</string>
+    <string name="UsuarioNuevo">No Tienes una Cuenta?. Registrate</string>
+
+    <!--    MENU PRINCIPAL-->
+    <string name="BienvenidoP">Bienvenido(a)</string>\
+    <string name="IdMenu"> -- </string>
+    <string name="NombreP"> -- </string>
+    <string name="CorreoP"> -- </string>
+    <string name="Verificacion">No Verificado</string>
+    <string name="ListaOp">Menu Opciones</string>
+    <string name="AgregarPedidos">Agregar</string>
+    <string name="ListaPedidos">Lista Pedidos</string>
+    <string name="Importantes">Importantes</string>
+    <string name="Contactos">Contactos</string>
+    <string name="CerrarC">Cerrar Sesion</string>
+
+    <!--        AGREGAR PEDIDOS-->
+    <string name="id_Usuario">Id del Usuario</string>
+    <string name="Correo_usuario">Correo del Usuario</string>
+    <string name="Fecha_H_A">Fecha de Regidstro</string>
+    <string name="Fecha_Actual">Fecha y Hora Actual</string>
+    <string name="Nombre_Cliente">Nombre del Cliente</string>
+    <string name="Titulo">Titulo</string>
+    <string name="Descripcion">Descripcion</string>
+    <string name="Btn_Calendario">Calendario</string>
+    <string name="Fecha">00/00/0000</string>
+    <string name="Estado">No Entregado</string>
+
+
+    <!--        ITEM PEDIDOS-->
+    <string name="Id_Pedido_Item">Id nota</string>
+    <string name="Id_Usuario_Item">Id del Usuario</string>
+    <string name="Correo_Usuario_Item">Correo del Usuario</string>
+    <string name="Fecha_Actual_Registro">Fecha y Hora Registro</string>
+    <string name="Nombre_Cliente_Item">Nombre del Cliente</string>
+    <string name="Titulo_Item">Titulo</string>
+    <string name="Descripcion_Item">Descripcion</string>
+    <string name="Fecha_Item">00/00/0000</string>
+    <string name="Estado_Item">No Entregado</string>
+
+    <!--        CUADRO DE DIALOGO-->
+    <string name="ElijaOpcion">Elija una Opcion</string>
+    <string name="CD_Eliminar">Eliminar</string>
+    <string name="CD_Actualizar">Actualizar</string>
+
+    <!--        DETALLE PEDIDO-->
+    <string name="Id_Pedido_Detalle_Txt">Id del Pedido: </string>
+    <string name="Id_Pedido_Detalle">Id Pedido</string>
+
+    <string name="Id_Usuario_Detalle_Txt">Id del Usuario: </string>
+    <string name="Id_Usuario_Detalle">Id Usuario</string>
+
+    <string name="Correo_Usuario_Detalle_Txt">Correo del Usuario: </string>
+    <string name="Correo_Usuario_Detalle">Correo Usuario</string>
+
+    <string name="Nombre_Detalle_Txt">Cliente: </string>
+    <string name="Nombre_Detalle">Cliente</string>
+
+    <string name="Titulo_Detalle_Txt">Titulo: </string>
+    <string name="Titulo_Detalle">Titulo</string>
+
+    <string name="Descripcion_Detalle_Txt">Descripcion: </string>
+    <string name="Descripcion_Detalle">Descripcion</string>
+
+    <string name="Fecha_Registro_Detalle_Txt">Fecha de Registro: </string>
+    <string name="Fecha_Registro_Detalle">Fecha Registro</string>
+
+    <string name="Fecha_Pedido_Detalle_Txt">Fecha del Pedido: </string>
+    <string name="Fecha_Pedido_Detalle">Fecha Pedido</string>
+
+    <string name="Estado_Detalle_Txt">Estado del Pedido: </string>
+    <string name="Estado_Detalle">Estado</string>
+
+    <string name="Btn_Importante">Importante</string>
+
+
+    <!--items contacto-->
+
+    <string name="Id_c_Item">Id contacto</string>
+    <string name="Uid_c_Item">Id usuario</string>
+    <string name="nombre_c_Item">Nombre</string>
+    <string name="apellido_c_Item">Apellido</string>
+    <string name="Correo_c_Item">Correo </string>
+    <string name="telefono_c_Item">Telefono</string>
+    <string name="direccion_c_Item">Dirección</string>
+
+    <!--    Agregar contacto-->
+
+    <string name="Id_Usuario">Mi Id</string>
+    <string name="Nombre_c">Nombre</string>
+    <string name="Apellido_c">Apellido</string>
+    <string name="Correo_c">Correo </string>
+    <string name="Telefono_c">Telefono</string>
+    <string name="Direccion_c">Dirección</string>
+    <string name="Btn_guardar_contacto">Guardar contactos</string>
+
+
+</resources>
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    android:padding="0.2dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <!--ICONO PEDIDO-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/listapedidos"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="7dp">
+
+            <!--ID DEL PEDIDO-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Id_Pedido_Item"
+                android:fontFamily="@font/variablefont_wght"
+                android:visibility="gone"
+                android:id="@+id/Id_Pedido_Item"/>
+
+            <!--ID DEL USUARIO-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Id_Usuario_Item"
+                android:fontFamily="@font/variablefont_wght"
+                android:visibility="gone"
+                android:id="@+id/Id_Usuario_Item"/>
+
+            <!--CORREO DEL USUARIO-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="@string/Correo_Usuario_Item"
+                android:fontFamily="@font/variablefont_wght"
+                android:id="@+id/Correo_Usuario_Item"/>
+
+            <!--FECHA RESITRO-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="@string/Fecha_Actual_Registro"
+                android:fontFamily="@font/variablefont_wght"
+                android:id="@+id/Fecha_Actual_Registro"/>
+
+            <!--NOMBRE CLIENTE-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Nombre_Cliente_Item"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/variablefont_wght"
+                android:id="@+id/Nombre_Cliente_Item"/>
+
+            <!--TITULO-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/Titulo_Item"
+                android:fontFamily="@font/variablefont_wght"
+                android:id="@+id/Titulo_Item"/>
+
+            <!--DESCRIPCION-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@string/Descripcion_Item"
+                android:fontFamily="@font/variablefont_wght"
+                android:id="@+id/Descripcion_Item"/>
+
+            <!--FECHA ENTREGA-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Fecha_Item"
+                android:textSize="20sp"
+                android:fontFamily="@font/variablefont_wght"
+                android:id="@+id/Fecha_Item"/>
+
+            <!--ESTADO DEL PEDIDO-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Estado_Item"
+                android:fontFamily="@font/variablefont_wght"
+                android:id="@+id/Estado_Item"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.cardview.widget.CardView>
