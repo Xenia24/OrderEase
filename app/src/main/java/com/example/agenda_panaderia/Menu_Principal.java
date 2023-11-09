@@ -84,11 +84,11 @@ public class Menu_Principal extends AppCompatActivity {
                     Linear_Correo.setVisibility(View.VISIBLE);
 
                     //Obtener los datos
-                    String nombres = ""+snapshot.child("nombres").getValue();
+                    String nombre = ""+snapshot.child("nombre").getValue();
                     String correo = ""+snapshot.child("correo").getValue();
 
                     //Setear los datos en los respectivos TextView
-                    NombreP.setText(nombres);
+                    NombreP.setText(nombre);
                     Linear_Correo.setText(correo);
 
                 }
