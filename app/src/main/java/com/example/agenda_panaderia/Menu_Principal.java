@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.agenda_panaderia.Contactos.Agregar_Contactos;
+import com.example.agenda_panaderia.Contactos.Listar_Contactos;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +28,7 @@ public class Menu_Principal extends AppCompatActivity {
 
 
 
-        Button Btn_Salir;
+        Button Btn_Salir,Contactos ;
         FirebaseAuth firebaseAuth;
         FirebaseUser User;
         LinearLayoutCompat Linear_Nombres, Linear_Verificacion, Linear_Correo;
@@ -58,7 +60,19 @@ public class Menu_Principal extends AppCompatActivity {
             Btn_Salir=findViewById(R.id.Btn_Salir);
             firebaseAuth = FirebaseAuth.getInstance();
             User= firebaseAuth.getCurrentUser();
+            Contactos= findViewById(R.id.Btn_Contactos);
 
+
+            Contactos.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    Intent intent= new Intent(Menu_Principal.this, Listar_Contactos.class);
+                    startActivity(intent);
+                    //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
+
+                }
+            });
             Btn_Salir.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {  SalirAplicacion();

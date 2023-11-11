@@ -33,6 +33,14 @@
     <string name="Contactos">Contactos</string>
     <string name="CerrarC">Cerrar Sesion</string>
 
+    <!--    MENU -->
+    <string name="Agregar_Pedido_BD">Agregar</string>
+    <string name="Actualizar_Pedido_BD">Actualizar</string>
+    <string name="Vaciar_Todos_Los_Pedidos">Vaciar todos los pedidos</string>
+    <string name="Perfil_usuario">Perfil Usuario</string>
+    <string name="Actualizar_pass">Actualizar pass</string>
+    <string name="Agregar_Contacto">Agregar Contactos</string>
+
     <!--        AGREGAR PEDIDOS-->
     <string name="id_Usuario">Id del Usuario</string>
     <string name="Correo_usuario">Correo del Usuario</string>
