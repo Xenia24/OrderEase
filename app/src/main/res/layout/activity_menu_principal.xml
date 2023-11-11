@@ -14,6 +14,57 @@
         android:orientation="vertical"
         android:padding="5dp">
 
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="120dp"-->
+<!--            app:cardBackgroundColor="@color/md_light_blue_A100"-->
+<!--            app:cardUseCompatPadding="true"-->
+<!--            android:padding="0.2dp"-->
+<!--            app:cardCornerRadius="5dp">-->
+
+<!--            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10dp"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/BienvenidoP"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="20sp"/>-->
+
+<!--                <ProgressBar-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:id="@+id/ProgresBar"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_gravity="center"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/NombreP"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/NombreP"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="20sp"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/CorreoP"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/CorreoP"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="20sp"/>-->
+
+<!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--        </androidx.cardview.widget.CardView>-->
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -58,7 +109,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"/>
 
-                    <!--ID USUARIO-->
+<!--                    ID USUARIO-->
                     <TextView
                         android:id="@+id/IdMenu"
                         android:visibility="gone"
@@ -89,9 +140,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/NombreP"
+                            android:visibility="gone"
                             android:textColor="@color/white"
                             android:textSize="17sp"
-                            android:layout_marginStart="3dp"/>
+                            android:layout_marginStart="3dp"
+                            />
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
 

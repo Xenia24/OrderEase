@@ -2,7 +2,6 @@ package com.example.agenda_panaderia;
 
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
@@ -38,8 +37,8 @@ public class Menu_Principal extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_menu_principal);
-            ActionBar actionBar = getSupportActionBar();
-            actionBar.setTitle("OrderEase");
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setTitle("OrderEase");
             NombreP=findViewById(R.id.NombreP);
             Linear= findViewById(R.id.CorreoP);
 
