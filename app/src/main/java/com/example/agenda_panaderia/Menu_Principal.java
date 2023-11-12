@@ -2,6 +2,7 @@ package com.example.agenda_panaderia;
 
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
@@ -27,8 +28,8 @@ public class Menu_Principal extends AppCompatActivity {
 
 
 
-
         Button Btn_Salir,Contactos ;
+
         FirebaseAuth firebaseAuth;
         FirebaseUser User;
         LinearLayoutCompat Linear_Nombres, Linear_Verificacion, Linear_Correo;
@@ -39,11 +40,14 @@ public class Menu_Principal extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_menu_principal);
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setTitle("OrderEase");
+
+//            ActionBar actionBar = getSupportActionBar();
+//            actionBar.setTitle("OrderEase");
+//            actionBar.setDisplayShowHomeEnabled(true);
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+
             NombreP=findViewById(R.id.NombreP);
             Linear= findViewById(R.id.CorreoP);
-
 
             IdMenu= findViewById(R.id.IdMenu);
             Linear_Nombres = findViewById(R.id.Linear_Nombres);
@@ -61,6 +65,7 @@ public class Menu_Principal extends AppCompatActivity {
             firebaseAuth = FirebaseAuth.getInstance();
             User= firebaseAuth.getCurrentUser();
             Contactos= findViewById(R.id.Btn_Contactos);
+
 
 
             Contactos.setOnClickListener(new View.OnClickListener() {

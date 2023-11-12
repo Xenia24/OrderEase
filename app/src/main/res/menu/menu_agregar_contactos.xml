@@ -3,16 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-
-        android:title="@string/Agregar_Pedido_BD"
-<<<<<<< HEAD
-        android:id="@+id/Agregar_Contacto_BD"
-=======
-        android:id="@+id/Agregar_Pedido_BD"
->>>>>>> origin/master
+        android:title="@string/Agregar_Contacto"
+        android:id="@+id/Agregar_Contacto"
         android:icon="@drawable/add"
         app:showAsAction="ifRoom">
-
     </item>
 
 </menu>
