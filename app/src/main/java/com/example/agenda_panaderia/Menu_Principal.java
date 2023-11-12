@@ -2,11 +2,13 @@ package com.example.agenda_panaderia;
 
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -27,8 +29,8 @@ public class Menu_Principal extends AppCompatActivity {
 
 
 
-
         Button Btn_Salir,Contactos ;
+
         FirebaseAuth firebaseAuth;
         FirebaseUser User;
         LinearLayoutCompat Linear_Nombres, Linear_Verificacion, Linear_Correo;
@@ -39,11 +41,14 @@ public class Menu_Principal extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_menu_principal);
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setTitle("OrderEase");
+
+//            ActionBar actionBar = getSupportActionBar();
+//            actionBar.setTitle("OrderEase");
+//            actionBar.setDisplayShowHomeEnabled(true);
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+
             NombreP=findViewById(R.id.NombreP);
             Linear= findViewById(R.id.CorreoP);
-
 
             IdMenu= findViewById(R.id.IdMenu);
             Linear_Nombres = findViewById(R.id.Linear_Nombres);
@@ -63,12 +68,17 @@ public class Menu_Principal extends AppCompatActivity {
             Contactos= findViewById(R.id.Btn_Contactos);
 
 
+
             Contactos.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
+                    String uid_usuario = IdMenu.getText().toString();
                     Intent intent= new Intent(Menu_Principal.this, Listar_Contactos.class);
+                    intent.putExtra("Uid", uid_usuario);
                     startActivity(intent);
+                    Log.d("MiApp", "Mensaje de depuración");
+                    Log.e("MiApp", "Mensaje de error");
                     //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
 
                 }
@@ -124,10 +134,12 @@ public class Menu_Principal extends AppCompatActivity {
                         //Obtener los datos
                         String nombre = ""+snapshot.child("nombre").getValue();
                         String correo = ""+snapshot.child("correo").getValue();
+                        String uid = ""+snapshot.child("uid").getValue();
 
                         //Setear los datos en los respectivos TextView
                         NombreP.setText(nombre);
                         Linear.setText(correo);
+                        IdMenu.setText(uid);
 
 
                     }

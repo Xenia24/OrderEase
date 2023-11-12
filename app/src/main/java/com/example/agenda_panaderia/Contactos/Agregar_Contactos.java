@@ -2,11 +2,15 @@ package com.example.agenda_panaderia.Contactos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.agenda_panaderia.R;
 
@@ -15,6 +19,7 @@ TextView Uid_Usuario,Telefono_c;
 EditText Nombre_c, Apellido_c, Correo_c, Direccion_c;
 ImageView Editar_Telefono_C;
 Button Btn_guardar_contacto;
+Dialog  dialog_establecer_telefono;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,7 @@ Button Btn_guardar_contacto;
         setContentView(R.layout.activity_agregar_contactos);
 
         InicializarVariables();
+        ObtenerUidUsuario();
 
     }
     private void InicializarVariables(){
@@ -35,4 +41,11 @@ Button Btn_guardar_contacto;
         Btn_guardar_contacto=findViewById(R.id.Btn_guardar_contacto);
 
     }
+    private void ObtenerUidUsuario() {
+
+        String UidRecuperado= getIntent().getStringExtra("Uid");
+        Uid_Usuario.setText(UidRecuperado);
+
+    }
+
 }
