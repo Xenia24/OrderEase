@@ -106,6 +106,7 @@ public class Menu_Principal extends AppCompatActivity {
                 //Lo dirigirá al MainActivity
                 startActivity(new Intent(Menu_Principal.this,MainActivity.class));
                 finish();
+                //uno dos tres
             }
         }
 

@@ -31,7 +31,7 @@ Dialog  dialog_establecer_telefono;
 
     }
     private void InicializarVariables(){
-        //uno dos
+        //uno dos tres
         Uid_Usuario= findViewById(R.id.Uid_Usuario);
         Nombre_c=findViewById(R.id.Nombre_c);
         Apellido_c=findViewById(R.id.Apellido_c);
