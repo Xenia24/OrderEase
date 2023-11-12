@@ -93,7 +93,7 @@ DatabaseReference DB_Contactos;
         }
         else{
             Toast.makeText(this, "Por favor, al menos complete el nombre del contacto", Toast.LENGTH_SHORT).show();
-        }
+        }//123
 
     }
 
