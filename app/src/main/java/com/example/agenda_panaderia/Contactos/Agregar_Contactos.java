@@ -70,7 +70,7 @@ DatabaseReference DB_Contactos;
         Uid_Usuario.setText(UidRecuperado);
 
     }
-
+//h
 
     private void AgregarContacto() {
         String uid= Uid_Usuario.getText().toString();
