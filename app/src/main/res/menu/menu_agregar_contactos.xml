@@ -5,7 +5,11 @@
     <item
 
         android:title="@string/Agregar_Pedido_BD"
+<<<<<<< HEAD
         android:id="@+id/Agregar_Contacto_BD"
+=======
+        android:id="@+id/Agregar_Pedido_BD"
+>>>>>>> origin/master
         android:icon="@drawable/add"
         app:showAsAction="ifRoom">
 
