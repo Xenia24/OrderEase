@@ -6,6 +6,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +20,8 @@ import android.widget.Toast;
 
 import com.example.agenda_panaderia.Contactos.Agregar_Contactos;
 import com.example.agenda_panaderia.Contactos.Listar_Contactos;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +42,8 @@ public class Menu_Principal extends AppCompatActivity {
         TextView NombreP,Linear, IdMenu, Verificacion;
         ProgressBar ProgresBar;
         DatabaseReference Usuarios;
+
+    ProgressDialog progressDialog;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -67,7 +74,21 @@ public class Menu_Principal extends AppCompatActivity {
             User= firebaseAuth.getCurrentUser();
             Contactos= findViewById(R.id.Btn_Contactos);
 
+            ProgresBar= findViewById(R.id.ProgresBar);
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Espere por favor...");
+            progressDialog.setCanceledOnTouchOutside(false);
 
+            Verificacion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(User.isEmailVerified()){
+                        Toast.makeText(Menu_Principal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT).show();
+                    }else {
+                        VerificarCuentaCorreo();
+                    }
+                }
+            });
 
             Contactos.setOnClickListener(new View.OnClickListener() {
 
@@ -92,6 +113,52 @@ public class Menu_Principal extends AppCompatActivity {
 
 
         }
+    private void VerificarCuentaCorreo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Verificar Cuenta").setMessage("Estas seguro(a) de enviar instrucciones de verificacion a su correo electronico? "
+                        + User.getEmail()).setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        EnviarCorreoAVerificacion();
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(Menu_Principal.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
+    }
+
+    private void EnviarCorreoAVerificacion() {
+        progressDialog.setMessage("Enviando mensaje de verificacion a su correo electronico "+User.getEmail());
+        progressDialog.show();
+
+        User.sendEmailVerification()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        progressDialog.dismiss();
+                        Toast.makeText(Menu_Principal.this, "Instrucciones enviadas, revise su bandeja "+ User.getEmail(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Menu_Principal.this, "Fallo debido a: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void VerificacionEstadoDeCuenta(){
+        String Verificado = "Verificado";
+        String No_Verificado = "No Verificado";
+        if(User.isEmailVerified()){
+            Verificacion.setText(Verificado);
+        }else {
+            Verificacion.setText(No_Verificado);
+        }
+    }
         @Override
         protected void onStart() {
             ComprobarInicioSesion();
@@ -111,6 +178,7 @@ public class Menu_Principal extends AppCompatActivity {
         }
 
         private void CargaDeDatos(){
+            VerificacionEstadoDeCuenta();
             Usuarios.child(User.getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

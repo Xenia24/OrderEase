@@ -36,7 +36,7 @@ DatabaseReference DB_Contactos;
 
             @Override
             public void onClick(View view) {
-                //Establecer_telefono_C();
+
             }
         });
         Btn_guardar_contacto.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +70,7 @@ DatabaseReference DB_Contactos;
         Uid_Usuario.setText(UidRecuperado);
 
     }
+
 //h
 
     private void AgregarContacto() {
