@@ -51,7 +51,7 @@ public class Listar_Contactos extends AppCompatActivity {
         ImageView = findViewById(R.id.Agregar_Contacto);
         atras = findViewById(R.id.regresar);
 
-        recyclerViewContactos = findViewById(R.id.recyclerViewContactos);
+        recyclerViewContactos = findViewById(R.id.recyclerviewContactos);
         recyclerViewContactos.setHasFixedSize(true);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
