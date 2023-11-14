@@ -18,24 +18,34 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agenda_panaderia.Objetos.Pedido;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import com.example.agenda_panaderia.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+
 public class Agregar_Pedidos extends AppCompatActivity {
-TextView id_Usuario, Correo_usuario, Fecha_Actual, Fecha, Estado;
-EditText Descripcion, Titulo, Nombre_Cliente;
-Button Btn_Calendario;
-ImageView Btn_pedido;
+    TextView id_Usuario, Correo_usuario, Fecha_Actual, Fecha, Estado;
+    EditText Descripcion, Titulo, Nombre_Cliente;
+    Button Btn_Calendario;
+    ImageView Btn_pedido;
     private RadioGroup formaRadioGroup;
     private RadioButton localRadioButton;
     private RadioButton domicilioRadioButton;
-int dia, mes, year;
-DatabaseReference BD_firebase;
+    int dia, mes, year;
+    DatabaseReference BD_firebase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,9 +101,9 @@ DatabaseReference BD_firebase;
                     }
 
                 }
-                ,year,mes,dia);
+                        ,year,mes,dia);
 
-                    datePickerDialog.show();
+                datePickerDialog.show();
 
 
             }
@@ -107,8 +117,10 @@ DatabaseReference BD_firebase;
         });
 
     }
+
     private void InicializarVariables() {
         id_Usuario = findViewById(R.id.id_Usuario);
+
         Correo_usuario=findViewById(R.id.Correo_usuario);
         Fecha_Actual=findViewById(R.id.Fecha_Actual);
         Fecha=findViewById(R.id.Fecha);
@@ -117,6 +129,7 @@ DatabaseReference BD_firebase;
         Titulo=findViewById(R.id.Titulo);
         Nombre_Cliente=findViewById(R.id.Nombre_Cliente);
         Btn_Calendario=findViewById(R.id.Btn_Calendario);
+
         formaRadioGroup = findViewById(R.id.formaRadioGroup);
         localRadioButton = findViewById(R.id.Local);
         domicilioRadioButton = findViewById(R.id.Domicilio);
@@ -138,13 +151,9 @@ DatabaseReference BD_firebase;
         String local= localRadioButton.getText().toString();
 
 
-        if(uid_usuario.equals("") || correo.equals("") || fecha_actual.equals("") || titulo.equals("") ||
-                descrip.equals("") || fecha.equals("") || estado.equals("") || Nombre.equals("") ||
-                domicilio.equals("") || local.equals("") || formaRadioGroup.getCheckedRadioButtonId() == -1) {
-
-            Toast.makeText(this, "Por favor, llene todos los campos y seleccione una forma de entrega", Toast.LENGTH_SHORT).show();
-
-        } else {
+        if(uid_usuario.equals("") && !correo.equals("") && !fecha_actual.equals("") && !titulo.equals("") &&
+                !descrip.equals("") && !fecha.equals("") && !estado.equals("") && !Nombre.equals("") &&
+                !domicilio.equals("") && !local.equals("") && formaRadioGroup.getCheckedRadioButtonId() != -1) {
 
             int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
 
@@ -155,33 +164,36 @@ DatabaseReference BD_firebase;
                 formaEntrega = "Domicilio";
             }
 
-
             Pedido pedido = new Pedido(correo + "/" + fecha_actual, uid_usuario, correo, fecha_actual,
                     titulo, descrip, fecha, domicilio, local, formaEntrega);
 
             String pedido_cliente = BD_firebase.push().getKey();
-            String nombre_BD = "Pedidos_echos";
+            String nombre_BD = "Pedidos_hechos";
             BD_firebase.child(nombre_BD).child(pedido_cliente).setValue(pedido);
 
             Toast.makeText(this, "Pedido Realizado", Toast.LENGTH_SHORT).show();
             onBackPressed();
+        } else {
+            Toast.makeText(this, "Por favor, llene todos los campos y seleccione una forma de entrega", Toast.LENGTH_SHORT).show();
         }
     }
     private void Obtener_Fecha(){
         String Fecha_hora_registro = new SimpleDateFormat("dd-MM-yyyy/HH:mm:ss a",
                 Locale.getDefault()).format(System.currentTimeMillis());
-        //EJEMPLO: 13-11-2022/06:30:20 pm
         Fecha_Actual.setText(Fecha_hora_registro);
     }
 
 
-private void Obtenerdatos() {
+    private void Obtenerdatos() {
 
         String uid_recuperado= getIntent().getStringExtra("Uid");
         String email_recuperado= getIntent().getStringExtra("Correo");
 
-       id_Usuario.setText(uid_recuperado);
-       Correo_usuario.setText(email_recuperado);
+        id_Usuario.setText(uid_recuperado);
+        Correo_usuario.setText(email_recuperado);
 
     }
+
+
+
 }
