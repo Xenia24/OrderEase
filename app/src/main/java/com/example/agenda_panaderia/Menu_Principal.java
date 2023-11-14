@@ -143,7 +143,7 @@ public class Menu_Principal extends AppCompatActivity {
                     }
                 });
     }
-
+//h
     private void VerificacionEstadoDeCuenta(){
         String Verificado = "Verificado";
         String No_Verificado = "No Verificado";
