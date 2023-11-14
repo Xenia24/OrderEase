@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +29,6 @@ ImageView Editar_Telefono_C;
 Button Btn_guardar_contacto;
 Dialog  dialog_establecer_telefono;
 DatabaseReference BD_Contactos;
-
 FirebaseAuth firebaseAuth;
 FirebaseUser user;
 
@@ -106,8 +107,8 @@ FirebaseUser user;
         else{
             Toast.makeText(this, "Por favor, al menos complete el nombre del contacto", Toast.LENGTH_SHORT).show();
         }
-
     }
+
 
     private void Establecer_telefono_contacto(){
         CountryCodePicker ccp;

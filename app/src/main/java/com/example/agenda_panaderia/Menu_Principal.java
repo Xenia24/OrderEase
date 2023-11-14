@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -15,7 +16,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
+import com.example.agenda_panaderia.Agregar_Pedido.Agregar_Pedidos;
 import com.example.agenda_panaderia.Contactos.Listar_Contactos;
+import com.example.agenda_panaderia.Listar_Pedidos.Listar_Pedidos;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,7 +34,7 @@ public class Menu_Principal extends AppCompatActivity {
 
 
 
-    Button Btn_Salir,Contactos, Verificacion;
+    Button Btn_Salir,Contactos, Verificacion, AgregarPedidos, ListaPedidos;
 
     FirebaseAuth firebaseAuth;
     FirebaseUser User;
@@ -58,7 +61,8 @@ public class Menu_Principal extends AppCompatActivity {
         Linear_Verificacion = findViewById(R.id.Linear_Verificacion);
         Linear_Correo = findViewById(R.id.Linear_Correo);
         Verificacion = findViewById(R.id.Verificacion);
-
+        AgregarPedidos=findViewById(R.id.Btn_Agregar);
+        ListaPedidos= findViewById(R.id.Btn_Lista);
 
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
         Btn_Salir=findViewById(R.id.Btn_Salir);
@@ -83,6 +87,17 @@ public class Menu_Principal extends AppCompatActivity {
                 }
             }
         });
+        AgregarPedidos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uid_usuario = IdMenu.getText().toString();
+                String email = Linear.getText().toString();
+                Intent intent= new Intent(Menu_Principal.this, Agregar_Pedidos.class);
+                intent.putExtra("Uid",uid_usuario);
+                intent.putExtra("Correo", email);
+                startActivity(intent);
+            }
+        });
 
         Contactos.setOnClickListener(new View.OnClickListener() {
 
@@ -94,6 +109,20 @@ public class Menu_Principal extends AppCompatActivity {
                 startActivity(intent);
                 //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        ListaPedidos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    Intent intent = new Intent(Menu_Principal.this, Listar_Pedidos.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e("Menu_Principal", "Error al intentar iniciar Listar_Pedidos", e);
+
+                }
             }
         });
 
@@ -143,7 +172,7 @@ public class Menu_Principal extends AppCompatActivity {
                     }
                 });
     }
-//s
+//h
     private void VerificacionEstadoDeCuenta(){
         String Verificado = "Verificado";
         String No_Verificado = "No Verificado";
