@@ -28,7 +28,7 @@
             android:name=".Contactos.Agregar_Contactos"
             android:exported="false" />
         <activity
-            android:name=".Agregar_Pedido.Agregar_Pedidos"
+            android:name=".AgregarPedido.Agregar_Pedidos"
             android:exported="false" />
         <activity
             android:name=".Registro"

@@ -1,14 +1,15 @@
-package com.example.agenda_panaderia.Agregar_Pedido;
+package com.example.agenda_panaderia.AgregarPedido;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.agenda_panaderia.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Agregar_Pedidos extends AppCompatActivity {
 TextView id_Usuario, Correo_usuario, Fecha_Actual, Fecha, Estado;
@@ -20,7 +21,7 @@ Button Btn_Calendario;
         setContentView(R.layout.activity_agregar_pedidos);
 
         InicializarVariables();
-        Obtenerdatos();
+//        Obtenerdatos();
     }
     private void InicializarVariables() {
         id_Usuario = findViewById(R.id.Uid_Usuario);
@@ -32,16 +33,19 @@ Button Btn_Calendario;
         Titulo=findViewById(R.id.Titulo);
         Nombre_Cliente=findViewById(R.id.Nombre_Cliente);
         Btn_Calendario=findViewById(R.id.Btn_Calendario);
-    }
 
 
-    protected void Obtenerdatos() {
-
-        String uid_recuperado= getIntent().getStringExtra("Uid");
-        String email_recuperado= getIntent().getStringExtra("Correo");
-
-        id_Usuario.setText(uid_recuperado);
-        Correo_usuario.setText(email_recuperado);
 
     }
+
+
+//    private void Obtenerdatos() {
+//
+//        String uid_recuperado= getIntent().getStringExtra("Uid");
+//        String email_recuperado= getIntent().getStringExtra("Correo");
+//
+//        id_Usuario.setText(uid_recuperado);
+//        Correo_usuario.setText(email_recuperado);
+//
+//    }
 }
