@@ -119,8 +119,8 @@ public class Agregar_Pedidos extends AppCompatActivity {
     }
 
     private void InicializarVariables() {
-        id_Usuario = findViewById(R.id.id_Usuario);
 
+        id_Usuario = findViewById(R.id.id_Usuario);
         Correo_usuario=findViewById(R.id.Correo_usuario);
         Fecha_Actual=findViewById(R.id.Fecha_Actual);
         Fecha=findViewById(R.id.Fecha);
@@ -193,7 +193,4 @@ public class Agregar_Pedidos extends AppCompatActivity {
         Correo_usuario.setText(email_recuperado);
 
     }
-
-
-
 }

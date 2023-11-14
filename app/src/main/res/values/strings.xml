@@ -44,7 +44,7 @@
     <!--        AGREGAR PEDIDOS-->
     <string name="id_Usuario">Id del Usuario</string>
     <string name="Correo_usuario">Correo del Usuario</string>
-    <string name="Fecha_H_A">Fecha de Regidstro</string>
+    <string name="Fecha_H_A">Fecha de Registro</string>
     <string name="Fecha_Actual">Fecha y Hora Actual</string>
     <string name="Nombre_Cliente">Nombre del Cliente</string>
     <string name="Titulo">Titulo</string>
@@ -52,6 +52,20 @@
     <string name="Btn_Calendario">Calendario</string>
     <string name="Fecha">00/00/0000</string>
     <string name="Estado">No Entregado</string>
+    <string name="TextoR">Forma de entrega</string>
+    <string name="Radio1">A Domicilio</string>
+    <string name="Radio2">Local</string>
+
+    <!--ACTUALIZAR CONTACTO-->
+    <string name="Id_C_A"> -- </string>
+    <string name="Uid_C_A"> -- </string>
+    <string name="Nombres_C_A"> -- </string>
+    <string name="Apellidos_C_A"> -- </string>
+    <string name="Correo_C_A"> -- </string>
+    <string name="Telefono_C_A"> -- </string>
+    <string name="Edad_C_A"> -- </string>
+    <string name="Direccion_C_A"> -- </string>
+    <string name="Btn_Actualizar_C_A">Actualizar</string>
 
 
     <!--        ITEM PEDIDOS-->
@@ -64,9 +78,6 @@
     <string name="Descripcion_Item">Descripcion</string>
     <string name="Fecha_Item">00/00/0000</string>
     <string name="Estado_Item">No Entregado</string>
-    <string name="TextoR">Forma de entrega</string>
-    <string name="Radio1">A Domicilio</string>
-    <string name="Radio2">Local</string>
 
 
     <!--        CUADRO DE DIALOGO-->
@@ -126,7 +137,7 @@
     <string name="Btn_guardar_contacto">Guardar contactos</string>
 
 
-<!--    CUADRO DE DIALOGO ESTABLECER TELEFONO-->
+    <!--    CUADRO DE DIALOGO ESTABLECER TELEFONO-->
     <string name="Establecer_Telefono">Escriba su telefono</string>
     <string name="Btn_Aceptar_Telefono">Aceptar</string>
 

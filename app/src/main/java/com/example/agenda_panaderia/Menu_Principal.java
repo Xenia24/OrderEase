@@ -92,10 +92,10 @@ public class Menu_Principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String uid_usuario = IdMenu.getText().toString();
-                String email = Linear.getText().toString();
+                String correo_usuario = Linear.getText().toString();
                 Intent intent= new Intent(Menu_Principal.this, Agregar_Pedidos.class);
                 intent.putExtra("Uid",uid_usuario);
-                intent.putExtra("Correo", email);
+                intent.putExtra("Correo", correo_usuario);
                 startActivity(intent);
             }
         });
