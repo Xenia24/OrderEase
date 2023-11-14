@@ -67,7 +67,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="240dp"
             app:cardBackgroundColor="@color/md_red_900"
             app:cardUseCompatPadding="true"
             android:padding="0.2dp"
@@ -190,13 +190,13 @@
                             android:src="@drawable/verificacion"/>
 
                         <!--VERIFICACION-->
-                        <TextView
+                        <Button
                             android:id="@+id/Verificacion"
                             android:fontFamily="@font/variablefont_wght"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Verificacion"
+                            android:layout_height="50dp"
                             android:textColor="@color/white"
+                            android:backgroundTint="#607d8b"
                             android:textSize="17sp"
                             android:visibility="gone"
                             android:layout_marginStart="3dp"/>

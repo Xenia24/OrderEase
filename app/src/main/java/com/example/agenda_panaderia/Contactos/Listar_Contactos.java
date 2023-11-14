@@ -1,6 +1,5 @@
 package com.example.agenda_panaderia.Contactos;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,7 +50,7 @@ public class Listar_Contactos extends AppCompatActivity {
         ImageView = findViewById(R.id.Agregar_Contacto);
         atras = findViewById(R.id.regresar);
 
-        recyclerViewContactos = findViewById(R.id.recyclerviewContactos);
+        recyclerViewContactos = findViewById(R.id.recyclerViewContactos);
         recyclerViewContactos.setHasFixedSize(true);
 
         firebaseDatabase = FirebaseDatabase.getInstance();

@@ -3,12 +3,14 @@ package com.example.agenda_panaderia;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -17,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.agenda_panaderia.Contactos.Agregar_Contactos;
 import com.example.agenda_panaderia.Contactos.Listar_Contactos;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,13 +33,14 @@ public class Menu_Principal extends AppCompatActivity {
 
 
 
-        Button Btn_Salir,Contactos ;
+        Button Btn_Salir,Contactos, Verificacion;
 
         FirebaseAuth firebaseAuth;
         FirebaseUser User;
         LinearLayoutCompat Linear_Nombres, Linear_Verificacion, Linear_Correo;
-        TextView NombreP,Linear, IdMenu, Verificacion;
+        TextView NombreP,Linear, IdMenu;
         ProgressBar ProgresBar;
+        ProgressDialog progressDialog;
         DatabaseReference Usuarios;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -57,15 +62,13 @@ public class Menu_Principal extends AppCompatActivity {
             Verificacion = findViewById(R.id.Verificacion);
 
 
-
-
-            ProgresBar= findViewById(R.id.ProgresBar);
-
             Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
             Btn_Salir=findViewById(R.id.Btn_Salir);
             firebaseAuth = FirebaseAuth.getInstance();
             User= firebaseAuth.getCurrentUser();
             Contactos= findViewById(R.id.Btn_Contactos);
+
+
 
 
 
@@ -77,12 +80,11 @@ public class Menu_Principal extends AppCompatActivity {
                     Intent intent= new Intent(Menu_Principal.this, Listar_Contactos.class);
                     intent.putExtra("Uid", uid_usuario);
                     startActivity(intent);
-                    Log.d("MiApp", "Mensaje de depuración");
-                    Log.e("MiApp", "Mensaje de error");
                     //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
 
                 }
             });
+
             Btn_Salir.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {  SalirAplicacion();
@@ -92,7 +94,9 @@ public class Menu_Principal extends AppCompatActivity {
 
 
         }
-        @Override
+
+
+    @Override
         protected void onStart() {
             ComprobarInicioSesion();
             super.onStart();
@@ -111,6 +115,7 @@ public class Menu_Principal extends AppCompatActivity {
         }
 
         private void CargaDeDatos(){
+
             Usuarios.child(User.getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -146,6 +151,8 @@ public class Menu_Principal extends AppCompatActivity {
                     }
                 }
 
+
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
@@ -159,3 +166,5 @@ public class Menu_Principal extends AppCompatActivity {
             Toast.makeText(this, "Cerraste sesión exitosamente", Toast.LENGTH_SHORT).show();
         }
     }
+
+

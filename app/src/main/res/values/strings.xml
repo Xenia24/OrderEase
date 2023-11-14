@@ -122,5 +122,9 @@
     <string name="Btn_guardar_contacto">Guardar contactos</string>
 
 
+<!--    CUADRO DE DIALOGO ESTABLECER TELEFONO-->
+    <string name="Establecer_Telefono">Escriba su telefono</string>
+    <string name="Btn_Aceptar_Telefono">Aceptar</string>
+
 </resources>
 
