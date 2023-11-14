@@ -64,6 +64,10 @@
     <string name="Descripcion_Item">Descripcion</string>
     <string name="Fecha_Item">00/00/0000</string>
     <string name="Estado_Item">No Entregado</string>
+    <string name="TextoR">Forma de entrega</string>
+    <string name="Radio1">A Domicilio</string>
+    <string name="Radio2">Local</string>
+
 
     <!--        CUADRO DE DIALOGO-->
     <string name="ElijaOpcion">Elija una Opcion</string>

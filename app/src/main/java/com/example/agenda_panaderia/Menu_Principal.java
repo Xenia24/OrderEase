@@ -16,7 +16,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
-import com.example.agenda_panaderia.Agregar_Pedido.Agregar_Pedidos;
+import com.example.agenda_panaderia.AgregarPedido.Agregar_Pedidos;
+
 import com.example.agenda_panaderia.Contactos.Listar_Contactos;
 import com.example.agenda_panaderia.Listar_Pedidos.Listar_Pedidos;
 import com.google.android.gms.tasks.OnFailureListener;

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verde"
-    tools:context=".Agregar_Pedido.Agregar_Pedidos">
+    tools:context=".AgregarPedido.Agregar_Pedidos">
+
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -13,10 +15,43 @@
         android:orientation="vertical"
         android:padding="10dp">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/regresar"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/atras"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <ImageView
+                android:id="@+id/Agregar_Pedido"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/save"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         <!--id del usuario -->
         <TextView
             android:hint="@string/id_Usuario"
-            android:visibility="gone"
+            android:visibility="visible"
             android:id="@+id/id_Usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,7 +63,7 @@
             android:layout_width="wrap_content"
             android:hint="@string/Correo_usuario"
             android:id="@+id/Correo_usuario"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:fontFamily="@font/variablefont_wght"/>
@@ -124,15 +159,43 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:id="@+id/formaRadioGroup"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/TextoR"/>
+
+            <RadioButton
+                android:id="@+id/Local"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Radio2" />
+
+            <RadioButton
+                android:id="@+id/Domicilio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Radio1" />
+        </RadioGroup>
+
         <!--VISUALIZAR ESTADO-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/Estado"
+            android:text="@string/Estado"
             android:id="@+id/Estado"
             android:textSize="20sp"
             android:layout_marginTop="10dp"
+            android:layout_gravity="center"
             android:fontFamily="@font/variablefont_wght"/>
+
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
