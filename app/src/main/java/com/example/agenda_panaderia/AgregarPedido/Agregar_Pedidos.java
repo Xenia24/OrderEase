@@ -54,7 +54,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
         InicializarVariables();
         Obtenerdatos();
         Obtener_Fecha();
-        agregarpedido();
+
 
         Btn_Calendario.setOnClickListener(new View.OnClickListener() {
 
@@ -164,16 +164,26 @@ public class Agregar_Pedidos extends AppCompatActivity {
                 formaEntrega = "Domicilio";
             }
 
-            Pedido pedido = new Pedido(correo + "/" + fecha_actual, uid_usuario, correo, fecha_actual,
-                    titulo, descrip, fecha, domicilio, local, formaEntrega);
+            Pedido pedido = new Pedido(correo + "/" +
+                    fecha_actual,
+                    uid_usuario,
+                    correo,
+                    fecha_actual,
+                    titulo,
+                    descrip,
+                    fecha,
+                    domicilio,
+                    local,
+                    formaEntrega);
 
             String pedido_cliente = BD_firebase.push().getKey();
-            String nombre_BD = "Pedidos_hechos";
+            String nombre_BD = "Pedidos_Realizado";
             BD_firebase.child(nombre_BD).child(pedido_cliente).setValue(pedido);
 
             Toast.makeText(this, "Pedido Realizado", Toast.LENGTH_SHORT).show();
             onBackPressed();
-        } else {
+        }
+        else {
             Toast.makeText(this, "Por favor, llene todos los campos y seleccione una forma de entrega", Toast.LENGTH_SHORT).show();
         }
     }
