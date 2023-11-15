@@ -24,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.agenda_panaderia.AgregarPedido.Agregar_Pedidos;
+import com.example.agenda_panaderia.Detalles_Pedidos.Detalle_Pedido;
 import com.example.agenda_panaderia.Menu_Principal;
 import com.example.agenda_panaderia.Objetos.Contacto;
 import com.example.agenda_panaderia.R;
@@ -128,13 +130,21 @@ public class Listar_Contactos extends AppCompatActivity {
 
                     @Override
                     public void onItemLongClick(View view, int position) {
+
+                        String id_c = getItem(position).getId_contacto();
+                        String uid_usuario = getItem(position).getUid_contacto();
+                        String nombres_c = getItem(position).getNombres();
+                        String Apellido_c = getItem(position).getApellidos();
+                        String correo_c = getItem(position).getCorreo();
+                        String telefono_c = getItem(position).getTelefono();
+                        String direccion_c = getItem(position).getDireccion();
                         //Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
-                        String id_contacto = getItem(position).getId_contacto();
-                        Button CD_Eliminar;
+                                                Button CD_Eliminar, Btn_Actualizar_C ;
 
                         dialog.setContentView(R.layout.dialogo_opciones);
 
                         CD_Eliminar = dialog.findViewById(R.id.CD_Eliminar);
+                        Btn_Actualizar_C= dialog.findViewById(R.id.CD_Actualizar);
 
 
                         CD_Eliminar.setOnClickListener(new View.OnClickListener() {
@@ -142,11 +152,31 @@ public class Listar_Contactos extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 //Toast.makeText(Listar_Contactos.this, "Eliminar contacto", Toast.LENGTH_SHORT).show();
-                                Eliminar_contacto(id_contacto);
+                                Eliminar_contacto(id_c);
                                 dialog.dismiss();
                             }
+
                         });
-                        dialog.show();
+                        Btn_Actualizar_C.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(Listar_Contactos.this, Actualizar_Contactos.class);
+                                Toast.makeText(Listar_Contactos.this, "Actualizar contacto", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+
+                                intent.putExtra("id_c", id_c);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("nombres_c", nombres_c);
+                                intent.putExtra("apellidos_c", Apellido_c);
+                                intent.putExtra("Correo_c", correo_c);
+                                intent.putExtra("Telefono_c", telefono_c);
+                                intent.putExtra("Direccion_c", direccion_c);
+                                startActivity(intent);
+                                                                }
+                        });
+
+
+                                dialog.show();
                     }
                 });
                 return viewHolderContacto;
