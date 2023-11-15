@@ -1,5 +1,8 @@
 package com.example.agenda_panaderia.Contactos;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -28,9 +32,12 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Listar_Contactos extends AppCompatActivity {
@@ -42,6 +49,7 @@ public class Listar_Contactos extends AppCompatActivity {
     FirebaseUser user;
     FirebaseRecyclerAdapter <Contacto, ViewHolderContacto> firebaseRecyclerAdapter;
     FirebaseRecyclerOptions<Contacto> firebaseRecyclerOptions;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +57,7 @@ public class Listar_Contactos extends AppCompatActivity {
         setContentView(R.layout.activity_listar_contactos);
         ImageView = findViewById(R.id.Agregar_Contacto);
         atras = findViewById(R.id.regresar);
-
+        dialog = new Dialog((Listar_Contactos.this));
         recyclerViewContactos = findViewById(R.id.recyclerViewContactos);
         recyclerViewContactos.setHasFixedSize(true);
 
@@ -58,7 +66,6 @@ public class Listar_Contactos extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
-
 
 
         ImageView.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +128,25 @@ public class Listar_Contactos extends AppCompatActivity {
 
                     @Override
                     public void onItemLongClick(View view, int position) {
-                        Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
+                        String id_contacto = getItem(position).getId_contacto();
+                        Button CD_Eliminar;
+
+                        dialog.setContentView(R.layout.dialogo_opciones);
+
+                        CD_Eliminar = dialog.findViewById(R.id.CD_Eliminar);
+
+
+                        CD_Eliminar.setOnClickListener(new View.OnClickListener() {
+
+                            @Override
+                            public void onClick(View view) {
+                                //Toast.makeText(Listar_Contactos.this, "Eliminar contacto", Toast.LENGTH_SHORT).show();
+                                Eliminar_contacto(id_contacto);
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog.show();
                     }
                 });
                 return viewHolderContacto;
@@ -135,6 +160,43 @@ public class Listar_Contactos extends AppCompatActivity {
             recyclerViewContactos.setAdapter(firebaseRecyclerAdapter);
         }
     }
+
+    private void Eliminar_contacto(String id_contacto) {
+        AlertDialog.Builder builder= new AlertDialog.Builder(Listar_Contactos.this);
+        builder.setTitle("Eliminar");
+        builder.setMessage("Desea eliminar el contacto?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Query query= BD_Usuarios.child(user.getUid()).child("Contactos").orderByChild("id_contacto").equalTo(id_contacto);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds: snapshot.getChildren()) {
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Contactos.this, "Contacto elimindado", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(Listar_Contactos.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Listar_Contactos.this, "Evento Canonico Incompleto", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.create().show();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
