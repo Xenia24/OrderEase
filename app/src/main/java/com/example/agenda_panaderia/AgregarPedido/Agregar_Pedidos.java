@@ -151,9 +151,9 @@ public class Agregar_Pedidos extends AppCompatActivity {
         String local= localRadioButton.getText().toString();
 
 
-        if(uid_usuario.equals("") && !correo.equals("") && !fecha_actual.equals("") && !titulo.equals("") &&
-                !descrip.equals("") && !fecha.equals("") && !estado.equals("") && !Nombre.equals("") &&
-                !domicilio.equals("") && !local.equals("") && formaRadioGroup.getCheckedRadioButtonId() != -1) {
+        if(uid_usuario.equals("") || correo.equals("") || fecha_actual.equals("") || titulo.equals("") ||
+                descrip.equals("") || fecha.equals("") || estado.equals("") || Nombre.equals("") ||
+                domicilio.equals("") || local.equals("") || formaRadioGroup.getCheckedRadioButtonId() == -1) {
 
             int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
 
