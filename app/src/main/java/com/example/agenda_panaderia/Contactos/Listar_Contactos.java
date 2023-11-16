@@ -139,12 +139,12 @@ public class Listar_Contactos extends AppCompatActivity {
                         String telefono_c = getItem(position).getTelefono();
                         String direccion_c = getItem(position).getDireccion();
                         //Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
-                                                Button CD_Eliminar, Btn_Actualizar_C ;
+                                                Button CD_Eliminar,Btn_Actualizar_C_A;
 
                         dialog.setContentView(R.layout.dialogo_opciones);
 
                         CD_Eliminar = dialog.findViewById(R.id.CD_Eliminar);
-                        Btn_Actualizar_C= dialog.findViewById(R.id.CD_Actualizar);
+                        Btn_Actualizar_C_A= dialog.findViewById(R.id.CD_Actualizar);
 
 
                         CD_Eliminar.setOnClickListener(new View.OnClickListener() {
@@ -157,7 +157,7 @@ public class Listar_Contactos extends AppCompatActivity {
                             }
 
                         });
-                        Btn_Actualizar_C.setOnClickListener(new View.OnClickListener() {
+                        Btn_Actualizar_C_A.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(Listar_Contactos.this, Actualizar_Contactos.class);
