@@ -118,6 +118,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
 
     }
 
+
     private void InicializarVariables() {
         id_Usuario = findViewById(R.id.id_Usuario);
 
@@ -147,22 +148,23 @@ public class Agregar_Pedidos extends AppCompatActivity {
         String titulo=Titulo.getText().toString();
         String descrip=Descripcion.getText().toString();
         String Nombre=Nombre_Cliente.getText().toString();
-        String domicilio=domicilioRadioButton.getText().toString();
-        String local= localRadioButton.getText().toString();
+        RadioGroup formaRadioGroup = findViewById(R.id.formaRadioGroup);
 
+        // Get the selected RadioButton ID
+        int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
 
-        if(uid_usuario.equals("") || correo.equals("") || fecha_actual.equals("") || titulo.equals("") ||
-                descrip.equals("") || fecha.equals("") || estado.equals("") || Nombre.equals("") ||
-                domicilio.equals("") || local.equals("") || formaRadioGroup.getCheckedRadioButtonId() == -1) {
+        String formaEntrega = "";
+        if (radioButtonId == R.id.Local) {
+            formaEntrega = "Local";
+        }
 
-            int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
+        else if (radioButtonId == R.id.Domicilio) {
+            formaEntrega = "Domicilio";
+        }
 
-            String formaEntrega = "";
-            if (radioButtonId == R.id.Local) {
-                formaEntrega = "Local";
-            } else if (radioButtonId == R.id.Domicilio) {
-                formaEntrega = "Domicilio";
-            }
+        if(!uid_usuario.equals("") || !correo.equals("") || !fecha_actual.equals("") || !titulo.equals("") ||
+                !descrip.equals("") || !fecha.equals("") || !estado.equals("") || !Nombre.equals("") ||   !formaEntrega.equals("")) {
+
 
             Pedido pedido = new Pedido(correo + "/" +
                     fecha_actual,
@@ -171,14 +173,11 @@ public class Agregar_Pedidos extends AppCompatActivity {
                     fecha_actual,
                     titulo,
                     descrip,
-                    fecha,
-                    domicilio,
-                    local,
-                    formaEntrega);
+                    fecha,formaEntrega);
 
-            String pedido_cliente = BD_firebase.push().getKey();
+           String id_pedido = BD_firebase.push().getKey();
             String nombre_BD = "Pedidos_Realizado";
-            BD_firebase.child(nombre_BD).child(pedido_cliente).setValue(pedido);
+            BD_firebase.child(nombre_BD).child(id_pedido).setValue(pedido);
 
             Toast.makeText(this, "Pedido Realizado", Toast.LENGTH_SHORT).show();
             onBackPressed();
