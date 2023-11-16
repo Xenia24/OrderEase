@@ -157,24 +157,7 @@ public class Listar_Contactos extends AppCompatActivity {
                             }
 
                         });
-                        Btn_Actualizar_C_A.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(Listar_Contactos.this, Actualizar_Contactos.class);
-                                Toast.makeText(Listar_Contactos.this, "Editar contacto", Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
 
-                                intent.putExtra("id_c", id_c);
-                                intent.putExtra("uid_usuario", uid_usuario);
-                                intent.putExtra("nombres_c", nombres_c);
-                                intent.putExtra("apellidos_c", Apellido_c);
-                                intent.putExtra("Correo_c", correo_c);
-                                intent.putExtra("Telefono_c", telefono_c);
-                                intent.putExtra("Direccion_c", direccion_c);
-                                startActivity(intent);
-
-                                                                }
-                        });
 
 
                                 dialog.show();
