@@ -161,7 +161,7 @@ public class Listar_Contactos extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(Listar_Contactos.this, Actualizar_Contactos.class);
-                                Toast.makeText(Listar_Contactos.this, "Actualizar contacto", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Listar_Contactos.this, "Editar contacto", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
 
                                 intent.putExtra("id_c", id_c);
@@ -172,6 +172,7 @@ public class Listar_Contactos extends AppCompatActivity {
                                 intent.putExtra("Telefono_c", telefono_c);
                                 intent.putExtra("Direccion_c", direccion_c);
                                 startActivity(intent);
+
                                                                 }
                         });
 
