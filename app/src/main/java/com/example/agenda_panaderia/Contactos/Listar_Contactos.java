@@ -125,7 +125,7 @@ public class Listar_Contactos extends AppCompatActivity {
                 viewHolderContacto.setOnClickListener(new ViewHolderContacto.ClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(Listar_Contactos.this, "On item click", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Listar_Contactos.this, "Mantener Precionado", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -133,11 +133,11 @@ public class Listar_Contactos extends AppCompatActivity {
 
                         String id_c = getItem(position).getId_contacto();
                         String uid_usuario = getItem(position).getUid_contacto();
-                        String nombres_c = getItem(position).getNombres();
+                        String Nombres_c = getItem(position).getNombres();
                         String Apellido_c = getItem(position).getApellidos();
-                        String correo_c = getItem(position).getCorreo();
-                        String telefono_c = getItem(position).getTelefono();
-                        String direccion_c = getItem(position).getDireccion();
+                        String Correo_c = getItem(position).getCorreo();
+                        String Telefono_c = getItem(position).getTelefono();
+                        String Direccion_c = getItem(position).getDireccion();
                         //Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
                                                 Button CD_Eliminar,Btn_Actualizar_C_A;
 
@@ -157,7 +157,24 @@ public class Listar_Contactos extends AppCompatActivity {
                             }
 
                         });
+                        Btn_Actualizar_C_A.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(Listar_Contactos.this, Actualizar_Contactos.class);
+                                Toast.makeText(Listar_Contactos.this, "Editar contacto", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
 
+                                intent.putExtra("id_c", id_c);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("Nombre_c", Nombres_c);
+                                intent.putExtra("Apellidos_c", Apellido_c);
+                                intent.putExtra("Correo_c", Correo_c);
+                                intent.putExtra("Telefono_c", Telefono_c);
+                                intent.putExtra("Direccion_C_A", Direccion_c);
+                                startActivity(intent);
+
+                            }
+                        });
 
 
                                 dialog.show();
