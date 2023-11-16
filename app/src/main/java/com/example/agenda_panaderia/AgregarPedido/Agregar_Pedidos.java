@@ -130,53 +130,49 @@ public class Agregar_Pedidos extends AppCompatActivity {
         Titulo=findViewById(R.id.Titulo);
         Nombre_Cliente=findViewById(R.id.Nombre_Cliente);
         Btn_Calendario=findViewById(R.id.Btn_Calendario);
-
         formaRadioGroup = findViewById(R.id.formaRadioGroup);
         localRadioButton = findViewById(R.id.Local);
         domicilioRadioButton = findViewById(R.id.Domicilio);
-        BD_firebase=FirebaseDatabase.getInstance().getReference();
+        BD_firebase=FirebaseDatabase.getInstance().getReference("Usuarios");
         Btn_pedido=findViewById(R.id.Agregar_Pedido);
 
 
     }
     private void agregarpedido(){
         String uid_usuario = id_Usuario.getText().toString();
-        String correo= Correo_usuario.getText().toString();
         String fecha_actual=Fecha_Actual.getText().toString();
         String fecha=Fecha.getText().toString();
         String estado=Estado.getText().toString();
         String titulo=Titulo.getText().toString();
         String descrip=Descripcion.getText().toString();
         String Nombre=Nombre_Cliente.getText().toString();
-        RadioGroup formaRadioGroup = findViewById(R.id.formaRadioGroup);
-
-        // Get the selected RadioButton ID
-        int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
-
-        String formaEntrega = "";
-        if (radioButtonId == R.id.Local) {
-            formaEntrega = "Local";
-        }
-
-        else if (radioButtonId == R.id.Domicilio) {
-            formaEntrega = "Domicilio";
-        }
-
-        if(!uid_usuario.equals("") || !correo.equals("") || !fecha_actual.equals("") || !titulo.equals("") ||
-                !descrip.equals("") || !fecha.equals("") || !estado.equals("") || !Nombre.equals("") ||   !formaEntrega.equals("")) {
+        String id_pedido = BD_firebase.push().getKey();
 
 
-            Pedido pedido = new Pedido(correo + "/" +
+        if(uid_usuario.equals("") || fecha_actual.equals("") || titulo.equals("") ||
+                descrip.equals("") || fecha.equals("") || estado.equals("") || Nombre.equals("")  || formaRadioGroup.getCheckedRadioButtonId() == -1) {
+
+            int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
+            String formaEntrega = "";
+
+            if (radioButtonId == R.id.Local) {
+                formaEntrega = "Local";
+            } else if (radioButtonId == R.id.Domicilio) {
+                formaEntrega = "Domicilio";
+            }
+
+            Pedido pedido = new Pedido(id_pedido,
                     fecha_actual,
                     uid_usuario,
-                    correo,
-                    fecha_actual,
+                    Nombre,
                     titulo,
                     descrip,
-                    fecha,formaEntrega);
+                    fecha,
+                    formaEntrega);
 
-           String id_pedido = BD_firebase.push().getKey();
-            String nombre_BD = "Pedidos_Realizado";
+
+            String nombre_BD = "Pedidos_Realizados";
+            assert id_pedido != null;
             BD_firebase.child(nombre_BD).child(id_pedido).setValue(pedido);
 
             Toast.makeText(this, "Pedido Realizado", Toast.LENGTH_SHORT).show();
