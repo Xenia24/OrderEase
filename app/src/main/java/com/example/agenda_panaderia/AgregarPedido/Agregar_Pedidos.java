@@ -169,7 +169,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
                     descrip,
                     fecha,
                     formaEntrega);
-
+//h
 
             String nombre_BD = "Pedidos_Realizados";
             assert id_pedido != null;
