@@ -1,16 +1,13 @@
-package com.example.agenda_panaderia.AgregarPedido;
+package com.example.agenda_panaderia.Pedidos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,12 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agenda_panaderia.Objetos.Pedido;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.agenda_panaderia.R;
 import com.google.firebase.database.DatabaseReference;
@@ -149,7 +140,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
         String id_pedido = BD_firebase.push().getKey();
 
 
-        if(uid_usuario.equals("") || fecha_actual.equals("") || titulo.equals("") ||
+        if( uid_usuario.equals("") || fecha_actual.equals("") || titulo.equals("") ||
                 descrip.equals("") || fecha.equals("") || estado.equals("") || Nombre.equals("")  || formaRadioGroup.getCheckedRadioButtonId() == -1) {
 
             int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
@@ -175,10 +166,11 @@ public class Agregar_Pedidos extends AppCompatActivity {
             assert id_pedido != null;
             BD_firebase.child(nombre_BD).child(id_pedido).setValue(pedido);
 
+
             Toast.makeText(this, "Pedido Realizado", Toast.LENGTH_SHORT).show();
             onBackPressed();
         }
-        else {
+        else{
             Toast.makeText(this, "Por favor, llene todos los campos y seleccione una forma de entrega", Toast.LENGTH_SHORT).show();
         }
     }

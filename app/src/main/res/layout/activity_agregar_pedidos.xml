@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verde"
-    tools:context=".AgregarPedido.Agregar_Pedidos">
+    tools:context=".Pedidos.Agregar_Pedidos">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

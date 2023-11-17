@@ -16,10 +16,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
-import com.example.agenda_panaderia.AgregarPedido.Agregar_Pedidos;
+import com.example.agenda_panaderia.Pedidos.Agregar_Pedidos;
 
 import com.example.agenda_panaderia.Contactos.Listar_Contactos;
-import com.example.agenda_panaderia.Listar_Pedidos.Listar_Pedidos;
+import com.example.agenda_panaderia.Pedidos.Listar_Pedidos;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

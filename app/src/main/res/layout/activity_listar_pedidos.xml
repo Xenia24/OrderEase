@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="@color/verde"
     android:layout_height="match_parent"
-    tools:context=".Listar_Pedidos.Listar_Pedidos">
+    tools:context=".Pedidos.Listar_Pedidos">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,14 +30,24 @@
             />
 
         <ImageView
-            android:id="@+id/Agregar_Pedido"
+            android:id="@+id/Filtrar_Notas"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:padding="8dp"
-            android:src="@drawable/addp"
+            android:src="@drawable/filtrar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+
+        <ImageView
+            android:id="@+id/Vaciar_Todas_Las_Notas"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="44dp"
+            android:padding="8dp"
+            android:src="@drawable/borrar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
