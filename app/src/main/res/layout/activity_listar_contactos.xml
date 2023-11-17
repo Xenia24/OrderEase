@@ -34,7 +34,7 @@
             android:layout_height="35dp"
             android:layout_marginEnd="100dp"
             android:padding="8dp"
-            android:src="@drawable/add"
+            android:src="@drawable/buscar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
             android:layout_height="35dp"
             android:padding="8dp"
             android:layout_marginEnd="50dp"
-            android:src="@drawable/buscar"
+            android:src="@drawable/add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
              />
