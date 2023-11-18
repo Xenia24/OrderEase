@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -36,6 +38,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
     private RadioButton domicilioRadioButton;
     int dia, mes, year;
     DatabaseReference BD_firebase;
+    String nombre= " ", titulo= " ", descripcion=" ", fecha= " ", forma_entrega = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +106,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                agregarpedido();
+                ValidarDatos();
             }
         });
 
@@ -159,7 +162,8 @@ public class Agregar_Pedidos extends AppCompatActivity {
                     titulo,
                     descrip,
                     fecha,
-                    formaEntrega);
+                    formaEntrega,
+                    estado);
 //h
 
             String nombre_BD = "Pedidos_Realizados";
@@ -174,6 +178,36 @@ public class Agregar_Pedidos extends AppCompatActivity {
             Toast.makeText(this, "Por favor, llene todos los campos y seleccione una forma de entrega", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void ValidarDatos(){
+
+        nombre = Nombre_Cliente.getText().toString();
+        titulo = Titulo.getText().toString();
+        descripcion = Descripcion.getText().toString();
+        fecha = Fecha.getText().toString();
+
+        if(TextUtils.isEmpty(nombre)){
+            Toast.makeText(this,"Ingresar nombre", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(titulo)){
+            Toast.makeText(this,"Ingresar el titulo", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(descripcion)){
+            Toast.makeText(this,"Ingresar una descripcion", Toast.LENGTH_SHORT).show();
+
+        }
+        else if (TextUtils.isEmpty(fecha)){
+            Toast.makeText(this,"Seleccione una fecha", Toast.LENGTH_SHORT).show();
+        }
+        else if (formaRadioGroup.getCheckedRadioButtonId() == -1){
+            Toast.makeText(this, "Selecciona una forma de entrega", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            agregarpedido();
+        }
+
+    }
+
     private void Obtener_Fecha(){
         String Fecha_hora_registro = new SimpleDateFormat("dd-MM-yyyy/HH:mm:ss a",
                 Locale.getDefault()).format(System.currentTimeMillis());

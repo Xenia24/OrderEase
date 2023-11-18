@@ -1,25 +1,25 @@
 package com.example.agenda_panaderia.Objetos;
 
 
-    public class Pedido {
-        String id_pedido, uid_usuario,nombre, fecha_actual, titulo, descripcion,fecha_pedido,forma_entrega, estado;
+public class Pedido {
+    String id_pedido, uid_usuario,nombre, fecha_actual, titulo, descripcion,fecha_pedido,forma_entrega, estado;
 
-        public Pedido(String id_pedido, String fecha_actual, String uid_usuario, String nombre, String titulo, String descrip, String fecha, String formaEntrega) {
+    public Pedido() {
 
-        }
+    }
 
-        public Pedido(String id_pedido, String fecha_actual,  String uid_usuario, String nombre, String titulo, String descripcion, String fecha_pedido, String forma_entrega, String estado) {
-            this.id_pedido = id_pedido;
-            this.uid_usuario = uid_usuario;
-            this.nombre = nombre;
-            this.fecha_actual = fecha_actual;
-            this.titulo = titulo;
-            this.descripcion = descripcion;
-            this.fecha_pedido = fecha_pedido;
-            this.forma_entrega = forma_entrega;
-            this.estado = estado;
+    public Pedido(String id_pedido, String fecha_actual,  String uid_usuario, String nombre, String titulo, String descripcion, String fecha_pedido, String forma_entrega, String estado) {
+        this.id_pedido = id_pedido;
+        this.uid_usuario = uid_usuario;
+        this.nombre = nombre;
+        this.fecha_actual = fecha_actual;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.fecha_pedido = fecha_pedido;
+        this.forma_entrega = forma_entrega;
+        this.estado = estado;
 
-        }
+    }
 
 
     public void setId_pedido(String id_pedido) {
@@ -27,8 +27,8 @@ package com.example.agenda_panaderia.Objetos;
     }
 
     public String getId_pedido() {
-            return id_pedido;
-        }
+        return id_pedido;
+    }
 
     public String getUid_usuario() {
         return uid_usuario;
@@ -46,12 +46,12 @@ package com.example.agenda_panaderia.Objetos;
         this.fecha_actual = fecha_actual;
     }
     public String getNombre() {
-            return nombre;
-        }
+        return nombre;
+    }
 
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public String getTitulo() {
         return titulo;
@@ -78,16 +78,14 @@ package com.example.agenda_panaderia.Objetos;
     }
 
     public String getEstado() {
-            return estado;
-        }
-
-    public void setEstado(String estado) {
-            this.estado = estado;
-        }
-
-    public String getForma_entrega() {return forma_entrega;}
-        public void setForma_entrega(String forma_entrega) {this.forma_entrega = forma_entrega;}
-
+        return estado;
     }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
+    public String getForma_entrega() {return forma_entrega;}
+    public void setForma_entrega(String forma_entrega) {this.forma_entrega = forma_entrega;}
+
+}

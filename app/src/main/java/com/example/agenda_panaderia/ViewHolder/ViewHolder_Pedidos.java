@@ -12,13 +12,13 @@ import com.example.agenda_panaderia.R;
 
 public class ViewHolder_Pedidos extends RecyclerView.ViewHolder {
 
-     static View mView;
+    static View mView;
 
     private ViewHolder_Pedidos.ClickListener mClickListener;
 
     public interface ClickListener{
-        void onItemClick(View view, int position); /*SE EJECUTA AL PRESIONAR EN EL ITEM*/
-        void onItemLongClick(View view, int position); /*SE EJECUTA AL MANTENER PRESIONADO EN EL ITEM*/
+        void onItemClick(View view, int position);
+        void onItemLongClick(View view, int position);
     }
 
     public void setOnClickListener(ViewHolder_Pedidos.ClickListener clickListener){
@@ -46,15 +46,15 @@ public class ViewHolder_Pedidos extends RecyclerView.ViewHolder {
     }
 
     public static void SetearDatosPedidos(Context context,
-                                   String id_pedido,
-                                   String uid_usuario,
-                                   String nombre,
-                                   String fecha_actual,
-                                   String titulo,
-                                   String descripcion,
-                                   String fecha_pedido,
-                                   String forma_entrega,
-                                  String estado){
+                                          String id_pedido,
+                                          String uid_usuario,
+                                          String nombre,
+                                          String fecha_actual,
+                                          String titulo,
+                                          String descripcion,
+                                          String fecha_pedido,
+                                          String forma_entrega,
+                                          String estado){
 
 
         //DECLARAR LAS VISTAS
