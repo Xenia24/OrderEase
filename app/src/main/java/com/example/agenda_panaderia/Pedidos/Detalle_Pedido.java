@@ -54,5 +54,7 @@ public class Detalle_Pedido extends AppCompatActivity {
             Fecha_Pedido_Detalle.setText(fecha_pedido);
             Estado_Detalle.setText(estado);
         }
+
+
 }
 

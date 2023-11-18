@@ -70,18 +70,18 @@ public class Listar_Pedidos extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         BASE_DE_DATOS = firebaseDatabase.getReference("Pedidos_Realizados");
-        dialog = new Dialog(Listar_Pedidos.this);
-        dialog = new Dialog(Listar_Pedidos.this);
+//        dialog = new Dialog(Listar_Pedidos.this);
+//        dialog = new Dialog(Listar_Pedidos.this);
         ListarNotasUsuarios();
         //Estado_Filtro();
     }
 
     private void ListarNotasUsuarios(){
         //consulta
-        //Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+        Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
         //Query query = BASE_DE_DATOS.child(user.getUid()).child("Contactos").orderByChild("nombres");
 
-        options = new FirebaseRecyclerOptions.Builder<Pedido>().setQuery(BASE_DE_DATOS, Pedido.class).build();
+        options = new FirebaseRecyclerOptions.Builder<Pedido>().setQuery(query, Pedido.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Pedido, ViewHolder_Pedidos>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder_Pedidos viewHolder_pedidos, int position, @NotNull Pedido pedido) {
@@ -107,9 +107,9 @@ public class Listar_Pedidos extends AppCompatActivity {
                 viewHolder_pedidos.setOnClickListener(new ViewHolder_Pedidos.ClickListener(){
                     @Override
                     public void onItemClick(View view, int position) {
-                        //Toast.makeText(Listar_Pedidos.this, "click item", Toast.LENGTH_SHORT).show();
                         String id_pedido = getItem(position).getId_pedido();
                         String uid_usuario = getItem(position).getUid_usuario();
+                        String nombre=getItem(position).getNombre();
                         String titulo = getItem(position).getTitulo();
                         String descripcion = getItem(position).getDescripcion();
                         String fecha_registro = getItem(position).getFecha_actual();
@@ -121,6 +121,7 @@ public class Listar_Pedidos extends AppCompatActivity {
                         Intent intent = new Intent(Listar_Pedidos.this, Detalle_Pedido.class);
                         intent.putExtra("id_nota", id_pedido);
                         intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("nombre_usuario", nombre);
                         intent.putExtra("fecha_registro", fecha_registro);
                         intent.putExtra("titulo", titulo);
                         intent.putExtra("descripcion", descripcion);
