@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true"
+    android:backgroundTint="@color/md_light_blue_A100"
     android:padding="0.2dp"
     app:cardCornerRadius="10dp">
 
@@ -54,13 +55,6 @@
                 android:id="@+id/Id_Usuario_Item"/>
 
             <!--CORREO DEL USUARIO-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="@string/Correo_Usuario_Item"
-                android:fontFamily="@font/variablefont_wght"
-                android:id="@+id/Correo_Usuario_Item"/>
 
             <!--FECHA RESITRO-->
             <TextView

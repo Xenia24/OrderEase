@@ -188,5 +188,11 @@
     <string name="Fecha_Item_I"> 00/00/0000 </string>
     <string name="Estado_Item_I"> No finalizado</string>
 
+    <!--CUADRO DE DIÁLOGO - FILTRAR NOTAS-->
+    <string name="FiltroTXT">Filtrar pedidos: </string>
+    <string name="Todas_notas">Todos</string>
+    <string name="Notas_Finalizadas">Finalizadas</string>
+    <string name="Notas_No_Finalizadas">No Finalizadas</string>
+
 </resources>
 
