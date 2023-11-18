@@ -18,7 +18,7 @@ TextView Id_Pedido_Detalle, Id_Usuario_Detalle, Nombre_Detalle, Titulo_Detalle, 
 Iniciar_vista();
 RecuperarDatos();
 SetDatosR();
-
+//r
     }
     private void  Iniciar_vista(){
         Id_Pedido_Detalle=findViewById(R.id.Id_Pedido_Detalle);
