@@ -3,7 +3,10 @@ package com.example.agenda_panaderia.Pedidos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,6 +17,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.agenda_panaderia.Contactos.Listar_Contactos;
+import com.example.agenda_panaderia.Menu_Principal;
 import com.example.agenda_panaderia.Objetos.Pedido;
 
 import com.example.agenda_panaderia.R;
@@ -30,12 +35,14 @@ public class Agregar_Pedidos extends AppCompatActivity {
     TextView id_Usuario, Correo_usuario, Fecha_Actual, Fecha, Estado;
     EditText Descripcion, Titulo, Nombre_Cliente;
     Button Btn_Calendario;
-    ImageView Btn_pedido;
+    ImageView Btn_pedido, regresar;
     private RadioGroup formaRadioGroup;
     private RadioButton localRadioButton;
     private RadioButton domicilioRadioButton;
     int dia, mes, year;
     DatabaseReference BD_firebase;
+
+    String nombre= " ", titulo= " ", descripcion=" ", fecha= " ", forma_pedido = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,11 +106,21 @@ public class Agregar_Pedidos extends AppCompatActivity {
 
             }
         });
+        regresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Agregar_Pedidos.this, Menu_Principal.class);
+                startActivity(intent);
+            }
+        });
+
+
         Btn_pedido.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                agregarpedido();
+
+                ValidarDatos();
             }
         });
 
@@ -126,6 +143,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
         domicilioRadioButton = findViewById(R.id.Domicilio);
         BD_firebase=FirebaseDatabase.getInstance().getReference();
         Btn_pedido=findViewById(R.id.Agregar_Pedido);
+        regresar = findViewById(R.id.regresar);
 
 
     }
@@ -161,7 +179,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
                     fecha,
                     formaEntrega,
                     estado);
-//h
+
 
             String nombre_BD = "Pedidos_Realizados";
             assert id_pedido != null;
@@ -189,6 +207,36 @@ public class Agregar_Pedidos extends AppCompatActivity {
 
         id_Usuario.setText(uid_recuperado);
         Correo_usuario.setText(email_recuperado);
+
+    }
+
+    private void ValidarDatos(){
+
+        nombre = Nombre_Cliente.getText().toString();
+        titulo = Titulo.getText().toString();
+        descripcion = Descripcion.getText().toString();
+        fecha = Fecha.getText().toString();
+        forma_pedido = formaRadioGroup.toString();
+
+        if(TextUtils.isEmpty(nombre)){
+            Toast.makeText(this,"Ingresar nombre", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(titulo)){
+            Toast.makeText(this,"Ingresar titulo", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(descripcion)){
+            Toast.makeText(this,"Ingresar descripcion", Toast.LENGTH_SHORT).show();
+
+        }
+        else if (TextUtils.isEmpty(fecha)){
+            Toast.makeText(this,"Seleccione la fecha de entrega", Toast.LENGTH_SHORT).show();
+        }
+        else if(formaRadioGroup.getCheckedRadioButtonId() == -1){
+            Toast.makeText(this,"Seleccione la forma de entrega", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            agregarpedido();
+        }
 
     }
 

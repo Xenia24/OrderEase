@@ -16,10 +16,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.agenda_panaderia.Contactos.Actualizar_Contactos;
 import com.example.agenda_panaderia.Contactos.Listar_Contactos;
+import com.example.agenda_panaderia.Menu_Principal;
 import com.example.agenda_panaderia.Objetos.Contacto;
 import com.example.agenda_panaderia.Objetos.Pedido;
 import com.example.agenda_panaderia.R;
@@ -46,6 +48,8 @@ public class Listar_Pedidos extends AppCompatActivity {
 
     LinearLayoutManager linearLayoutManager;
 
+    ImageView atras;
+
     FirebaseRecyclerAdapter<Pedido, ViewHolder_Pedidos> firebaseRecyclerAdapter;
     FirebaseRecyclerOptions<Pedido> options;
 
@@ -58,6 +62,8 @@ public class Listar_Pedidos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_pedidos);
+
+        atras = findViewById(R.id.regresar2);
 
         recyclerviewPedidos = findViewById(R.id.recyclerviewPedidos);
         recyclerviewPedidos.setHasFixedSize(true);
@@ -72,11 +78,20 @@ public class Listar_Pedidos extends AppCompatActivity {
         BASE_DE_DATOS = firebaseDatabase.getReference("Pedidos_Realizados");
         dialog = new Dialog(Listar_Pedidos.this);
         dialog = new Dialog(Listar_Pedidos.this);
-        ListarNotasUsuarios();
+        ListarPedidosUsuarios();
         //Estado_Filtro();
+
+
+        atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Listar_Pedidos.this, Menu_Principal.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    private void ListarNotasUsuarios(){
+    private void ListarPedidosUsuarios(){
         //consulta
         //Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
         //Query query = BASE_DE_DATOS.child(user.getUid()).child("Contactos").orderByChild("nombres");
@@ -112,7 +127,7 @@ public class Listar_Pedidos extends AppCompatActivity {
 
                     @Override
                     public void onItemLongClick(View view, int position) {
-                        Toast.makeText(Listar_Pedidos.this, "click ", Toast.LENGTH_SHORT).show();
+
                     }
                 });
                 return viewHolder_pedidos;
@@ -127,6 +142,43 @@ public class Listar_Pedidos extends AppCompatActivity {
         recyclerviewPedidos.setAdapter(firebaseRecyclerAdapter);
 
     }
+    private void EliminarPedido(String id_pedido){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Pedidos.this);
+        builder.setTitle("Eliminar pedido");
+        builder.setMessage("¿Desea eliminar el pedido?");
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //ELIMINAR NOTA EN BD
+                Query query = BASE_DE_DATOS.orderByChild("id_pedido").equalTo(id_pedido);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()){
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Pedidos.this, "Pedido eliminado", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                        Toast.makeText(Listar_Pedidos.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Listar_Pedidos.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.create().show();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
