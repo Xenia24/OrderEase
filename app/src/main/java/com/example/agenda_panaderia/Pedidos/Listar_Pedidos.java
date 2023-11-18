@@ -65,7 +65,7 @@ public class Listar_Pedidos extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
-//        dialog = new Dialog(Listar_Pedidos.this);
+        dialog = new Dialog(Listar_Pedidos.this);
 //        dialog_filtrar = new Dialog(Listar_Pedidos.this);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -133,7 +133,23 @@ public class Listar_Pedidos extends AppCompatActivity {
 
                     @Override
                     public void onItemLongClick(View view, int position) {
-                        Toast.makeText(Listar_Pedidos.this, "click ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Listar_Pedidos.this, "Mantener precionado ", Toast.LENGTH_SHORT).show();
+                        String id_pedido = getItem(position).getId_pedido();
+
+                        Button CD_Eliminar;
+
+                        dialog.setContentView(R.layout.dialogo_opciones);
+
+                        CD_Eliminar = dialog.findViewById(R.id.CD_Eliminar);
+
+                        CD_Eliminar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                EliminarPedido(id_pedido);
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog.show();
                     }
                 });
                 return viewHolder_pedidos;
@@ -154,6 +170,42 @@ public class Listar_Pedidos extends AppCompatActivity {
         if (firebaseRecyclerAdapter!=null){
             firebaseRecyclerAdapter.startListening();
         }
+    }
+    private void EliminarPedido(String id_pedido){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Pedidos.this);
+        builder.setTitle("Eliminar pedido");
+        builder.setMessage("¿Desea eliminar el pedido?");
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //ELIMINAR NOTA EN BD
+                Query query = BASE_DE_DATOS.orderByChild("id_pedido").equalTo(id_pedido);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()){
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Pedidos.this, "Pedido eliminado", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                        Toast.makeText(Listar_Pedidos.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(Listar_Pedidos.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.create().show();
     }
 
 
