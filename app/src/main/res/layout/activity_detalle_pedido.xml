@@ -90,33 +90,13 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/email"
-                    />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/variablefont_wght"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/Correo_Usuario_Detalle_Txt"/>
+
+
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
-                android:textSize="17sp"
-                android:text="@string/Correo_Usuario_Detalle"
-                android:id="@+id/Correo_Usuario_Detalle"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
+
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"

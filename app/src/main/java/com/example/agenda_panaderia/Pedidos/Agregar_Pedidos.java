@@ -124,7 +124,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
         formaRadioGroup = findViewById(R.id.formaRadioGroup);
         localRadioButton = findViewById(R.id.Local);
         domicilioRadioButton = findViewById(R.id.Domicilio);
-        BD_firebase=FirebaseDatabase.getInstance().getReference("Usuarios");
+        BD_firebase=FirebaseDatabase.getInstance().getReference();
         Btn_pedido=findViewById(R.id.Agregar_Pedido);
 
 
@@ -159,7 +159,8 @@ public class Agregar_Pedidos extends AppCompatActivity {
                     titulo,
                     descrip,
                     fecha,
-                    formaEntrega);
+                    formaEntrega,
+                    estado);
 //h
 
             String nombre_BD = "Pedidos_Realizados";
