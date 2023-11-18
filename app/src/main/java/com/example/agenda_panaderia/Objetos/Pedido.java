@@ -4,7 +4,7 @@ package com.example.agenda_panaderia.Objetos;
     public class Pedido {
         String id_pedido, uid_usuario,nombre, fecha_actual, titulo, descripcion,fecha_pedido,forma_entrega, estado;
 
-        public Pedido() {
+        public Pedido(String id_pedido, String fecha_actual, String uid_usuario, String nombre, String titulo, String descrip, String fecha, String formaEntrega) {
 
         }
 
