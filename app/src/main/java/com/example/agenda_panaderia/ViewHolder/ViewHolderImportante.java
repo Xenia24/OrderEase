@@ -9,22 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agenda_panaderia.R;
 
-public class ViewHolder_Pedidos extends RecyclerView.ViewHolder {
-
+public class ViewHolderImportante extends RecyclerView.ViewHolder {
     static View mView;
 
-    private ViewHolder_Pedidos.ClickListener mClickListener;
+    private ViewHolderImportante.ClickListener mClickListener;
 
     public interface ClickListener{
         void onItemClick(View view, int position);
         void onItemLongClick(View view, int position);
     }
 
-    public void setOnClickListener(ViewHolder_Pedidos.ClickListener clickListener){
+    public void setOnClickListener(ViewHolderImportante.ClickListener clickListener){
         mClickListener = clickListener;
     }
 
-    public ViewHolder_Pedidos(@NonNull View itemView) {
+    public ViewHolderImportante(@NonNull View itemView) {
         super(itemView);
         mView = itemView;
 
@@ -57,22 +56,22 @@ public class ViewHolder_Pedidos extends RecyclerView.ViewHolder {
 
         //DECLARAR LAS VISTAS
         TextView Id_Pedido_Item, Id_Usuario_Item, Nombre_Cliente_Item ,Fecha_Actual_Registro,Titulo_Item,
-                Descripcion_Item, Fecha_Item, Estado_Item;
+                Descripcion_Item, Fecha_Item, Estado_Item,Tarea_Finalizada_Item,Tarea_No_Finalizada_Item;
 
         //ImageView Tarea_Finalizada_Item, Tarea_No_Finalizada_Item;
 
         //ESTABLECER LA CONEXIÓN CON EL ITEM
-        Id_Pedido_Item = mView.findViewById(R.id.Id_Pedido_Item);
-        Id_Usuario_Item = mView.findViewById(R.id.Id_Usuario_Item);
-        Nombre_Cliente_Item = mView.findViewById(R.id.Nombre_Cliente_Item);
-        Fecha_Actual_Registro = mView.findViewById(R.id.Fecha_Actual_Registro);
-        Titulo_Item = mView.findViewById(R.id.Titulo_Item);
-        Descripcion_Item = mView.findViewById(R.id.Descripcion_Item);
-        Fecha_Item = mView.findViewById(R.id.Fecha_Item);
-        Estado_Item = mView.findViewById(R.id.Estado_Item);
+        Id_Pedido_Item = mView.findViewById(R.id.Id_nota_Item_I);
+        Id_Usuario_Item = mView.findViewById(R.id.Uid_Usuario_Item_I);
+        Nombre_Cliente_Item = mView.findViewById(R.id.Nombre_Cliente_Importante);
+        Fecha_Actual_Registro = mView.findViewById(R.id.Fecha_hora_registro_Item_I);
+        Titulo_Item = mView.findViewById(R.id.Titulo_Item_I);
+        Descripcion_Item = mView.findViewById(R.id.Descripcion_Item_I);
+        Fecha_Item = mView.findViewById(R.id.Fecha_Item_I);
+        Estado_Item = mView.findViewById(R.id.Estado_Item_I);
 
-//        Tarea_Finalizada_Item = mView.findViewById(R.id.Tarea_Finalizada_Item_I);
-//        Tarea_No_Finalizada_Item = mView.findViewById(R.id.Tarea_No_Finalizada_Item_I);
+      Tarea_Finalizada_Item = mView.findViewById(R.id.Tarea_Finalizada_Item_I);
+       Tarea_No_Finalizada_Item = mView.findViewById(R.id.Tarea_No_Finalizada_Item_I);
 
         //SETEAR LA INFORMACIÓN DENTRO DEL ITEM
         Id_Pedido_Item.setText(id_pedido);
@@ -84,11 +83,11 @@ public class ViewHolder_Pedidos extends RecyclerView.ViewHolder {
         Fecha_Item.setText(fecha_pedido);
         Estado_Item.setText(estado);
 
-//        //GESTIONAMOS EL COLOR DEL ESTADO
-//        if (estado.equals("Finalizado")){
-//            Tarea_Finalizada_Item.setVisibility(View.VISIBLE);
-//        }else {
-//            Tarea_No_Finalizada_Item.setVisibility(View.VISIBLE);
-//        }
+      //GESTIONAMOS EL COLOR DEL ESTADO
+     if (estado.equals("Finalizado")){
+         Tarea_Finalizada_Item.setVisibility(View.VISIBLE);
+       }else {
+          Tarea_No_Finalizada_Item.setVisibility(View.VISIBLE);
+        }
     }
 }
