@@ -113,6 +113,7 @@ public class Listar_Contactos extends AppCompatActivity {
                         contacto.getCorreo(),
                         contacto.getTelefono(),
                         contacto.getDireccion()
+
                 );
 
             }
@@ -138,6 +139,7 @@ public class Listar_Contactos extends AppCompatActivity {
                         String Correo_c = getItem(position).getCorreo();
                         String Telefono_c = getItem(position).getTelefono();
                         String Direccion_c = getItem(position).getDireccion();
+
                         //Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
                                                 Button CD_Eliminar,Btn_Actualizar_C_A;
 
