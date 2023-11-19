@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/verde"
+    android:background="@color/md_orange_400"
     android:layout_height="match_parent"
     tools:context=".Contactos.Agregar_Contactos">
 
@@ -13,9 +13,45 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/md_orange_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/regresar2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Agregar contacto"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/md_orange_800"
+            android:fontFamily="@font/font"
+            />
+
+
         <TextView
             android:id="@+id/Uid_Usuario"
             android:text="@string/Id_Usuario"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -30,9 +66,10 @@
         <EditText
             android:id="@+id/Nombre_c"
             android:hint="@string/Nombre_c"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/variablefont_wght"
+            android:fontFamily="@font/font"
             android:layout_marginTop="10dp"
             android:inputType="textPersonName"
             />
@@ -42,7 +79,8 @@
             android:hint="@string/Apellido_c"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/variablefont_wght"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
             android:inputType="textPersonName"
             />
 
@@ -51,7 +89,8 @@
             android:hint="@string/Correo_c"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/variablefont_wght"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
             android:inputType="textEmailAddress"/>
 
 
@@ -68,7 +107,8 @@
                 android:layout_gravity="center"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 android:inputType="phone" />
 
             <ImageView
@@ -76,7 +116,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:src="@drawable/telefono"/>
+                android:src="@drawable/tele"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
         <EditText
@@ -84,7 +124,8 @@
             android:hint="@string/Direccion_c"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/variablefont_wght"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
             android:inputType="text"/>
 
 
@@ -95,7 +136,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Btn_guardar_contacto"
-            android:fontFamily="@font/variablefont_wght"/>
+            android:textColor="@color/white"
+            android:backgroundTint="@color/md_green_600"
+            android:fontFamily="@font/font"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 

@@ -16,10 +16,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
-import com.example.agenda_panaderia.AgregarPedido.Agregar_Pedidos;
+import com.example.agenda_panaderia.Pedidos.Agregar_Pedidos;
 
 import com.example.agenda_panaderia.Contactos.Listar_Contactos;
-import com.example.agenda_panaderia.Listar_Pedidos.Listar_Pedidos;
+import com.example.agenda_panaderia.Pedidos.Listar_Pedidos;
+import com.example.agenda_panaderia.Pedidos.Pedidos_Importantes;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +36,7 @@ public class Menu_Principal extends AppCompatActivity {
 
 
 
-    Button Btn_Salir,Contactos, Verificacion, AgregarPedidos, ListaPedidos;
+    Button Btn_Salir,Contactos, Verificacion, AgregarPedidos, ListaPedidos,Btn_Importantes;
 
     FirebaseAuth firebaseAuth;
     FirebaseUser User;
@@ -64,6 +65,7 @@ public class Menu_Principal extends AppCompatActivity {
         Verificacion = findViewById(R.id.Verificacion);
         AgregarPedidos=findViewById(R.id.Btn_Agregar);
         ListaPedidos= findViewById(R.id.Btn_Lista);
+        Btn_Importantes=findViewById(R.id.Btn_Importantes);
 
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
         Btn_Salir=findViewById(R.id.Btn_Salir);
@@ -98,6 +100,13 @@ public class Menu_Principal extends AppCompatActivity {
                 intent.putExtra("Correo", correo_usuario);
                 startActivity(intent);
             }
+        });
+        Btn_Importantes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Menu_Principal.this, Pedidos_Importantes.class));
+               Toast.makeText(Menu_Principal.this, "Pedidos Importantes", Toast.LENGTH_SHORT).show();
+           }
         });
 
         Contactos.setOnClickListener(new View.OnClickListener() {
@@ -218,7 +227,6 @@ public class Menu_Principal extends AppCompatActivity {
                     Linear.setVisibility(View.VISIBLE);
 
 
-                    IdMenu.setVisibility(View.VISIBLE);
                     Linear_Nombres.setVisibility(View.VISIBLE);
                     Linear_Verificacion.setVisibility(View.VISIBLE);
                     Linear_Correo.setVisibility(View.VISIBLE);

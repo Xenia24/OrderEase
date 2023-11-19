@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="10dp"
+    android:background="@color/md_grey_300"
     android:layout_gravity="center">
 
     <TextView
@@ -13,7 +14,8 @@
         android:textSize="20sp"
         android:gravity="center"
         android:textStyle="bold"
-        android:fontFamily="@font/variablefont_wght"
+        android:fontFamily="@font/font"
+        android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -32,7 +34,9 @@
         android:text="@string/CD_Eliminar"
         android:layout_marginTop="10dp"
         app:icon="@drawable/borrar"
-        android:fontFamily="@font/variablefont_wght"
+        android:textColor="@color/white"
+        android:fontFamily="@font/font"
+        android:backgroundTint="@color/md_deep_orange_A700"
         android:layout_gravity="center"
         android:layout_width="180dp"
         android:layout_height="wrap_content"/>
@@ -42,9 +46,11 @@
         android:text="Editar"
         android:layout_marginTop="10dp"
         app:icon="@drawable/actualizar"
-        android:fontFamily="@font/variablefont_wght"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_width="180dp"
+        android:backgroundTint="@color/md_green_600"
         android:layout_height="wrap_content"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

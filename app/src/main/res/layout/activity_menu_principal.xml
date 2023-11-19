@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Menu_Principal"
-    android:background="@color/verde">
+    android:background="@color/md_orange_400">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -14,61 +14,10 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="120dp"-->
-<!--            app:cardBackgroundColor="@color/md_light_blue_A100"-->
-<!--            app:cardUseCompatPadding="true"-->
-<!--            android:padding="0.2dp"-->
-<!--            app:cardCornerRadius="5dp">-->
-
-<!--            <androidx.appcompat.widget.LinearLayoutCompat-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:padding="10dp"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/BienvenidoP"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="20sp"/>-->
-
-<!--                <ProgressBar-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:id="@+id/ProgresBar"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_gravity="center"/>-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/NombreP"-->
-<!--                    android:visibility="gone"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/NombreP"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="20sp"/>-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/CorreoP"-->
-<!--                    android:visibility="gone"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/CorreoP"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="20sp"/>-->
-
-<!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
-
-
-<!--        </androidx.cardview.widget.CardView>-->
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="240dp"
-            app:cardBackgroundColor="@color/md_red_900"
+            android:layout_height="180dp"
+            app:cardBackgroundColor="@color/md_grey_300"
             app:cardUseCompatPadding="true"
             android:padding="0.2dp"
             app:cardCornerRadius="5dp">
@@ -85,7 +34,7 @@
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:layout_marginStart="2dp"
-                    android:src="@drawable/usi"/>
+                    android:src="@drawable/imau"/>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
@@ -98,8 +47,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/BienvenidoP"
-                        android:fontFamily="@font/variablefont_wght"
-                        android:textColor="@color/white"
+                        android:fontFamily="@font/font"
+                        android:textColor="@color/black"
                         android:textSize="20sp"/>
 
                     <ProgressBar
@@ -136,12 +85,12 @@
                         <!--NOMBRE-->
                         <TextView
                             android:id="@+id/NombreP"
-                            android:fontFamily="@font/variablefont_wght"
+                            android:fontFamily="@font/font"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/NombreP"
                             android:visibility="gone"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="17sp"
                             android:layout_marginStart="3dp"
                             />
@@ -159,16 +108,16 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/email"/>
+                            android:src="@drawable/correo"/>
 
                         <!--CORREO-->
                         <TextView
                             android:id="@+id/CorreoP"
-                            android:fontFamily="@font/variablefont_wght"
+                            android:fontFamily="@font/font"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/CorreoP"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="17sp"
                             android:visibility="gone"
                             android:layout_marginStart="3dp"/>
@@ -187,32 +136,25 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/verificacion"/>
+                            android:src="@drawable/veri"/>
 
                         <!--VERIFICACION-->
                         <Button
                             android:id="@+id/Verificacion"
-                            android:fontFamily="@font/variablefont_wght"
+                            android:fontFamily="@font/font"
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:textColor="@color/white"
-                            android:backgroundTint="#607d8b"
+                            android:backgroundTint="@color/md_green_600"
                             android:textSize="17sp"
                             android:visibility="gone"
                             android:layout_marginStart="3dp"/>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-
-
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-
             </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-
 
         </androidx.cardview.widget.CardView>
 
@@ -222,7 +164,8 @@
             android:text="@string/ListaOp"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:fontFamily="@font/variablefont_wght"/>
+            android:textColor="@color/md_orange_800"
+            android:fontFamily="@font/font"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -239,42 +182,47 @@
                 android:weightSum="2">
 
                 <!--  OPCION 1 - AGREGAR-->
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
                     android:orientation="vertical"
+                    android:backgroundTint="@color/white"
                     android:gravity="center">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="80dp"
-                        android:src="@drawable/agregarpedido"/>
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/agregarpedido" />
 
                     <Button
+                        android:id="@+id/Btn_Agregar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/AgregarPedidos"
-                        android:backgroundTint="@color/md_light_blue_A100"
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/Btn_Agregar"
-                        android:fontFamily="@font/variablefont_wght"/>
+                        android:layout_marginTop="95dp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/md_orange_800"
+                        android:fontFamily="@font/font"
+                        android:text="@string/AgregarPedidos" />
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.cardview.widget.CardView>
 
                 <!--  OPCION 2 - LISTA-->
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
                     android:orientation="vertical"
                     android:gravity="center">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
                         android:src="@drawable/listapedidos"/>
 
 
@@ -282,12 +230,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/ListaPedidos"
-                        android:backgroundTint="@color/md_light_blue_A400"
-                        android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/md_orange_800"
+                        android:layout_marginTop="95dp"
                         android:id="@+id/Btn_Lista"
-                        android:fontFamily="@font/variablefont_wght"/>
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/font"/>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.cardview.widget.CardView>
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -300,64 +249,72 @@
                 android:weightSum="2">
 
                 <!--  OPCION 3 - Importantes-->
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:backgroundTint="@color/white"
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
                     android:orientation="vertical"
                     android:gravity="center">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="80dp"
-                        android:src="@drawable/pedidosimportantes"/>
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/impor"/>
 
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/Importantes"
-                        android:backgroundTint="@color/md_red_A100"
-                        android:layout_marginTop="10dp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/md_orange_800"
+                        android:layout_marginTop="95dp"
                         android:id="@+id/Btn_Importantes"
-                        android:fontFamily="@font/variablefont_wght"/>
+                        android:fontFamily="@font/font"/>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.cardview.widget.CardView>
 
                 <!--  OPCION 4 - Contactos-->
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
                     android:orientation="vertical"
                     android:gravity="center">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="80dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
                         android:src="@drawable/contactosclientes"/>
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/Contactos"
+                        android:textColor="@color/white"
                         android:id="@+id/Btn_Contactos"
-                        android:layout_marginTop="10dp"
-                        android:backgroundTint="@color/md_amber_A400"
-                        android:fontFamily="@font/variablefont_wght"/>
+                        android:layout_marginTop="95dp"
+                        android:backgroundTint="@color/md_orange_800"
+                        android:fontFamily="@font/font"/>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.cardview.widget.CardView>
 
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:layout_width="210dp"
+                android:backgroundTint="@color/white"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:weightSum="1">
 
@@ -373,6 +330,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
                         android:src="@drawable/salir"/>
 
 
@@ -382,12 +340,14 @@
                         android:text="@string/CerrarC"
                         android:layout_marginTop="10dp"
                         android:id="@+id/Btn_Salir"
-                        android:backgroundTint="@color/naranjado"
-                        android:fontFamily="@font/variablefont_wght"/>
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/md_orange_800"
+                        android:fontFamily="@font/font"/>
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
