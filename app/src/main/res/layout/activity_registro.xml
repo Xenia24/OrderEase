@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Registro"
-    android:background="@color/verde">
+    android:background="@color/md_orange_400">
     
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -15,9 +15,10 @@
 
         <TextView
             android:text="@string/CrearCuenta"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/variablefont_wght"
+            android:fontFamily="@font/font"
             android:textSize="25sp"
             android:gravity="center"
             />
@@ -34,14 +35,16 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
             android:layout_marginTop="15dp">
             <EditText
                 android:id="@+id/NombreEt"
                 android:hint="@string/NombreEt"
                 android:inputType="textPersonName|textCapWords"
-                android:drawableStart="@drawable/nombres"
+                android:drawableStart="@drawable/person"
                 android:drawablePadding="10dp"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -49,14 +52,16 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/white">
             <EditText
                 android:id="@+id/CorreoEt"
                 android:hint="@string/CoreoEt"
                 android:inputType="textEmailAddress"
-                android:drawableStart="@drawable/email"
+                android:drawableStart="@drawable/correo"
                 android:drawablePadding="10dp"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -66,17 +71,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textColorHint="@color/white"
             app:passwordToggleEnabled="true"
-            app:hintEnabled="false">
+            >
 
 
             <EditText
                 android:id="@+id/Contrasena"
                 android:hint="@string/Contrasena"
                 android:inputType="textPassword"
-                android:drawableStart="@drawable/contrasena"
+                android:drawableStart="@drawable/candado"
                 android:drawablePadding="10dp"
-                android:fontFamily="@font/variablefont_wght"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font"
                 android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -87,16 +94,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             app:passwordToggleEnabled="true"
-            app:hintEnabled="false">
+            android:textColorHint="@color/white"
+            app:hintEnabled="true">
 
 
             <EditText
                 android:id="@+id/Confirmarcontrasena"
                 android:hint="@string/ConfirmarContrasena"
                 android:inputType="textPassword"
-                android:drawableStart="@drawable/contrasena"
+                android:drawableStart="@drawable/candado"
                 android:drawablePadding="10dp"
-                android:fontFamily="@font/variablefont_wght"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font"
                 android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -106,16 +115,18 @@
             android:id="@+id/RegistrarUsuario"
             android:text="@string/RegistrarUsuario"
             android:layout_marginTop="15dp"
-            android:fontFamily="@font/variablefont_wght"
+            android:fontFamily="@font/font"
             android:textSize="18sp"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/naranjado"/>
+            android:backgroundTint="@color/md_orange_800"/>
         <TextView
             android:id="@+id/Tengounacuenta"
             android:text="@string/Tengounacuenta"
-            android:fontFamily="@font/variablefont_wght"
+            android:fontFamily="@font/font"
             android:textSize="18sp"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:textStyle="bold"
             android:layout_marginTop="15dp"

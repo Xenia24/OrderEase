@@ -218,7 +218,6 @@ public class Menu_Principal extends AppCompatActivity {
                     Linear.setVisibility(View.VISIBLE);
 
 
-                    IdMenu.setVisibility(View.VISIBLE);
                     Linear_Nombres.setVisibility(View.VISIBLE);
                     Linear_Verificacion.setVisibility(View.VISIBLE);
                     Linear_Correo.setVisibility(View.VISIBLE);
