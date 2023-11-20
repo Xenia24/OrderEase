@@ -194,5 +194,17 @@
     <string name="Notas_Finalizadas">Finalizadas</string>
     <string name="Notas_No_Finalizadas">No Finalizadas</string>
 
+    <!--DETALLE CONTACTO-->
+    <string name="DetalleContactoTXT">Detalle del contacto</string>
+    <string name="Id_C_D"> -- </string>
+    <string name="Uid_Usuario_D"> -- </string>
+    <string name="Nombre_C_D"> -- </string>
+    <string name="Apellidos_C_D"> -- </string>
+    <string name="Correo_C_D"> -- </string>
+    <string name="Telefono_C_D"> -- </string>
+    <string name="Direccion_C_D"> -- </string>
+    <string name="Llamar_C">Llamar</string>
+    <string name="Mensaje_C">Mensaje</string>
+
 </resources>
 
