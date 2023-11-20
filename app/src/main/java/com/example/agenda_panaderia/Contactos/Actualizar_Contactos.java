@@ -168,7 +168,7 @@ public class Actualizar_Contactos extends AppCompatActivity {
                     ds.getRef().child("direccion").setValue(DireccionActualizar);
                 }
 
-                Toast.makeText(Actualizar_Contactos.this, "Información actualizada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Actualizar_Contactos.this, "55Información actualizada", Toast.LENGTH_SHORT).show();
             }
 
             @Override
