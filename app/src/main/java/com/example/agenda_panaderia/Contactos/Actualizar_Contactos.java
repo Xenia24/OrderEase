@@ -36,6 +36,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hbb20.CountryCodePicker;
 
@@ -175,98 +177,6 @@ public class Actualizar_Contactos extends AppCompatActivity {
             }
         });
     }
-
-    private void subirImagenStorage(){
-        progressDialog.setMessage("Subiendo imagen");
-        progressDialog.show();
-        String id_c = getIntent().getStringExtra("id_c");
-
-        String carpetaImagenesContactos = "ImagenesPerfilContactos/";
-        String NombreImagen = carpetaImagenesContactos+id_c;
-
-       Storage reference = FirebaseStorage.getInstance().getReference(NombreImagen);
-        reference.putFile(imagenUri)
-                .addOnSuccessListener((OnSuccessListener<UploadTask.TaskSnapshot>) taskSnapshot -> {
-                    Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                    while (!uriTask.isSuccessful());
-                    String UriIMAGEN = ""+uriTask.getResult();
-                    ActualizarImagenBD(UriIMAGEN);
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(Actualizar_Contactos.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
-    private void ActualizarImagenBD(String uriIMAGEN) {
-        progressDialog.setMessage("Actualizando la imagen");
-        progressDialog.show();
-
-        String id_c = getIntent().getStringExtra("id_c");
-
-        HashMap<String, Object> hashMap = new HashMap<>();
-        if (imagenUri != null){
-            hashMap.put("imagen", ""+uriIMAGEN);
-        }
-
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-        databaseReference.child(user.getUid()).child("Contactos").child(id_c)
-                .updateChildren(hashMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        progressDialog.dismiss();
-                        Toast.makeText(Actualizar_Contactos.this, "Imagen actualizada con éxito", Toast.LENGTH_SHORT).show();
-                        onBackPressed();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        progressDialog.dismiss();
-                        Toast.makeText(Actualizar_Contactos.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-    }
-
-    private void SeleccionarImagenGaleria() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        galeriaActivityResultLauncher.launch(intent);
-    }
-
-    private ActivityResultLauncher<Intent> galeriaActivityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == Activity.RESULT_OK){
-                        Intent data = result.getData();
-                        imagenUri = data.getData();
-                        Imagen_C_A.setImageURI(imagenUri);
-                        subirImagenStorage();
-                    }else {
-                        Toast.makeText(Actualizar_Contactos.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-    );
-
-    private ActivityResultLauncher<String> SolicitarPermisoGaleria = registerForActivityResult(
-            new ActivityResultContracts.RequestPermission(), isGranted -> {
-                if (isGranted){
-                    SeleccionarImagenGaleria();
-                }else{
-                    Toast.makeText(this, "Permiso denegado", Toast.LENGTH_SHORT).show();
-                }
-            }
-    );
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
-    }
 }
+
+
