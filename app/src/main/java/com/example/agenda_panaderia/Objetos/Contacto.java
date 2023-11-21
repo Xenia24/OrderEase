@@ -74,4 +74,6 @@ public class Contacto {
         this.direccion = direccion;
     }
 
+    public String getImagen() {return imagen;
+    }
 }
