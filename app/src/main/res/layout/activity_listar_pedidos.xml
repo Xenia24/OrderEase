@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/verde"
+    android:background="@color/md_orange_400"
     android:layout_height="match_parent"
-    tools:context=".Listar_Pedidos.Listar_Pedidos">
+    tools:context=".Pedidos.Listar_Pedidos">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/white"
+        android:background="@color/md_orange_800"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,28 +24,47 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:padding="8dp"
-            android:src="@drawable/atras"
+            android:src="@drawable/back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
 
         <ImageView
-            android:id="@+id/Agregar_Pedido"
+            android:id="@+id/Filtrar_Notas"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:padding="8dp"
-            android:src="@drawable/addp"
+            android:src="@drawable/filter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+
+        <ImageView
+            android:id="@+id/Vaciar_Todas_Las_Notas"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="44dp"
+            android:padding="8dp"
+            android:src="@drawable/borrar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista de Pedidos"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/md_orange_800"
+        android:fontFamily="@font/font"
+
+        android:layout_marginTop="50dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical"
+        android:layout_marginTop="100dp"
         android:id="@+id/recyclerviewPedidos"
         />
 

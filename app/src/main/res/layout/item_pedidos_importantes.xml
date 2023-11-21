@@ -70,7 +70,7 @@
                 android:id="@+id/Titulo_Item_I"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:text="@string/Titulo_Item_I"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -80,7 +80,7 @@
                 android:id="@+id/Nombre_Cliente_Importante_I"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:text="@string/Nombre_Cliente_Item"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
@@ -91,7 +91,7 @@
                 android:id="@+id/Descripcion_Item_I"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:text="@string/Descripcion_Item_I"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -101,7 +101,7 @@
                 android:id="@+id/Fecha_Item_I"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:text="@string/Fecha_Item_I"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -137,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:fontFamily="@font/font"
                     android:text="@string/Estado_Item_I"
                     android:textColor="@color/white"
                     android:textSize="20sp" />

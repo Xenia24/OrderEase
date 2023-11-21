@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
-    android:background="@color/verde">
+    android:background="@color/md_orange_400">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -18,7 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/IniciarS"
-            android:textSize="25sp"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
+            android:textSize="30sp"
             android:gravity="center"
             />
 
@@ -34,16 +36,20 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:textColorHint="@color/white">
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/CorreoL"
                 android:hint="@string/CorreoL"
-                android:drawableStart="@drawable/email"
-
+                android:drawableStart="@drawable/corre0"
                 android:drawablePadding="10dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font"
+                android:outlineSpotShadowColor="@color/black"
                 android:padding="20dp"
                 android:inputType="textEmailAddress"/>
 
@@ -53,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:textColorHint="@color/white"
             app:passwordToggleEnabled="true">
 
             <EditText
@@ -60,7 +67,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/PasswordL"
                 android:hint="@string/PasswordL"
-                android:drawableStart="@drawable/contrasena"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font"
+                android:drawableStart="@drawable/candado"
                 android:drawablePadding="10dp"
                 android:padding="20dp"
                 android:inputType="textPassword"/>
@@ -72,7 +81,9 @@
             android:layout_height="wrap_content"
             android:text="@string/Btn_LoginI"
             android:id="@+id/Btn_LoginI"
-            app:backgroundTint="@color/md_teal_300"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/md_orange_800"
             android:layout_marginTop="10dp"/>
 
         <TextView
@@ -80,11 +91,11 @@
             android:layout_height="wrap_content"
             android:text="@string/UsuarioNuevo"
             android:gravity="center"
+            android:textColor="@color/white"
             android:id="@+id/UsuarioNuevo"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/font"
             android:layout_marginTop="10sp"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 </RelativeLayout>

@@ -1,17 +1,14 @@
-package com.example.agenda_panaderia.AgregarPedido;
+package com.example.agenda_panaderia.Pedidos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,12 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agenda_panaderia.Objetos.Pedido;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.agenda_panaderia.R;
 import com.google.firebase.database.DatabaseReference;

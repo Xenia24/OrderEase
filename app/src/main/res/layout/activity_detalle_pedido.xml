@@ -5,13 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/verde"
-    tools:context=".Detalles_Pedidos.Detalle_Pedido">
+    android:background="@color/md_orange_400"
+    tools:context=".Pedidos.Detalle_Pedido">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/md_orange_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/regresar2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Detalles del pedido"
+            android:layout_gravity="center"
+            android:textColor="@color/md_orange_800"
+            android:textSize="20sp"
+            android:fontFamily="@font/font"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -28,6 +60,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="100dp"
                     android:src="@drawable/id_pedido_detalle"/>
 
                 <TextView
@@ -35,7 +68,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/Id_Pedido_Detalle_Txt"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
 
@@ -44,7 +78,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 android:textSize="17sp"
                 android:id="@+id/Id_Pedido_Detalle"
                 android:text="@string/Id_Pedido_Detalle"
@@ -60,6 +95,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginStart="100dp"
                     android:src="@drawable/person"
                     android:layout_gravity="center"/>
 
@@ -68,7 +104,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/Id_Usuario_Detalle_Txt"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
 
@@ -77,7 +114,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:text="@string/Id_Usuario_Detalle"
@@ -90,33 +128,13 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/email"
-                    />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/variablefont_wght"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"
-                    android:text="@string/Correo_Usuario_Detalle_Txt"/>
+
+
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
-                android:textSize="17sp"
-                android:text="@string/Correo_Usuario_Detalle"
-                android:id="@+id/Correo_Usuario_Detalle"
-                android:textStyle="bold"
-                android:layout_gravity="center"/>
+
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -127,6 +145,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginStart="140dp"
                     android:layout_gravity="center"
                     android:src="@drawable/person"
                     />
@@ -135,8 +154,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:fontFamily="@font/font"
                     android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:layout_marginStart="10dp"
                     android:text="@string/Nombre_Detalle_Txt"/>
 
@@ -145,8 +165,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:textSize="17sp"
+                android:textColor="@color/white"
                 android:text="@string/Nombre_Detalle"
                 android:id="@+id/Nombre_Detalle"
                 android:textStyle="bold"
@@ -162,6 +183,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="150dp"
                     android:src="@drawable/titulo_pedido"/>
 
                 <TextView
@@ -169,7 +191,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/Titulo_Detalle_Txt"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
 
@@ -178,7 +201,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:id="@+id/Titulo_Detalle"
@@ -195,6 +219,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="130dp"
                     android:src="@drawable/descripcion_pedido"/>
 
                 <TextView
@@ -202,7 +227,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/Descripcion_Detalle_Txt"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:fontFamily="@font/font"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
 
@@ -211,9 +237,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:textSize="17sp"
                 android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
                 android:id="@+id/Descripcion_Detalle"
                 android:text="@string/Descripcion_Detalle"
                 android:layout_gravity="center"/>
@@ -228,6 +256,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="100dp"
                     android:src="@drawable/time"/>
 
                 <TextView
@@ -235,7 +264,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/Fecha_Registro_Detalle_Txt"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:fontFamily="@font/font"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
 
@@ -244,9 +274,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:textSize="17sp"
                 android:text="@string/Fecha_Registro_Detalle"
+                android:textColor="@color/white"
                 android:id="@+id/Fecha_Registro_Detalle"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
@@ -261,14 +292,16 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="100dp"
                     android:src="@drawable/calendar"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:fontFamily="@font/font"
                     android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:text="@string/Fecha_Pedido_Detalle_Txt"
                     android:layout_marginStart="10dp"/>
 
@@ -277,7 +310,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:text="@string/Fecha_Pedido_Detalle"
@@ -294,6 +328,7 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginStart="100dp"
                     android:layout_gravity="center"
                     android:src="@drawable/estado"/>
 
@@ -301,8 +336,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:fontFamily="@font/font"
                     android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:text="@string/Estado_Detalle_Txt"
                     android:layout_marginStart="10dp"/>
 
@@ -311,7 +347,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:text="@string/Estado_Detalle"
@@ -341,13 +378,12 @@
                 android:drawableTop="@drawable/importante2"
                 android:textColor="@color/white"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:backgroundTint="@color/naranjado"
-                android:fontFamily="@font/variablefont_wght"/>
+                android:backgroundTint="@color/md_orange_800"
+                android:fontFamily="@font/font"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 
 </ScrollView>

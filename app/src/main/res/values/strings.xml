@@ -164,5 +164,11 @@
     <string name="Estado_A"> No finalizado</string>
     <string name="Estado_nuevo"> -- </string>
 
+    <!--CUADRO DE DIÁLOGO - FILTRAR PEDIDOS-->
+    <string name="FiltroTXT">Filtrar pedidos: </string>
+    <string name="Todos_pedidos">Todos</string>
+    <string name="Notas_Finalizadas">Finalizadas</string>
+    <string name="Notas_No_Finalizadas">No Finalizadas</string>
+
 </resources>
 

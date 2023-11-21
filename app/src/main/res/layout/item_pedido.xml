@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true"
+    android:backgroundTint="@color/md_blue_grey_100"
     android:padding="0.2dp"
     app:cardCornerRadius="10dp">
 
@@ -54,13 +55,6 @@
                 android:id="@+id/Id_Usuario_Item"/>
 
             <!--CORREO DEL USUARIO-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="@string/Correo_Usuario_Item"
-                android:fontFamily="@font/variablefont_wght"
-                android:id="@+id/Correo_Usuario_Item"/>
 
             <!--FECHA RESITRO-->
             <TextView
@@ -78,7 +72,8 @@
                 android:text="@string/Nombre_Cliente_Item"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/black"
                 android:id="@+id/Nombre_Cliente_Item"/>
 
             <!--TITULO-->
@@ -87,7 +82,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="@string/Titulo_Item"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/black"
                 android:id="@+id/Titulo_Item"/>
 
             <!--DESCRIPCION-->
@@ -95,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
+                android:visibility="gone"
                 android:text="@string/Descripcion_Item"
                 android:fontFamily="@font/variablefont_wght"
                 android:id="@+id/Descripcion_Item"/>
@@ -105,7 +102,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Fecha_Item"
                 android:textSize="20sp"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/black"
                 android:id="@+id/Fecha_Item"/>
 
             <!--ESTADO DEL PEDIDO-->
@@ -113,13 +111,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Estado_Item"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/black"
                 android:id="@+id/Estado_Item"/>
-
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-
     </androidx.appcompat.widget.LinearLayoutCompat>
-
 </androidx.cardview.widget.CardView>

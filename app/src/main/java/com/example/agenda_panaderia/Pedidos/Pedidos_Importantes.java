@@ -1,4 +1,4 @@
-package com.example.agenda_panaderia.Listar_Pedidos;
+package com.example.agenda_panaderia.Pedidos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,21 +11,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.agenda_panaderia.Detalles_Pedidos.Detalle_Pedido;
 import com.example.agenda_panaderia.Objetos.Pedido;
 import com.example.agenda_panaderia.R;
 import com.example.agenda_panaderia.ViewHolder.ViewHolderImportante;
-import com.example.agenda_panaderia.ViewHolder.ViewHolder_Pedidos;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 import org.jetbrains.annotations.NotNull;
 

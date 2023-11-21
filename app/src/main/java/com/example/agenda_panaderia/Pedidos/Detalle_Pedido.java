@@ -1,4 +1,4 @@
-package com.example.agenda_panaderia.Detalles_Pedidos;
+package com.example.agenda_panaderia.Pedidos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
