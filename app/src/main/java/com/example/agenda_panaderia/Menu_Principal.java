@@ -20,6 +20,7 @@ import com.example.agenda_panaderia.AgregarPedido.Agregar_Pedidos;
 
 import com.example.agenda_panaderia.Contactos.Listar_Contactos;
 import com.example.agenda_panaderia.Listar_Pedidos.Listar_Pedidos;
+import com.example.agenda_panaderia.Listar_Pedidos.Pedidos_Importantes;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +36,7 @@ public class Menu_Principal extends AppCompatActivity {
 
 
 
-    Button Btn_Salir,Contactos, Verificacion, AgregarPedidos, ListaPedidos;
+    Button Btn_Salir,Contactos, Verificacion, AgregarPedidos, ListaPedidos, Btn_Importantes;
 
     FirebaseAuth firebaseAuth;
     FirebaseUser User;
@@ -64,7 +65,7 @@ public class Menu_Principal extends AppCompatActivity {
         Verificacion = findViewById(R.id.Verificacion);
         AgregarPedidos=findViewById(R.id.Btn_Agregar);
         ListaPedidos= findViewById(R.id.Btn_Lista);
-
+        Btn_Importantes = findViewById(R.id.Btn_Importantes);
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
         Btn_Salir=findViewById(R.id.Btn_Salir);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -97,6 +98,16 @@ public class Menu_Principal extends AppCompatActivity {
                 intent.putExtra("Uid",uid_usuario);
                 intent.putExtra("Correo", correo_usuario);
                 startActivity(intent);
+            }
+        });
+        Btn_Importantes.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Menu_Principal.this, Pedidos_Importantes.class);
+                startActivity(intent);
+                //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
+
             }
         });
 

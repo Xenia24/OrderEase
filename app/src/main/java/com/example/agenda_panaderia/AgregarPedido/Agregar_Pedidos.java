@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
     private RadioButton domicilioRadioButton;
     int dia, mes, year;
     DatabaseReference BD_firebase;
+    String nombre= " ", titulo= " ", descripcion=" ", fecha= " ", forma_entrega = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +114,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                agregarpedido();
+                ValidarDatos();
             }
         });
 
@@ -130,7 +132,6 @@ public class Agregar_Pedidos extends AppCompatActivity {
         Titulo=findViewById(R.id.Titulo);
         Nombre_Cliente=findViewById(R.id.Nombre_Cliente);
         Btn_Calendario=findViewById(R.id.Btn_Calendario);
-
         formaRadioGroup = findViewById(R.id.formaRadioGroup);
         localRadioButton = findViewById(R.id.Local);
         domicilioRadioButton = findViewById(R.id.Domicilio);
@@ -141,51 +142,80 @@ public class Agregar_Pedidos extends AppCompatActivity {
     }
     private void agregarpedido(){
         String uid_usuario = id_Usuario.getText().toString();
-        String correo= Correo_usuario.getText().toString();
         String fecha_actual=Fecha_Actual.getText().toString();
         String fecha=Fecha.getText().toString();
         String estado=Estado.getText().toString();
         String titulo=Titulo.getText().toString();
         String descrip=Descripcion.getText().toString();
         String Nombre=Nombre_Cliente.getText().toString();
-        RadioGroup formaRadioGroup = findViewById(R.id.formaRadioGroup);
-
-        // Get the selected RadioButton ID
-        int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
-
-        String formaEntrega = "";
-        if (radioButtonId == R.id.Local) {
-            formaEntrega = "Local";
-        }
-
-        else if (radioButtonId == R.id.Domicilio) {
-            formaEntrega = "Domicilio";
-        }
-
-        if(!uid_usuario.equals("") || !correo.equals("") || !fecha_actual.equals("") || !titulo.equals("") ||
-                !descrip.equals("") || !fecha.equals("") || !estado.equals("") || !Nombre.equals("") ||   !formaEntrega.equals("")) {
+        String id_pedido = BD_firebase.push().getKey();
 
 
-            Pedido pedido = new Pedido(correo + "/" +
+        if( uid_usuario.equals("") || fecha_actual.equals("") || titulo.equals("") ||
+                descrip.equals("") || fecha.equals("") || estado.equals("") || Nombre.equals("")  || formaRadioGroup.getCheckedRadioButtonId() == -1) {
+
+            int radioButtonId = formaRadioGroup.getCheckedRadioButtonId();
+            String formaEntrega = "";
+
+            if (radioButtonId == R.id.Local) {
+                formaEntrega = "Local";
+            } else if (radioButtonId == R.id.Domicilio) {
+                formaEntrega = "Domicilio";
+            }
+
+            Pedido pedido = new Pedido(id_pedido,
                     fecha_actual,
                     uid_usuario,
-                    correo,
-                    fecha_actual,
+                    Nombre,
                     titulo,
                     descrip,
-                    fecha,formaEntrega);
+                    fecha,
+                    formaEntrega,
+                    estado);
+//h
 
-           String id_pedido = BD_firebase.push().getKey();
-            String nombre_BD = "Pedidos_Realizado";
+            String nombre_BD = "Pedidos_Realizados";
+            assert id_pedido != null;
             BD_firebase.child(nombre_BD).child(id_pedido).setValue(pedido);
+
 
             Toast.makeText(this, "Pedido Realizado", Toast.LENGTH_SHORT).show();
             onBackPressed();
         }
-        else {
+        else{
             Toast.makeText(this, "Por favor, llene todos los campos y seleccione una forma de entrega", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void ValidarDatos(){
+
+        nombre = Nombre_Cliente.getText().toString();
+        titulo = Titulo.getText().toString();
+        descripcion = Descripcion.getText().toString();
+        fecha = Fecha.getText().toString();
+
+        if(TextUtils.isEmpty(nombre)){
+            Toast.makeText(this,"Ingresar nombre", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(titulo)){
+            Toast.makeText(this,"Ingresar el titulo", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(descripcion)){
+            Toast.makeText(this,"Ingresar una descripcion", Toast.LENGTH_SHORT).show();
+
+        }
+        else if (TextUtils.isEmpty(fecha)){
+            Toast.makeText(this,"Seleccione una fecha", Toast.LENGTH_SHORT).show();
+        }
+        else if (formaRadioGroup.getCheckedRadioButtonId() == -1){
+            Toast.makeText(this, "Selecciona una forma de entrega", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            agregarpedido();
+        }
+
+    }
+
     private void Obtener_Fecha(){
         String Fecha_hora_registro = new SimpleDateFormat("dd-MM-yyyy/HH:mm:ss a",
                 Locale.getDefault()).format(System.currentTimeMillis());
@@ -202,7 +232,4 @@ public class Agregar_Pedidos extends AppCompatActivity {
         Correo_usuario.setText(email_recuperado);
 
     }
-
-
-
 }
