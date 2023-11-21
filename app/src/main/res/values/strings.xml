@@ -141,5 +141,15 @@
     <string name="Establecer_Telefono">Escriba su telefono</string>
     <string name="Btn_Aceptar_Telefono">Aceptar</string>
 
+    <!--ITEM PEDIDOS IMPORTANTE-->
+    <string name="Id_pedido_Item_I">Id pedido</string>
+    <string name="Uid_Usuario_Item_I"> Uid del usuario</string>
+    <string name="Correo_usuario_Item_I">Correo de usuario</string>
+    <string name="Fecha_hora_registro_Item_I">Fecha y hora registro</string>
+    <string name="Titulo_Item_I"> Título </string>
+    <string name="Descripcion_Item_I"> Descripcion</string>
+    <string name="Fecha_Item_I"> 00/00/0000 </string>
+    <string name="Estado_Item_I"> No finalizado</string>
+
 </resources>
 

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    android:padding="0.2dp"
+    app:cardCornerRadius="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@color/md_green_500"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <!--ICONO-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/listapedidos" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="7dp"
+            android:orientation="vertical">
+
+            <!--id de nota-->
+            <TextView
+                android:id="@+id/Id_Pedido_Item_I"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:text="@string/Id_pedido_Item_I"
+                android:visibility="gone" />
+
+            <!--Uid de usuario-->
+            <TextView
+                android:id="@+id/Uid_Usuario_Item_I"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:text="@string/Uid_Usuario_Item_I"
+                android:visibility="gone" />
+
+
+            <!--Fecha y hora de registro-->
+            <TextView
+                android:id="@+id/Fecha_hora_registro_Item_I"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:text="@string/Fecha_hora_registro_Item_I"
+                android:visibility="gone" />
+
+            <!--Titulo de la nota-->
+            <TextView
+                android:id="@+id/Titulo_Item_I"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:text="@string/Titulo_Item_I"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <!--NOMBRE CLIENTE-->
+            <TextView
+                android:id="@+id/Nombre_Cliente_Importante_I"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:text="@string/Nombre_Cliente_Item"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+
+            <!--Descripción de la nota-->
+            <TextView
+                android:id="@+id/Descripcion_Item_I"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/variablefont_wght"
+                android:text="@string/Descripcion_Item_I"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <!--Fecha de la nota-->
+            <TextView
+                android:id="@+id/Fecha_Item_I"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/variablefont_wght"
+                android:text="@string/Fecha_Item_I"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <!--ESTADO DE LA NOTA-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Tarea_Finalizada_Item_I"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center"
+                    android:background="#16A085"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Tarea_No_Finalizada_Item_I"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="#E74C3C"
+                    android:visibility="gone" />
+
+
+                <!--Estado de la nota-->
+                <TextView
+                    android:id="@+id/Estado_Item_I"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/variablefont_wght"
+                    android:text="@string/Estado_Item_I"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.cardview.widget.CardView>
