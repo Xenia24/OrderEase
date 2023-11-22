@@ -103,6 +103,14 @@
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/Estado_E"
+                android:text="@string/Estado_E"
+                android:textSize="20sp"
+                android:fontFamily="@font/variablefont_wght"
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -178,7 +186,7 @@
 
             <TextView
                 android:id="@+id/Estado_nuevo"
-                android:text="@string/Estado_nuevo"
+                android:text="@string/Estado_A"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -196,7 +204,7 @@
             android:layout_height="match_parent"/>
         <TextView
             android:id="@+id/Estado_nuevo2"
-            android:text="@string/Estado_nuevo"
+            android:text="@string/Estado_E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
