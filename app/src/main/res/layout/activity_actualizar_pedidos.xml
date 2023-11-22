@@ -12,9 +12,9 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <!--ID NOTA-->
+        <!--ID PEDIDO-->
         <TextView
-            android:id="@+id/Id_nota_A"
+            android:id="@+id/Id_pedido_A"
             android:text="@string/Id_pedido_A"
             android:textSize="18sp"
             android:visibility="gone"
@@ -32,15 +32,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!--CORREO DEL USUARIO-->
-        <TextView
-            android:id="@+id/Correo_usuario_A"
-            android:hint="@string/Correo_usuario_A"
-            android:textSize="18sp"
-            android:visibility="gone"
-            android:fontFamily="@font/variablefont_wght"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
         <!--FECHA DE REGISTRO-->
         <TextView
@@ -85,6 +76,17 @@
                 android:layout_height="wrap_content"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--NOMBRE DEL CLIENTE-->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Nombre_Cliente"
+            android:id="@+id/Nombre_Cliente_A"
+            android:textSize="25sp"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
 
         <!--TITULO-->
         <EditText
@@ -157,24 +159,39 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Tipo de entrega"/>
-        <RadioGroup
-            android:id="@+id/formaRadioGroup2"
-            android:layout_gravity="center"
+
+        <Spinner
+            android:id="@+id/Spinner_estado_2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"/>
 
-            <RadioButton
-                android:id="@+id/Local2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Local" />
+        <!--        <RadioGroup-->
+<!--            android:id="@+id/formaRadioGroup2"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
 
-            <RadioButton
-                android:id="@+id/Domicilio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Domicilio" />
-        </RadioGroup>
+<!--            <RadioButton-->
+<!--                android:id="@+id/Local2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Local" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/Domicilio2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Domicilio" />-->
+
+<!--        </RadioGroup>-->
+
+        <Button
+            android:id="@+id/Btn_Actualizar_P_A"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/variablefont_wght"
+            android:text="@string/Btn_Actualizar_C_A" />
+
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
