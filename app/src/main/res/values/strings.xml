@@ -40,6 +40,7 @@
     <string name="Perfil_usuario">Perfil Usuario</string>
     <string name="Actualizar_pass">Actualizar pass</string>
     <string name="Agregar_Contacto">Agregar Contactos</string>
+    <string name="Buscar_Contacto">Buscar Contactos</string>
 
     <!--        AGREGAR PEDIDOS-->
     <string name="id_Usuario">Id del Usuario</string>
