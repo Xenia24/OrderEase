@@ -141,16 +141,34 @@ public class Listar_Pedidos extends AppCompatActivity {
                         String forma_entrega = getItem(position).getForma_entrega();
                         String estado = getItem(position).getEstado();
 
-                        Button CD_Eliminar;
+                        Button CD_Eliminar, CD_Actualizar;
 
                         dialog.setContentView(R.layout.dialogo_opciones);
 
                         CD_Eliminar = dialog.findViewById(R.id.CD_Eliminar);
+                        CD_Actualizar=dialog.findViewById(R.id.CD_Actualizar);
 
                         CD_Eliminar.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 EliminarPedido(id_pedido);
+                                dialog.dismiss();
+                            }
+                        });
+                        CD_Actualizar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent=new Intent(Listar_Pedidos.this, Actualizar_Pedidos.class);
+                                intent.putExtra("id_pedido", id_pedido);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("nombre_usuario",nombre);
+                                intent.putExtra("titulo", titulo);
+                                intent.putExtra("descripcion", descripcion);
+                                intent.putExtra("fecha_registro", fecha_registro);
+                                intent.putExtra("fecha_pedido",fecha_nota);
+                                intent.putExtra("forma_entrega", forma_entrega);
+                                intent.putExtra("estado", estado);
+                                startActivity(intent);
                                 dialog.dismiss();
                             }
                         });

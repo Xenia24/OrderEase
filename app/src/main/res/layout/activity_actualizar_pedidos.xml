@@ -32,15 +32,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!--CORREO DEL USUARIO-->
-        <TextView
-            android:id="@+id/Correo_usuario_A"
-            android:hint="@string/Correo_usuario_A"
-            android:textSize="18sp"
-            android:visibility="gone"
-            android:fontFamily="@font/variablefont_wght"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
         <!--FECHA DE REGISTRO-->
         <TextView
