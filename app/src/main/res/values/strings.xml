@@ -170,5 +170,17 @@
     <string name="Notas_Finalizadas">Finalizadas</string>
     <string name="Notas_No_Finalizadas">No Finalizadas</string>
 
+    <!---SPINNER - ESTADO-->
+    <string-array name="Estados_pedido">
+        <item>"Entregado"</item>
+        <item>"No Entregado"</item>
+    </string-array>
+
+    <!---SPINNER - ESTADO2-->
+    <string-array name="Forma_pedido">
+        <item>"Local"</item>
+        <item>"Domicilio"</item>
+    </string-array>
+
 </resources>
 
