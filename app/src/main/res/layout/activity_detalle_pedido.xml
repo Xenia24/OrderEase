@@ -344,6 +344,7 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -356,14 +357,43 @@
                 android:layout_gravity="center"/>
 
 
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/estado"/>
 
-
-
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/font"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:text="Forma de Entrega"
+                android:layout_marginStart="10dp"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="Entrega"
+            android:id="@+id/Forma_entrega"
+            android:layout_gravity="center"/>
+
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"

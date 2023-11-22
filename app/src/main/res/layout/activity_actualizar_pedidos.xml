@@ -11,6 +11,35 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/md_orange_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/regresar"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <ImageView
+                android:id="@+id/Agregar_Pedido"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/save"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!--ID PEDIDO-->
         <TextView
@@ -74,6 +103,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -154,36 +184,24 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Tipo de entrega"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
 
         <Spinner
             android:id="@+id/Spinner_estado_2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/Estado_nuevo2"
+            android:text="@string/Estado_nuevo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <!--        <RadioGroup-->
-<!--            android:id="@+id/formaRadioGroup2"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content">-->
 
-<!--            <RadioButton-->
-<!--                android:id="@+id/Local2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Local" />-->
-
-<!--            <RadioButton-->
-<!--                android:id="@+id/Domicilio2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Domicilio" />-->
-
-<!--        </RadioGroup>-->
 
         <Button
             android:id="@+id/Btn_Actualizar_P_A"

@@ -19,6 +19,11 @@
     <string name="PasswordL">Contraseña</string>
     <string name="Btn_LoginI">Ingresar</string>
     <string name="UsuarioNuevo">No Tienes una Cuenta?. Registrate</string>
+    <!---SPINNER - ESTADO-->
+    <string-array name="Estados_pedido2">
+        <item>"Local"</item>
+        <item>"Domicilio"</item>
+    </string-array>
 
     <!--    MENU PRINCIPAL-->
     <string name="BienvenidoP">Bienvenido(a)</string>\
@@ -164,6 +169,7 @@
     <string name="Fecha_A"> 00/00/0000 </string>
     <string name="Estado_A"> No finalizado</string>
     <string name="Estado_nuevo"> -- </string>
+
 
     <!--CUADRO DE DIÁLOGO - FILTRAR PEDIDOS-->
     <string name="FiltroTXT">Filtrar pedidos: </string>

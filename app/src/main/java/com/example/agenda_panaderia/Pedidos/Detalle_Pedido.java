@@ -25,7 +25,7 @@ import java.util.HashMap;
 public class Detalle_Pedido extends AppCompatActivity {
 
     String id_pedido, uid_usuario, nombre_usuario,fecha_registro, titulo, descripcion, fecha_pedido, forma_entrega,estado;
-    TextView Id_Pedido_Detalle, Id_Usuario_Detalle, Nombre_Detalle, Titulo_Detalle, Descripcion_Detalle, Fecha_Registro_Detalle, Fecha_Pedido_Detalle, Estado_Detalle;
+    TextView Id_Pedido_Detalle, Id_Usuario_Detalle, Nombre_Detalle, Titulo_Detalle, Descripcion_Detalle, Fecha_Registro_Detalle, Fecha_Pedido_Detalle, Estado_Detalle,Forma_entrega;
 
     FirebaseAuth firebaseAuth;
     Button Importante;
@@ -62,6 +62,7 @@ public class Detalle_Pedido extends AppCompatActivity {
         Fecha_Pedido_Detalle=findViewById(R.id.Fecha_Pedido_Detalle);
         Estado_Detalle=findViewById(R.id.Estado_Detalle);
         Importante = findViewById(R.id.Importantes);
+        Forma_entrega=findViewById(R.id.Forma_entrega);
 
 
 
@@ -91,6 +92,7 @@ public class Detalle_Pedido extends AppCompatActivity {
         Fecha_Registro_Detalle.setText(fecha_registro);
         Fecha_Pedido_Detalle.setText(fecha_pedido);
         Estado_Detalle.setText(estado);
+        Forma_entrega.setText(forma_entrega);
     }
 
     private void pedidos_importantes() {
