@@ -17,12 +17,23 @@
         android:background="@color/md_orange_800"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/regresar3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="8dp"
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/Buscar_Pedidos"
-            tools:ignore="MissingConstraints">
+            android:layout_width="255dp"
+            android:layout_height="38dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="140dp"
+            tools:layout_editor_absoluteY="-3dp">
 
         </SearchView>
 

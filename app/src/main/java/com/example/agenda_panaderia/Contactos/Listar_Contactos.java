@@ -39,7 +39,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class Listar_Contactos extends AppCompatActivity {
-    ImageView ImageView, atras;
+    ImageView ImageView, atras1;
     RecyclerView recyclerViewContactos;
     FirebaseDatabase firebaseDatabase;
 
@@ -56,7 +56,7 @@ public class Listar_Contactos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_contactos);
         ImageView = findViewById(R.id.Agregar_Contacto);
-        atras = findViewById(R.id.regresar);
+        atras1 = findViewById(R.id.regresar);
 //        buscar = findViewById(R.id.Buscar_contactos);
         dialog = new Dialog((Listar_Contactos.this));
         recyclerViewContactos = findViewById(R.id.recyclerViewContactos);
@@ -98,7 +98,7 @@ public class Listar_Contactos extends AppCompatActivity {
             }
         });
 
-        atras.setOnClickListener(new View.OnClickListener() {
+        atras1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {

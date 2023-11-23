@@ -1,10 +1,5 @@
 package com.example.agenda_panaderia.Pedidos;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.agenda_panaderia.Menu_Principal;
 import com.example.agenda_panaderia.Objetos.Pedido;
 import com.example.agenda_panaderia.R;
 import com.example.agenda_panaderia.ViewHolder.ViewHolderImportante;
@@ -33,7 +34,7 @@ public class Pedidos_Importantes extends AppCompatActivity {
     DatabaseReference Mis_Pedidos;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
-
+    android.widget.ImageView atras;
     FirebaseRecyclerAdapter<Pedido, ViewHolderImportante> firebaseRecyclerAdapter;
     FirebaseRecyclerOptions<Pedido> firebaseRecyclerOptions;
 
@@ -44,6 +45,7 @@ public class Pedidos_Importantes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedidos_importantes);
+        atras = findViewById(R.id.regresar3);
         RecyclerViewPedidosI = findViewById(R.id.RecyclerViewPedidosI);
         RecyclerViewPedidosI.setHasFixedSize(true);
 
@@ -56,6 +58,16 @@ public class Pedidos_Importantes extends AppCompatActivity {
         //dialog = new Dialog(Pedidos_Importantes.this);
 
         comprobarUsuario();
+        atras.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Pedidos_Importantes.this, Menu_Principal.class);
+                startActivity(intent);
+                //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
+                //uno dos tres
+            }
+        });
     }
 
     private void comprobarUsuario() {

@@ -1,8 +1,7 @@
 package com.example.agenda_panaderia.Pedidos;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,12 +14,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.agenda_panaderia.Objetos.Pedido;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.agenda_panaderia.Menu_Principal;
+import com.example.agenda_panaderia.Objetos.Pedido;
 import com.example.agenda_panaderia.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,7 +31,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
     TextView id_Usuario, Correo_usuario, Fecha_Actual, Fecha, Estado;
     EditText Descripcion, Titulo, Nombre_Cliente;
     Button Btn_Calendario;
-    ImageView Btn_pedido;
+    ImageView Btn_pedido, atras;
     private RadioGroup formaRadioGroup;
     private RadioButton localRadioButton;
     private RadioButton domicilioRadioButton;
@@ -43,7 +43,7 @@ public class Agregar_Pedidos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_pedidos);
-
+        atras = findViewById(R.id.regresar);
         InicializarVariables();
         Obtenerdatos();
         Obtener_Fecha();
@@ -106,6 +106,16 @@ public class Agregar_Pedidos extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ValidarDatos();
+            }
+        });
+        atras.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Agregar_Pedidos.this, Menu_Principal.class);
+                startActivity(intent);
+                //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
+                //uno dos tres
             }
         });
 

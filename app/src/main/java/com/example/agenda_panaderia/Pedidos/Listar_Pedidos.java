@@ -1,10 +1,5 @@
 package com.example.agenda_panaderia.Pedidos;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -16,6 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.agenda_panaderia.Menu_Principal;
 import com.example.agenda_panaderia.Objetos.Pedido;
 import com.example.agenda_panaderia.R;
 import com.example.agenda_panaderia.ViewHolder.ViewHolder_Pedidos;
@@ -37,7 +38,7 @@ public class Listar_Pedidos extends AppCompatActivity {
     RecyclerView recyclerviewPedidos;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference BASE_DE_DATOS;
-
+    android.widget.ImageView  atras;
     LinearLayoutManager linearLayoutManager;
 
     FirebaseRecyclerAdapter<Pedido, ViewHolder_Pedidos> firebaseRecyclerAdapter;
@@ -53,7 +54,7 @@ public class Listar_Pedidos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_pedidos);
-
+        atras = findViewById(R.id.regresar2);
         recyclerviewPedidos = findViewById(R.id.recyclerviewPedidos);
         recyclerviewPedidos.setHasFixedSize(true);
 
@@ -68,6 +69,14 @@ public class Listar_Pedidos extends AppCompatActivity {
 //        dialog = new Dialog(Listar_Pedidos.this);
 //        dialog = new Dialog(Listar_Pedidos.this);
         ListarNotasUsuarios();
+        atras.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Listar_Pedidos.this, Menu_Principal.class);
+                startActivity(intent);
+            }
+        });
         //Estado_Filtro();
     }
 
@@ -154,7 +163,9 @@ public class Listar_Pedidos extends AppCompatActivity {
                                 EliminarPedido(id_pedido);
                                 dialog.dismiss();
                             }
+
                         });
+
                         CD_Actualizar.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
