@@ -57,7 +57,7 @@ public class Listar_Contactos extends AppCompatActivity {
         setContentView(R.layout.activity_listar_contactos);
         ImageView = findViewById(R.id.Agregar_Contacto);
         atras1 = findViewById(R.id.regresar);
-//        buscar = findViewById(R.id.Buscar_contactos);
+        buscar = findViewById(R.id.Buscar_contactos);
         dialog = new Dialog((Listar_Contactos.this));
         recyclerViewContactos = findViewById(R.id.recyclerViewContactos);
         recyclerViewContactos.setHasFixedSize(true);
@@ -69,21 +69,19 @@ public class Listar_Contactos extends AppCompatActivity {
         user = firebaseAuth.getCurrentUser();
 
 
+        buscar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                BuscarContacto(query);
+                return false;
+            }
 
-//        buscar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                BuscarContacto(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                BuscarContacto(newText);
-//                return false;
-//            }
-//        });
-
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                BuscarContacto(newText);
+                return false;
+            }
+        });
 
         ImageView.setOnClickListener(new View.OnClickListener() {
 
@@ -263,7 +261,6 @@ public class Listar_Contactos extends AppCompatActivity {
 
                             @Override
                             public void onClick(View view) {
-                                //Toast.makeText(Listar_Contactos.this, "Eliminar contacto", Toast.LENGTH_SHORT).show();
                                 Eliminar_contacto(id_c);
                                 dialog.dismiss();
                             }
