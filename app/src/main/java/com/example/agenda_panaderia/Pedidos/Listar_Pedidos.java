@@ -150,6 +150,20 @@ public class Listar_Pedidos extends AppCompatActivity {
                         String forma_entrega = getItem(position).getForma_entrega();
                         String estado = getItem(position).getEstado();
 
+                        Button CD_Eliminar, CD_Actualizar;
+
+                        dialog.setContentView(R.layout.dialogo_opciones);
+
+                        CD_Eliminar = dialog.findViewById(R.id.CD_Eliminar);
+                        CD_Actualizar=dialog.findViewById(R.id.CD_Actualizar);
+
+                        CD_Eliminar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                EliminarPedido(id_pedido);
+                                dialog.dismiss();
+                            }
+
 
                         });
 
@@ -175,6 +189,8 @@ public class Listar_Pedidos extends AppCompatActivity {
                 });
                 return viewHolder_pedidos;
             }
+
+
         };
 
         linearLayoutManager = new LinearLayoutManager(Listar_Pedidos.this, LinearLayoutManager.VERTICAL, false);
@@ -192,6 +208,33 @@ public class Listar_Pedidos extends AppCompatActivity {
             firebaseRecyclerAdapter.startListening();
         }
     }
+    private void EliminarPedido(String id_pedido) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listar_Pedidos.this);
+        builder.setTitle("Eliminar pedido");
+        builder.setMessage("¿Desea eliminar el pedido?");
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //ELIMINAR PEDIDO EN BD
+                Query query = BASE_DE_DATOS.orderByChild("id_pedido").equalTo(id_pedido);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()){
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(Listar_Pedidos.this, "Pedido eliminado", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
+                        Toast.makeText(Listar_Pedidos.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+
 
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
