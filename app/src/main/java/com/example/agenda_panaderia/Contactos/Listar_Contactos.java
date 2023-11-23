@@ -69,6 +69,7 @@ public class Listar_Contactos extends AppCompatActivity {
         user = firebaseAuth.getCurrentUser();
 
 
+
         buscar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -82,6 +83,7 @@ public class Listar_Contactos extends AppCompatActivity {
                 return false;
             }
         });
+
 
         ImageView.setOnClickListener(new View.OnClickListener() {
 
@@ -261,6 +263,7 @@ public class Listar_Contactos extends AppCompatActivity {
 
                             @Override
                             public void onClick(View view) {
+                                //Toast.makeText(Listar_Contactos.this, "Eliminar contacto", Toast.LENGTH_SHORT).show();
                                 Eliminar_contacto(id_c);
                                 dialog.dismiss();
                             }
