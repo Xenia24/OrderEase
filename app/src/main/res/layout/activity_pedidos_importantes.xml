@@ -32,7 +32,7 @@
             android:layout_width="255dp"
             android:layout_height="38dp"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="140dp"
+            tools:layout_editor_absoluteX="35dp"
             tools:layout_editor_absoluteY="-3dp">
 
         </SearchView>
