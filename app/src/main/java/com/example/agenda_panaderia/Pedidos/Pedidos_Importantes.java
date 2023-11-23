@@ -6,16 +6,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.agenda_panaderia.Contactos.Actualizar_Contactos;
+import com.example.agenda_panaderia.Contactos.Listar_Contactos;
 import com.example.agenda_panaderia.Menu_Principal;
+import com.example.agenda_panaderia.Objetos.Contacto;
 import com.example.agenda_panaderia.Objetos.Pedido;
 import com.example.agenda_panaderia.R;
+import com.example.agenda_panaderia.ViewHolder.ViewHolderContacto;
 import com.example.agenda_panaderia.ViewHolder.ViewHolderImportante;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -23,6 +30,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -37,6 +45,7 @@ public class Pedidos_Importantes extends AppCompatActivity {
     android.widget.ImageView atras;
     FirebaseRecyclerAdapter<Pedido, ViewHolderImportante> firebaseRecyclerAdapter;
     FirebaseRecyclerOptions<Pedido> firebaseRecyclerOptions;
+
 
     LinearLayoutManager linearLayoutManager;
     Dialog dialog;
@@ -68,6 +77,8 @@ public class Pedidos_Importantes extends AppCompatActivity {
                 //uno dos tres
             }
         });
+
+
     }
 
     private void comprobarUsuario() {
