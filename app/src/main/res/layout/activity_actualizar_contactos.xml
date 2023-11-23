@@ -21,6 +21,15 @@
                 android:layout_height="210dp"
                 android:scaleType="centerCrop"
                 android:background="@color/verde" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Actualizar Contacto"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:gravity="center"
+                />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/Imagen_C_A"
@@ -132,6 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/variablefont_wght"
+                app:backgroundTint="@color/md_orange_800"
                 android:text="@string/Btn_Actualizar_C_A" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

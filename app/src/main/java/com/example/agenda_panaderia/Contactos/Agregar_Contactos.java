@@ -1,18 +1,15 @@
 package com.example.agenda_panaderia.Contactos;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agenda_panaderia.Objetos.Contacto;
 import com.example.agenda_panaderia.R;
@@ -25,7 +22,7 @@ import com.hbb20.CountryCodePicker;
 public class Agregar_Contactos extends AppCompatActivity {
 TextView Uid_Usuario,Telefono_c;
 EditText Nombre_c, Apellido_c, Correo_c, Direccion_c;
-ImageView Editar_Telefono_C;
+ImageView Editar_Telefono_C,  atras1;
 Button Btn_guardar_contacto;
 Dialog  dialog_establecer_telefono;
 DatabaseReference BD_Contactos;
@@ -36,7 +33,7 @@ FirebaseUser user;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_contactos);
-
+        atras1 = findViewById(R.id.regresar2);
         InicializarVariables();
         ObtenerUidUsuario();
 
