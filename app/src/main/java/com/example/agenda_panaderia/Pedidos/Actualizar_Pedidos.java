@@ -36,7 +36,7 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
     Button Btn_Calendario_A;
     ImageView Agregar_Pedido;
     Spinner Spinner_estado, Spinner_estado_2;
-    String id_pedido_R, uid_usuario_R,nombre_cliente_R, fecha_registro_R, estado_P_R, fecha_R,estado_n_R, titulo_R,descripcion_R,tipo_pedido_R;
+    String id_pedido_R, uid_usuario_R,nombre_cliente_R, fecha_registro_R, fecha_R,estado_n_R, titulo_R,descripcion_R,tipo_pedido_R;
     int year,mes,dia;
 
     @Override
@@ -150,17 +150,17 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
         Fecha_A.setText(fecha_R);
         Titulo_A.setText(titulo_R);
         Descripcion_A.setText(descripcion_R);
-        Estado_E.setText(tipo_pedido_R);
+        Estado_nuevo2.setText(tipo_pedido_R);
         Nombre_Cliente_A.setText(nombre_cliente_R);
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
     }
 
@@ -177,10 +177,10 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
     }
 
     private void Spinner_Pedido() {
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.Forma_pedido, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner_estado_2.setAdapter(adapter2);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner_estado_2.setAdapter(adapter);
         Spinner_estado_2.setOnItemSelectedListener(new PedidoItemSelectedListener());
     }
 
@@ -188,7 +188,7 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
             String ESTADO_ACTUAL = Estado_A.getText().toString();
-            String Posicion_1 = adapterView.getItemAtPosition(1).toString();
+            String Posicion_1 = adapterView.getItemAtPosition(0).toString();
             String estado_seleccionado = adapterView.getItemAtPosition(i).toString();
             Estado_nuevo.setText(estado_seleccionado);
 
@@ -205,10 +205,10 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
 
     private class PedidoItemSelectedListener implements AdapterView.OnItemSelectedListener {
         @Override
-        public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
             String Estado_Pedido = Estado_E.getText().toString();
-            String Posicion_2 = adapterView.getItemAtPosition(1).toString();
-            String estado_seleccionado2 = adapterView.getItemAtPosition(position).toString();
+            String Posicion_2 = adapterView.getItemAtPosition(0).toString();
+            String estado_seleccionado2 = adapterView.getItemAtPosition(i).toString();
             Estado_nuevo2.setText(estado_seleccionado2);
 
             if (Estado_Pedido.equals("Local")) {
@@ -228,8 +228,8 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
         String titulo_Ac=Titulo_A.getText().toString();
         String descripcion_Ac=Descripcion_A.getText().toString();
         String fecha_pedido_Ac=Fecha_A.getText().toString();
-        String estado_Ac=Estado_A.getText().toString();
-        String forma_entrega_Ac=Estado_E.getText().toString();
+        String estado_Ac=Estado_nuevo.getText().toString();
+        String forma_entrega_Ac=Estado_nuevo2.getText().toString();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference dbReference = firebaseDatabase.getReference("Pedidos_Realizados");
         Query query = dbReference.orderByChild("id_pedido").equalTo(id_pedido_R);
@@ -254,8 +254,4 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
             }
         });
     }
-
-
-
-
 }
