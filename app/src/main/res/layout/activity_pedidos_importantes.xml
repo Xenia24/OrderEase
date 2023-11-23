@@ -26,19 +26,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
-
-        <SearchView
-            android:id="@+id/Buscar_Pedidos"
-            android:layout_width="255dp"
-            android:layout_height="38dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="35dp"
-            tools:layout_editor_absoluteY="-3dp">
-
-        </SearchView>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <TextView
         android:layout_width="match_parent"
@@ -48,8 +38,9 @@
         android:textSize="20sp"
         android:textColor="@color/md_orange_800"
         android:fontFamily="@font/font"
-
         android:layout_marginTop="50dp"/>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

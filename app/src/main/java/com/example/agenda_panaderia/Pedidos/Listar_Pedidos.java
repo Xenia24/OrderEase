@@ -13,12 +13,19 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.agenda_panaderia.Contactos.Actualizar_Contactos;
+import com.example.agenda_panaderia.Contactos.Listar_Contactos;
 import com.example.agenda_panaderia.Menu_Principal;
+import com.example.agenda_panaderia.Objetos.Contacto;
 import com.example.agenda_panaderia.Objetos.Pedido;
 import com.example.agenda_panaderia.R;
+import com.example.agenda_panaderia.ViewHolder.ViewHolderContacto;
+import com.example.agenda_panaderia.ViewHolder.ViewHolderImportante;
 import com.example.agenda_panaderia.ViewHolder.ViewHolder_Pedidos;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -46,6 +53,8 @@ public class Listar_Pedidos extends AppCompatActivity {
 
     Dialog dialog;
 
+    SearchView buscar_Pedidos;
+
     FirebaseAuth auth;
     FirebaseUser user;
 
@@ -55,6 +64,9 @@ public class Listar_Pedidos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_pedidos);
         atras = findViewById(R.id.regresar2);
+
+        buscar_Pedidos = findViewById(R.id.Buscar_Pedidos);
+
         recyclerviewPedidos = findViewById(R.id.recyclerviewPedidos);
         recyclerviewPedidos.setHasFixedSize(true);
 
@@ -77,6 +89,7 @@ public class Listar_Pedidos extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         //Estado_Filtro();
     }
 
@@ -245,7 +258,4 @@ public class Listar_Pedidos extends AppCompatActivity {
 
         builder.create().show();
     }
-
-
-
 }

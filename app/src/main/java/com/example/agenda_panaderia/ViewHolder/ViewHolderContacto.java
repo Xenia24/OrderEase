@@ -74,4 +74,6 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
         direccion_c_Item.setText(direccion);
 
     }
+
+
 }

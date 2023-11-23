@@ -80,7 +80,7 @@ public class ViewHolderImportante  extends RecyclerView.ViewHolder {
         Estado_Item.setText(estado);
 
         //GESTIONAMOS EL COLOR DEL ESTADO
-        if (estado.equals("Finalizado")){
+        if (estado.equals("Entregado")){
             Tarea_Finalizada_Item.setVisibility(View.VISIBLE);
         }else {
             Tarea_No_Finalizada_Item.setVisibility(View.VISIBLE);
