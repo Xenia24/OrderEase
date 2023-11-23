@@ -39,22 +39,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Buscar_Pedidos"
-            tools:ignore="MissingConstraints">
-
-        </SearchView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/Buscar_contactos"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp">
+
+    </androidx.appcompat.widget.SearchView>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="110dp"
         android:orientation="vertical"
         android:id="@+id/recyclerViewContactos"/>
+
 </RelativeLayout>
