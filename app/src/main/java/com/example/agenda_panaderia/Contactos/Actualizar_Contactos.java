@@ -70,12 +70,18 @@ public class Actualizar_Contactos extends AppCompatActivity {
                 Establecer_telefono_contacto();
             }
         });
-
         Btn_Actualizar_C_A.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                Intent intent= new Intent(Actualizar_Contactos.this, Listar_Contactos.class);
+                startActivity(intent);
                 ActualizarInformacionContacto();
+
+                //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
+                //uno dos tres
             }
+
         });
         Actualizar_imagen_C_A.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -269,10 +269,10 @@ public class Listar_Contactos extends AppCompatActivity {
                         Btn_Actualizar_C_A.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent = new Intent(Listar_Contactos.this, Actualizar_Contactos.class);
+
+                                Intent intent = new Intent(Listar_Contactos.this, Listar_Contactos.class);
                                 Toast.makeText(Listar_Contactos.this, "Editar contacto", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
-
                                 intent.putExtra("id_c", id_c);
                                 intent.putExtra("uid_usuario", uid_usuario);
                                 intent.putExtra("Nombre_c", Nombres_c);
