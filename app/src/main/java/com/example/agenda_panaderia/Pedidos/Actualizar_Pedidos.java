@@ -192,7 +192,7 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
             String estado_seleccionado = adapterView.getItemAtPosition(i).toString();
             Estado_nuevo.setText(estado_seleccionado);
 
-            if (ESTADO_ACTUAL.equals("Entregado")) {
+            if (ESTADO_ACTUAL.equals("No Entregado")) {
                 Estado_nuevo.setText(Posicion_1);
             }
         }
@@ -206,7 +206,7 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
     private class PedidoItemSelectedListener implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-            String Estado_Pedido = Estado_E.getText().toString();
+            String Estado_Pedido = Spinner_estado_2.getSelectedItem().toString();
             String Posicion_2 = adapterView.getItemAtPosition(0).toString();
             String estado_seleccionado2 = adapterView.getItemAtPosition(i).toString();
             Estado_nuevo2.setText(estado_seleccionado2);
