@@ -1,67 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/md_orange_400"
     android:layout_height="match_parent"
     tools:context=".Contactos.Actualizar_Contactos">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/md_orange_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:scaleType="centerCrop"
-                android:background="@color/verde" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Actualizar Contacto"
-                android:fontFamily="@font/font"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:gravity="center"
+            <ImageView
+                android:id="@+id/regresar"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/Imagen_C_A"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="120dp"
-                android:background="#354F60"
-                android:scaleType="centerCrop"
-                android:src="@drawable/usi" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/Actualizar_imagen_C_A"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="130dp"
-                android:layout_marginTop="230dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/add" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Editar Contacto"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/md_orange_800"
+            android:fontFamily="@font/font"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/Imagen_C_A"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/usercc"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/Actualizar_imagen_C_A"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="230dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/addc" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="450dp"
             android:orientation="vertical"
             android:padding="10dp">
 
 
             <TextView
                 android:id="@+id/Id_C_A"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/variablefont_wght"
@@ -69,6 +81,7 @@
 
             <TextView
                 android:id="@+id/Uid_C_A"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/variablefont_wght"
@@ -79,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:hint="@string/Nombres_C_A"
                 android:inputType="textCapWords|textPersonName" />
 
@@ -87,7 +100,7 @@
                 android:id="@+id/Apellidos_C_A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:hint="@string/Apellidos_C_A"
                 android:inputType="textCapWords|textPersonName" />
 
@@ -95,7 +108,7 @@
                 android:id="@+id/Correo_C_A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:hint="@string/Correo_C_A"
                 android:inputType="textEmailAddress" />
 
@@ -109,7 +122,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/variablefont_wght"
+                    android:fontFamily="@font/font"
                     android:inputType="phone"
                     android:text="@string/Telefono_C_A"
                     android:textSize="20sp" />
@@ -120,7 +133,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="15dp"
-                    android:src="@drawable/telefono" />
+                    android:src="@drawable/tele" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -131,7 +144,7 @@
                 android:id="@+id/Direccion_C_A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:hint="@string/Direccion_C_A"
                 android:inputType="textCapWords|text" />
 
@@ -140,7 +153,8 @@
                 android:id="@+id/Btn_Actualizar_C_A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
                 app:backgroundTint="@color/md_orange_800"
                 android:text="@string/Btn_Actualizar_C_A" />
 
@@ -148,4 +162,4 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-</RelativeLayout>
+</ScrollView>

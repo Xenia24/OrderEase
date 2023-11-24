@@ -171,7 +171,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="5dp">
 
             <!--  OPCIONES 1 Y 2 -->
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -182,12 +182,19 @@
                 android:weightSum="2">
 
                 <!--  OPCION 1 - AGREGAR-->
+                <!--  OPCION 1 - AGREGAR-->
                 <androidx.cardview.widget.CardView
                     android:layout_width="80dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
                     android:orientation="vertical"
+                    app:cardUseCompatPadding="true"
+                    android:padding="0.2dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:backgroundTint="@color/white"
                     android:gravity="center">
 
@@ -199,13 +206,14 @@
 
                     <Button
                         android:id="@+id/Btn_Agregar"
-                        android:layout_width="100dp"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
                         android:layout_marginTop="95dp"
-                        android:textColor="@color/white"
                         android:backgroundTint="@color/md_orange_800"
                         android:fontFamily="@font/font"
-                        android:text="@string/AgregarPedidos" />
+                        android:text="@string/AgregarPedidos"
+                        android:textColor="@color/white" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -217,7 +225,13 @@
                     android:layout_margin="5dp"
                     android:backgroundTint="@color/white"
                     android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    app:cardUseCompatPadding="true"
+                    android:padding="0.2dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="wrap_content"
@@ -227,14 +241,15 @@
 
 
                     <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/ListaPedidos"
-                        android:backgroundTint="@color/md_orange_800"
-                        android:layout_marginTop="95dp"
                         android:id="@+id/Btn_Lista"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/font"/>
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="95dp"
+                        android:backgroundTint="@color/md_orange_800"
+                        android:fontFamily="@font/font"
+                        android:text="@string/ListaPedidos"
+                        android:textColor="@color/white" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -256,6 +271,12 @@
                     android:layout_weight="1"
                     android:layout_margin="5dp"
                     android:orientation="vertical"
+                    app:cardUseCompatPadding="true"
+                    android:padding="0.2dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center">
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -266,12 +287,13 @@
 
 
                     <Button
-                        android:layout_width="match_parent"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:text="@string/Importantes"
                         android:textColor="@color/white"
                         android:backgroundTint="@color/md_orange_800"
                         android:layout_marginTop="95dp"
+                        android:layout_marginLeft="30dp"
                         android:id="@+id/Btn_Importantes"
                         android:fontFamily="@font/font"/>
 
@@ -285,21 +307,34 @@
                     android:layout_margin="5dp"
                     android:backgroundTint="@color/white"
                     android:orientation="vertical"
+                    app:cardUseCompatPadding="true"
+                    android:padding="0.2dp"
+                    android:clickable="true"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="wrap_content"
                         android:layout_height="80dp"
                         android:layout_marginTop="10dp"
+                        app:cardUseCompatPadding="true"
+                        android:padding="0.2dp"
+                        android:clickable="true"
+                        app:cardCornerRadius="10dp"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/contactosclientes"/>
 
                     <Button
-                        android:layout_width="match_parent"
+                        android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:text="@string/Contactos"
                         android:textColor="@color/white"
                         android:id="@+id/Btn_Contactos"
                         android:layout_marginTop="95dp"
+                        android:layout_marginLeft="35dp"
                         android:backgroundTint="@color/md_orange_800"
                         android:fontFamily="@font/font"/>
 
@@ -310,12 +345,18 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="210dp"
+                android:layout_width="190dp"
                 android:backgroundTint="@color/white"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                app:cardUseCompatPadding="true"
+                android:padding="0.1dp"
+                android:clickable="true"
+                app:cardCornerRadius="10dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:weightSum="1">
 
                 <!--  OPCION 3 - Importantes-->
@@ -335,15 +376,15 @@
 
 
                     <Button
-                        android:layout_width="200dp"
+                        android:layout_width="160dp"
                         android:layout_height="wrap_content"
                         android:text="@string/CerrarC"
                         android:layout_marginTop="10dp"
                         android:id="@+id/Btn_Salir"
                         android:textColor="@color/white"
+                        android:layout_marginLeft="5dp"
                         android:backgroundTint="@color/md_orange_800"
                         android:fontFamily="@font/font"/>
-
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.cardview.widget.CardView>

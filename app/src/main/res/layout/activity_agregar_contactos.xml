@@ -61,7 +61,7 @@
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:src="@drawable/agregar_usuario"/>
+            android:src="@drawable/usercc"/>
 
         <EditText
             android:id="@+id/Nombre_c"

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -13,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agenda_panaderia"
         tools:targetApi="31">
+        <activity
+            android:name=".Contactos.Detalles_Contacto"
+            android:exported="false" />
         <activity
             android:name=".Pedidos.Actualizar_Pedidos"
             android:exported="false" />
@@ -64,7 +66,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
