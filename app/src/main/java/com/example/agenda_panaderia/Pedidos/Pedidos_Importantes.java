@@ -132,10 +132,10 @@ public class Pedidos_Importantes extends AppCompatActivity {
                         Intent intent = new Intent(Pedidos_Importantes.this, Detalle_Pedido.class);
                         intent.putExtra("id_pedido", id_pedido);
                         intent.putExtra("uid_usuario", uid_usuario);
-                        intent.putExtra("nombre_usuario", nombre);
+                        intent.putExtra("nombre", nombre);
                         intent.putExtra("titulo", titulo);
                         intent.putExtra("descripcion", descripcion);
-                        intent.putExtra("fecha_registro", fecha_registro);
+                        intent.putExtra("fecha_actual", fecha_registro);
                         intent.putExtra("fecha_pedido", fecha_pedido);
                         intent.putExtra("forma_entrega", forma_entrega);
                         intent.putExtra("estado", estado);

@@ -75,10 +75,10 @@ public class Detalle_Pedido extends AppCompatActivity {
 
         id_pedido=intent.getString("id_pedido");
         uid_usuario=intent.getString("uid_usuario");
-        nombre_usuario=intent.getString("nombre_usuario");
+        nombre_usuario=intent.getString("nombre");
         titulo=intent.getString("titulo");
         descripcion=intent.getString("descripcion");
-        fecha_registro=intent.getString("fecha_registro");
+        fecha_registro=intent.getString("fecha_actual");
         fecha_pedido=intent.getString("fecha_pedido");
         forma_entrega=intent.getString("forma_entrega");
         estado=intent.getString("estado");
@@ -105,10 +105,10 @@ public class Detalle_Pedido extends AppCompatActivity {
 
             id_pedido=intent.getString("id_pedido");
             uid_usuario=intent.getString("uid_usuario");
-            nombre_usuario=intent.getString("nombre_usuario");
+            nombre_usuario=intent.getString("nombre");
             titulo=intent.getString("titulo");
             descripcion=intent.getString("descripcion");
-            fecha_registro=intent.getString("fecha_registro");
+            fecha_registro=intent.getString("fecha_actual");
             fecha_pedido=intent.getString("fecha_pedido");
             forma_entrega=intent.getString("forma_entrega");
             estado=intent.getString("estado");
@@ -118,10 +118,10 @@ public class Detalle_Pedido extends AppCompatActivity {
             HashMap<String, String> Pedido_importante = new HashMap<>();
             Pedido_importante.put("id_pedido", id_pedido);
             Pedido_importante.put("uid_usuario",uid_usuario);
-            Pedido_importante.put("nombre_usuario",  nombre_usuario);
+            Pedido_importante.put("nombre",  nombre_usuario);
             Pedido_importante.put("titulo", titulo);
             Pedido_importante.put("descripcion",descripcion);
-            Pedido_importante.put("fecha_registro", fecha_registro);
+            Pedido_importante.put("fecha_actual", fecha_registro);
             Pedido_importante.put("fecha_pedido",fecha_pedido);
             Pedido_importante.put("forma_entrega", forma_entrega);
             Pedido_importante.put("estado", estado);
