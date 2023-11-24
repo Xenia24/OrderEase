@@ -33,8 +33,8 @@ import java.util.Locale;
 public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener {
     TextView Id_nota_A,Nombre_Cliente_A, Uid_Usuario_A, Fecha_registro_A, Estado_A, Fecha_A, Estado_nuevo, Estado_nuevo2, Estado_E;
     EditText Titulo_A,Descripcion_A;
-    Button Btn_Calendario_A;
-    ImageView Agregar_Pedido;
+    Button Btn_Calendario_A, Btn_Actualizar_P_A;
+
     Spinner Spinner_estado, Spinner_estado_2;
     String id_pedido_R, uid_usuario_R,nombre_cliente_R, fecha_registro_R, fecha_R,estado_n_R, titulo_R,descripcion_R,tipo_pedido_R;
     int year,mes,dia;
@@ -50,7 +50,7 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
         Spinner_Pedido();
 
 
-        Agregar_Pedido.setOnClickListener(new View.OnClickListener() {
+        Btn_Actualizar_P_A.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -125,7 +125,7 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
         Spinner_estado = findViewById(R.id.Spinner_estado);
         Fecha_registro_A = findViewById(R.id.Fecha_registro_A);
         Estado_nuevo2 = findViewById(R.id.Estado_nuevo2);
-        Agregar_Pedido=findViewById(R.id.Agregar_Pedido);
+        Btn_Actualizar_P_A=findViewById(R.id.Btn_Actualizar_P_A);
     }
     private void RecuperarDatos(){
         Bundle intent= getIntent().getExtras();

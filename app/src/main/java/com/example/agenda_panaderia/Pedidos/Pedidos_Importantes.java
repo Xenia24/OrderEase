@@ -102,9 +102,9 @@ public class Pedidos_Importantes extends AppCompatActivity {
                         pedido.getId_pedido(),
                         pedido.getUid_usuario(),
                         pedido.getNombre(),
-                        pedido.getFecha_actual(),
                         pedido.getTitulo(),
                         pedido.getDescripcion(),
+                        pedido.getFecha_actual(),
                         pedido.getFecha_pedido(),
                         pedido.getEstado()
                 );
@@ -133,9 +133,9 @@ public class Pedidos_Importantes extends AppCompatActivity {
                         intent.putExtra("id_pedido", id_pedido);
                         intent.putExtra("uid_usuario", uid_usuario);
                         intent.putExtra("nombre_usuario", nombre);
-                        intent.putExtra("fecha_registro", fecha_registro);
                         intent.putExtra("titulo", titulo);
                         intent.putExtra("descripcion", descripcion);
+                        intent.putExtra("fecha_registro", fecha_registro);
                         intent.putExtra("fecha_pedido", fecha_pedido);
                         intent.putExtra("forma_entrega", forma_entrega);
                         intent.putExtra("estado", estado);

@@ -46,8 +46,7 @@ public class ViewHolderImportante  extends RecyclerView.ViewHolder {
                                           String fecha_actual,
                                           String titulo,
                                           String descripcion,
-                                          String fecha_pedido,
-                                          String estado){
+                                          String fecha_pedido, String estado){
 
 
         //DECLARAR LAS VISTAS

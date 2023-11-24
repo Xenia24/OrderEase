@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +59,8 @@ public class Listar_Pedidos extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
 
+    SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +83,7 @@ public class Listar_Pedidos extends AppCompatActivity {
         BASE_DE_DATOS = firebaseDatabase.getReference("Pedidos_Realizados");
 //        dialog = new Dialog(Listar_Pedidos.this);
 //        dialog = new Dialog(Listar_Pedidos.this);
-        ListarNotasUsuarios();
+        EstadoFiltro();
         atras.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -105,8 +108,13 @@ public class Listar_Pedidos extends AppCompatActivity {
             }
         });
     }
+    private void FiltrarPedidos(){
+        Button Todas_notas, Notas_Finalizadas, Notas_No_Finalizadas;
 
-    private void ListarNotasUsuarios(){
+
+    }
+
+    private void ListarTodosPedidos(){
         //consulta
         Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
         //Query query = BASE_DE_DATOS.child(user.getUid()).child("Contactos").orderByChild("nombres");
@@ -152,9 +160,9 @@ public class Listar_Pedidos extends AppCompatActivity {
                         intent.putExtra("id_pedido", id_pedido);
                         intent.putExtra("uid_usuario", uid_usuario);
                         intent.putExtra("nombre_usuario", nombre);
-                        intent.putExtra("fecha_registro", fecha_registro);
                         intent.putExtra("titulo", titulo);
                         intent.putExtra("descripcion", descripcion);
+                        intent.putExtra("fecha_registro", fecha_registro);
                         intent.putExtra("fecha_pedido", fecha_nota);
                         intent.putExtra("forma_entrega", forma_entrega);
                         intent.putExtra("estado", estado);
@@ -227,6 +235,264 @@ public class Listar_Pedidos extends AppCompatActivity {
         recyclerviewPedidos.setAdapter(firebaseRecyclerAdapter);
 
     }
+    private void ListarFinalizadas(){
+        String estadopedido="Entregado";
+        //consulta
+        Query query = BASE_DE_DATOS.child(user.getUid()).child("Pedidos Realizados").orderByChild("estado").equalTo(estadopedido);
+        //Query query = BASE_DE_DATOS.child(user.getUid()).child("Contactos").orderByChild("nombres");
+
+        options = new FirebaseRecyclerOptions.Builder<Pedido>().setQuery(query, Pedido.class).build();
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Pedido, ViewHolder_Pedidos>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ViewHolder_Pedidos viewHolder_pedidos, int position, @NotNull Pedido pedido) {
+                viewHolder_pedidos.SetearDatosPedidos(
+                        getApplicationContext(),
+                        pedido.getId_pedido(),
+                        pedido.getUid_usuario(),
+                        pedido.getNombre(),
+                        pedido.getFecha_actual(),
+                        pedido.getTitulo(),
+                        pedido.getDescripcion(),
+                        pedido.getFecha_pedido(),
+                        pedido.getForma_entrega(),
+                        pedido.getEstado()
+                );
+            }
+
+
+            @Override
+            public ViewHolder_Pedidos onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pedido,parent,false);
+                ViewHolder_Pedidos viewHolder_pedidos = new ViewHolder_Pedidos(view);
+                viewHolder_pedidos.setOnClickListener(new ViewHolder_Pedidos.ClickListener(){
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        String id_pedido = getItem(position).getId_pedido();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String nombre=getItem(position).getNombre();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_registro = getItem(position).getFecha_actual();
+                        String fecha_nota = getItem(position).getFecha_pedido();
+                        String forma_entrega = getItem(position).getForma_entrega();
+                        String estado = getItem(position).getEstado();
+
+                        //Enviamos los datos a la siguiente actividad
+                        Intent intent = new Intent(Listar_Pedidos.this, Detalle_Pedido.class);
+                        intent.putExtra("id_pedido", id_pedido);
+                        intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("nombre_usuario", nombre);
+                        intent.putExtra("titulo", titulo);
+                        intent.putExtra("descripcion", descripcion);
+                        intent.putExtra("fecha_registro", fecha_registro);
+                        intent.putExtra("fecha_pedido", fecha_nota);
+                        intent.putExtra("forma_entrega", forma_entrega);
+                        intent.putExtra("estado", estado);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+                        Toast.makeText(Listar_Pedidos.this, "Mantener precionado ", Toast.LENGTH_SHORT).show();
+
+
+                        String id_pedido = getItem(position).getId_pedido();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String nombre=getItem(position).getNombre();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_registro = getItem(position).getFecha_actual();
+                        String fecha_nota = getItem(position).getFecha_pedido();
+                        String forma_entrega = getItem(position).getForma_entrega();
+                        String estado = getItem(position).getEstado();
+
+                        Button CD_Eliminar, CD_Actualizar;
+
+                        dialog.setContentView(R.layout.dialogo_opciones);
+
+                        CD_Eliminar = dialog.findViewById(R.id.CD_Eliminar);
+                        CD_Actualizar=dialog.findViewById(R.id.CD_Actualizar);
+
+                        CD_Eliminar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                EliminarPedido(id_pedido);
+                                dialog.dismiss();
+                            }
+
+
+                        });
+
+                        CD_Actualizar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent=new Intent(Listar_Pedidos.this, Actualizar_Pedidos.class);
+                                intent.putExtra("id_pedido", id_pedido);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("nombre_usuario",nombre);
+                                intent.putExtra("titulo", titulo);
+                                intent.putExtra("descripcion", descripcion);
+                                intent.putExtra("fecha_registro", fecha_registro);
+                                intent.putExtra("fecha_pedido",fecha_nota);
+                                intent.putExtra("forma_entrega", forma_entrega);
+                                intent.putExtra("estado", estado);
+                                startActivity(intent);
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog.show();
+                    }
+                });
+                return viewHolder_pedidos;
+            }
+
+
+        };
+
+        linearLayoutManager = new LinearLayoutManager(Listar_Pedidos.this, LinearLayoutManager.VERTICAL, false);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+
+        recyclerviewPedidos.setLayoutManager(linearLayoutManager);
+        recyclerviewPedidos.setAdapter(firebaseRecyclerAdapter);
+
+    }
+    private void ListarNoFinalizadas(){
+        String estadopedido="No Entregado";
+        //consulta
+        Query query = BASE_DE_DATOS.child(user.getUid()).child("Pedidos Realizados").orderByChild("estado").equalTo(estadopedido);
+        //Query query = BASE_DE_DATOS.child(user.getUid()).child("Contactos").orderByChild("nombres");
+
+        options = new FirebaseRecyclerOptions.Builder<Pedido>().setQuery(query, Pedido.class).build();
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Pedido, ViewHolder_Pedidos>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ViewHolder_Pedidos viewHolder_pedidos, int position, @NotNull Pedido pedido) {
+                viewHolder_pedidos.SetearDatosPedidos(
+                        getApplicationContext(),
+                        pedido.getId_pedido(),
+                        pedido.getUid_usuario(),
+                        pedido.getNombre(),
+                        pedido.getFecha_actual(),
+                        pedido.getTitulo(),
+                        pedido.getDescripcion(),
+                        pedido.getFecha_pedido(),
+                        pedido.getForma_entrega(),
+                        pedido.getEstado()
+                );
+            }
+
+
+            @Override
+            public ViewHolder_Pedidos onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pedido,parent,false);
+                ViewHolder_Pedidos viewHolder_pedidos = new ViewHolder_Pedidos(view);
+                viewHolder_pedidos.setOnClickListener(new ViewHolder_Pedidos.ClickListener(){
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        String id_pedido = getItem(position).getId_pedido();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String nombre=getItem(position).getNombre();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_registro = getItem(position).getFecha_actual();
+                        String fecha_nota = getItem(position).getFecha_pedido();
+                        String forma_entrega = getItem(position).getForma_entrega();
+                        String estado = getItem(position).getEstado();
+
+                        //Enviamos los datos a la siguiente actividad
+                        Intent intent = new Intent(Listar_Pedidos.this, Detalle_Pedido.class);
+                        intent.putExtra("id_pedido", id_pedido);
+                        intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("nombre_usuario", nombre);
+                        intent.putExtra("titulo", titulo);
+                        intent.putExtra("descripcion", descripcion);
+                        intent.putExtra("fecha_registro", fecha_registro);
+                        intent.putExtra("fecha_pedido", fecha_nota);
+                        intent.putExtra("forma_entrega", forma_entrega);
+                        intent.putExtra("estado", estado);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+                        Toast.makeText(Listar_Pedidos.this, "Mantener precionado ", Toast.LENGTH_SHORT).show();
+
+
+                        String id_pedido = getItem(position).getId_pedido();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String nombre=getItem(position).getNombre();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_registro = getItem(position).getFecha_actual();
+                        String fecha_nota = getItem(position).getFecha_pedido();
+                        String forma_entrega = getItem(position).getForma_entrega();
+                        String estado = getItem(position).getEstado();
+
+                        Button CD_Eliminar, CD_Actualizar;
+
+                        dialog.setContentView(R.layout.dialogo_opciones);
+
+                        CD_Eliminar = dialog.findViewById(R.id.CD_Eliminar);
+                        CD_Actualizar=dialog.findViewById(R.id.CD_Actualizar);
+
+                        CD_Eliminar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                EliminarPedido(id_pedido);
+                                dialog.dismiss();
+                            }
+
+
+                        });
+
+                        CD_Actualizar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent=new Intent(Listar_Pedidos.this, Actualizar_Pedidos.class);
+                                intent.putExtra("id_pedido", id_pedido);
+                                intent.putExtra("uid_usuario", uid_usuario);
+                                intent.putExtra("nombre_usuario",nombre);
+                                intent.putExtra("titulo", titulo);
+                                intent.putExtra("descripcion", descripcion);
+                                intent.putExtra("fecha_registro", fecha_registro);
+                                intent.putExtra("fecha_pedido",fecha_nota);
+                                intent.putExtra("forma_entrega", forma_entrega);
+                                intent.putExtra("estado", estado);
+                                startActivity(intent);
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog.show();
+                    }
+                });
+                return viewHolder_pedidos;
+            }
+
+
+        };
+
+        linearLayoutManager = new LinearLayoutManager(Listar_Pedidos.this, LinearLayoutManager.VERTICAL, false);
+        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setStackFromEnd(true);
+
+        recyclerviewPedidos.setLayoutManager(linearLayoutManager);
+        recyclerviewPedidos.setAdapter(firebaseRecyclerAdapter);
+
+    }
+    private void EstadoFiltro( ){
+        sharedPreferences=Listar_Pedidos.this.getSharedPreferences("Pedidos",MODE_PRIVATE);
+        String estadoFiltro = sharedPreferences.getString("Listar","Todas");
+        switch (estadoFiltro){
+            case "Todas": ListarTodosPedidos(); break;
+            case "Entregado":ListarFinalizadas(); break;
+            case "No Entregado":ListarNoFinalizadas(); break;
+
+                           }
+
+
+    }
+
+
 
     @Override
     protected void onStart() {

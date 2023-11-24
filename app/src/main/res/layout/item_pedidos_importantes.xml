@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/variablefont_wght"
                 android:text="@string/Fecha_hora_registro_Item_I"
-                android:visibility="gone" />
+                />
 
             <!--Titulo de la nota-->
             <TextView
