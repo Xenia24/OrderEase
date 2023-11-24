@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/md_orange_400"
     android:layout_height="match_parent"
     tools:context=".Pedidos.Actualizar_Pedidos">
 
@@ -10,7 +11,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/md_orange_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/regresar2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="edit.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            />
 
 
         <!--ID PEDIDO-->
@@ -65,26 +100,6 @@
                 android:visibility="gone"
                 android:layout_marginStart="5dp"
                 android:background="#E74C3C"/>
-
-
-            <TextView
-                android:id="@+id/Estado_A"
-                android:text="@string/Estado_A"
-                android:textSize="20sp"
-                android:fontFamily="@font/variablefont_wght"
-                android:layout_marginStart="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/Estado_E"
-                android:text="@string/Estado_E"
-                android:textSize="20sp"
-                android:fontFamily="@font/variablefont_wght"
-                android:layout_marginStart="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!--NOMBRE DEL CLIENTE-->
@@ -104,7 +119,8 @@
             android:hint="@string/Titulo_A"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:fontFamily="@font/variablefont_wght"
+            android:textColor="@color/white"
+            android:fontFamily="@font/font"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -113,8 +129,10 @@
             android:id="@+id/Descripcion_A"
             android:hint="@string/Descripcion_A"
             android:textSize="20sp"
+            android:textColor="@color/white"
             android:layout_marginTop="10dp"
-            android:minHeight="150dp"
+            android:minHeight="130dp"
+            android:fontFamily="@font/font"
             android:gravity="start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -130,6 +148,9 @@
                 android:id="@+id/Btn_Calendario_A"
                 android:text="@string/Btn_Calendario_A"
                 app:icon="@drawable/calendar"
+                android:layout_marginLeft="60dp"
+                android:fontFamily="@font/font"
+                android:backgroundTint="@color/md_green_600"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -138,8 +159,9 @@
                 android:id="@+id/Fecha_A"
                 android:hint="@string/Fecha_A"
                 android:textSize="20sp"
+                android:textColor="@color/white"
                 android:layout_marginStart="15dp"
-                android:fontFamily="@font/variablefont_wght"
+                android:fontFamily="@font/font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -159,6 +181,8 @@
             <TextView
                 android:id="@+id/Estado_nuevo"
                 android:text="@string/Estado_A"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -167,19 +191,50 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="15dp">
+            <Spinner
+                android:id="@+id/Spinner_estado_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/Estado_nuevo2"
+                android:text="@string/Estado_E"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <Spinner
-            android:id="@+id/Spinner_estado_2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
-        <TextView
-            android:id="@+id/Estado_nuevo2"
-            android:text="@string/Estado_E"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/Estado_A"
+                android:text="@string/Estado_A"
+                android:textSize="20sp"
+                android:fontFamily="@font/font"
+                android:textColor="@color/white"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/Estado_E"
+                android:text="@string/Estado_E"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/font"
+                android:layout_marginLeft="110dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 
@@ -187,7 +242,10 @@
             android:id="@+id/Btn_Actualizar_P_A"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/variablefont_wght"
+            android:fontFamily="@font/font"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/md_orange_800"
             android:text="@string/Btn_Actualizar_C_A" />
 
 

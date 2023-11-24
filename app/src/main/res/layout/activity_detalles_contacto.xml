@@ -1,9 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_orange_400"
     tools:context=".Contactos.Detalles_Contacto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/md_orange_800"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/regresar2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="8dp"
+                android:src="@drawable/back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/Imagen_C_D"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:background="#354f60"
+            android:scaleType="centerCrop"
+            android:src="@drawable/usercc" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+    <TextView
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="@color/md_orange_800"
+        android:fontFamily="@font/font"
+        android:text="@string/DetalleContactoTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/Id_C_D"
+        android:text="@string/Id_C_D"
+        android:visibility="gone"
+        android:fontFamily="@font/font"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/Uid_Usuario_D"
+        android:text="@string/Uid_Usuario_D"
+        android:visibility="gone"
+        android:fontFamily="@font/font"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/Nombre_C_D"
+        android:text="@string/Nombre_C_D"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/font"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/Apellidos_C_D"
+        android:text="@string/Apellidos_C_D"
+        android:textSize="20sp"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/Correo_C_D"
+        android:text="@string/Correo_C_D"
+        android:textSize="20sp"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/Direccion_C_D"
+        android:text="@string/Direccion_C_D"
+        android:textSize="20sp"
+        android:fontFamily="@font/font"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="#000"/>
+
+    <TextView
+        android:id="@+id/Telefono_C_D"
+        android:text="@string/Telefono_C_D"
+        android:textSize="20sp"
+        android:fontFamily="@font/font"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/pone"
+        android:drawablePadding="10dp"
+        android:layout_gravity="center"
+        android:layout_width="220dp"
+        android:layout_height="50dp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

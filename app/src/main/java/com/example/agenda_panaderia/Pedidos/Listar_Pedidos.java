@@ -395,7 +395,7 @@ public class Listar_Pedidos extends AppCompatActivity {
                         String titulo = getItem(position).getTitulo();
                         String descripcion = getItem(position).getDescripcion();
                         String fecha_registro = getItem(position).getFecha_actual();
-                        String fecha_nota = getItem(position).getFecha_pedido();
+                        String fecha_pedido = getItem(position).getFecha_pedido();
                         String forma_entrega = getItem(position).getForma_entrega();
                         String estado = getItem(position).getEstado();
 
@@ -407,7 +407,7 @@ public class Listar_Pedidos extends AppCompatActivity {
                         intent.putExtra("titulo", titulo);
                         intent.putExtra("descripcion", descripcion);
                         intent.putExtra("fecha_registro", fecha_registro);
-                        intent.putExtra("fecha_pedido", fecha_nota);
+                        intent.putExtra("fecha_pedido", fecha_pedido);
                         intent.putExtra("forma_entrega", forma_entrega);
                         intent.putExtra("estado", estado);
                         startActivity(intent);

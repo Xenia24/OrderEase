@@ -44,7 +44,7 @@ import java.util.HashMap;
 public class Actualizar_Contactos extends AppCompatActivity {
     TextView Id_C_A, Uid_C_A, Telefono_C_A;
     EditText Nombres_C_A, Apellidos_C_A, Correo_C_A, Direccion_C_A;
-    ImageView Imagen_C_A, Actualizar_imagen_C_A, Actualizar_Telefono_C_A;
+    ImageView Imagen_C_A, Actualizar_imagen_C_A, Actualizar_Telefono_C_A, regresar;
     Button Btn_Actualizar_C_A;
     String id_c , uid_usuario, nombres_c, apellidos_c, correo_c, telefono_c, direccion_c;
     Dialog dialog_establecer_telefono;
@@ -56,6 +56,7 @@ public class Actualizar_Contactos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actualizar_contactos);
+        regresar = findViewById(R.id.regresar);
 
 
         InicializarVistas();
@@ -87,6 +88,14 @@ public class Actualizar_Contactos extends AppCompatActivity {
             }
 
         });
+        regresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Actualizar_Contactos.this, Listar_Contactos.class);
+                startActivity(intent);
+            }
+        });
+
         Actualizar_imagen_C_A.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

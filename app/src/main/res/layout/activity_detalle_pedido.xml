@@ -45,6 +45,17 @@
             android:textSize="20sp"
             android:fontFamily="@font/font"/>
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="list.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            />
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,6 +64,7 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -81,6 +93,7 @@
                 android:fontFamily="@font/font"
                 android:textColor="@color/white"
                 android:textSize="17sp"
+                android:visibility="gone"
                 android:id="@+id/Id_Pedido_Detalle"
                 android:text="@string/Id_Pedido_Detalle"
                 android:textStyle="bold"
@@ -88,6 +101,7 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
@@ -112,6 +126,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font"
@@ -401,12 +416,13 @@
             android:layout_marginTop="2dp">
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="75dp"
                 android:text="@string/Importantes"
                 android:id="@+id/Importantes"
                 android:drawableTop="@drawable/importante2"
                 android:textColor="@color/white"
+                android:layout_marginLeft="60dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:backgroundTint="@color/md_orange_800"
                 android:fontFamily="@font/font"/>

@@ -3,12 +3,16 @@ package com.example.agenda_panaderia.Pedidos;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.agenda_panaderia.Contactos.Detalles_Contacto;
+import com.example.agenda_panaderia.Contactos.Listar_Contactos;
 import com.example.agenda_panaderia.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +31,7 @@ public class Detalle_Pedido extends AppCompatActivity {
     String id_pedido, uid_usuario, nombre_usuario,fecha_registro, titulo, descripcion, fecha_pedido, forma_entrega,estado;
     TextView Id_Pedido_Detalle, Id_Usuario_Detalle, Nombre_Detalle, Titulo_Detalle, Descripcion_Detalle, Fecha_Registro_Detalle, Fecha_Pedido_Detalle, Estado_Detalle,Forma_entrega;
 
+    ImageView regresar2;
     FirebaseAuth firebaseAuth;
     Button Importante;
     boolean comprobar = false;
@@ -35,6 +40,8 @@ public class Detalle_Pedido extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_pedido);
+
+
         Iniciar_vista();
         RecuperarDatos();
         SetDatosR();
@@ -50,6 +57,14 @@ public class Detalle_Pedido extends AppCompatActivity {
                 }
             }
         });
+
+        regresar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Detalle_Pedido.this, Pedidos_Importantes.class);
+                startActivity(intent);
+            }
+        });
 //r
     }
     private void  Iniciar_vista(){
@@ -63,6 +78,7 @@ public class Detalle_Pedido extends AppCompatActivity {
         Estado_Detalle=findViewById(R.id.Estado_Detalle);
         Importante = findViewById(R.id.Importantes);
         Forma_entrega=findViewById(R.id.Forma_entrega);
+        regresar2 = findViewById(R.id.regresar2);
 
 
 

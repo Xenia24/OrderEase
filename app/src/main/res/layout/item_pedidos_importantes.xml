@@ -60,6 +60,7 @@
             <TextView
                 android:id="@+id/Fecha_hora_registro_Item_I"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/variablefont_wght"
                 android:text="@string/Fecha_hora_registro_Item_I"
@@ -72,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font"
                 android:text="@string/Titulo_Item_I"
-                android:textColor="@color/white"
+                android:textColor="@color/md_red_500"
                 android:textSize="25sp" />
 
             <!--NOMBRE CLIENTE-->
@@ -90,7 +91,7 @@
             <TextView
                 android:id="@+id/Descripcion_Item_I"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:fontFamily="@font/font"
                 android:text="@string/Descripcion_Item_I"
                 android:textColor="@color/white"
@@ -103,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/font"
                 android:text="@string/Fecha_Item_I"
-                android:textColor="@color/white"
+                android:textColor="@color/md_blue_700"
                 android:textSize="18sp" />
 
             <!--ESTADO DE LA NOTA-->

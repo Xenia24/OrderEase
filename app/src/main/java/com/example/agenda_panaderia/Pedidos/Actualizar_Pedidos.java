@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.agenda_panaderia.Contactos.Actualizar_Contactos;
+import com.example.agenda_panaderia.Contactos.Listar_Contactos;
 import com.example.agenda_panaderia.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +37,7 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
     TextView Id_nota_A,Nombre_Cliente_A, Uid_Usuario_A, Fecha_registro_A, Estado_A, Fecha_A, Estado_nuevo, Estado_nuevo2, Estado_E;
     EditText Titulo_A,Descripcion_A;
     Button Btn_Calendario_A, Btn_Actualizar_P_A;
-
+    ImageView regresar2;
     Spinner Spinner_estado, Spinner_estado_2;
     String id_pedido_R, uid_usuario_R,nombre_cliente_R, fecha_registro_R, fecha_R,estado_n_R, titulo_R,descripcion_R,tipo_pedido_R;
     int year,mes,dia;
@@ -57,6 +60,14 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
                 ActualizarDatos();
             }
         });
+        regresar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Actualizar_Pedidos.this, Listar_Pedidos.class);
+                startActivity(intent);
+            }
+        });
+
         Btn_Calendario_A.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -126,12 +137,14 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
         Fecha_registro_A = findViewById(R.id.Fecha_registro_A);
         Estado_nuevo2 = findViewById(R.id.Estado_nuevo2);
         Btn_Actualizar_P_A=findViewById(R.id.Btn_Actualizar_P_A);
+        regresar2 = findViewById(R.id.regresar2);
+
     }
     private void RecuperarDatos(){
         Bundle intent= getIntent().getExtras();
         id_pedido_R= intent.getString("id_pedido");
         uid_usuario_R= intent.getString("uid_usuario");
-        nombre_cliente_R=intent.getString("nombre_usuario");
+        nombre_cliente_R=intent.getString("nombre");
         fecha_registro_R= intent.getString("fecha_registro");
         estado_n_R= intent.getString("estado");
         fecha_R= intent.getString("fecha_pedido");
@@ -146,11 +159,12 @@ public class Actualizar_Pedidos extends AppCompatActivity implements AdapterView
         Uid_Usuario_A.setText(uid_usuario_R);
         Fecha_A.setText(fecha_R);
         Fecha_registro_A.setText(fecha_registro_R);
-        Estado_nuevo.setText(estado_n_R);
+//        Estado_nuevo.setText(estado_n_R);
+        Estado_A.setText(estado_n_R);
         Fecha_A.setText(fecha_R);
         Titulo_A.setText(titulo_R);
         Descripcion_A.setText(descripcion_R);
-        Estado_nuevo2.setText(tipo_pedido_R);
+        Estado_E.setText(tipo_pedido_R);
         Nombre_Cliente_A.setText(nombre_cliente_R);
     }
 

@@ -6,4 +6,14 @@
     </style>
 
     <style name="Theme.Agenda_panaderia" parent="Base.Theme.Agenda_panaderia" />
+
+
+    <style name="CitySearchView" parent="Widget.AppCompat.Light.SearchView">
+        <item name="colorControlNormal">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="background">@color/black</item>
+        <item name="android:hint">Buscar...</item>
+
+        <item name="android:textColorHint">@color/black</item>
+    </style>
 </resources>
