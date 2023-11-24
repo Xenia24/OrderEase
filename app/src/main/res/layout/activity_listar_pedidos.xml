@@ -39,15 +39,7 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
-        <ImageView
-            android:id="@+id/Vaciar_Todas_Las_Notas"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginEnd="44dp"
-            android:padding="8dp"
-            android:src="@drawable/borrar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView

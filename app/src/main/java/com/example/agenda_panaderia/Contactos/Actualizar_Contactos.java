@@ -25,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.example.agenda_panaderia.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +34,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.hbb20.CountryCodePicker;
 
 import java.util.HashMap;
@@ -120,9 +124,15 @@ public class Actualizar_Contactos extends AppCompatActivity {
                     }
                 }
         );
-
-    private void subirImagenStorage() {
-    }
+    private ActivityResultLauncher<String> SolicitarPermisoGaleria = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted){
+                    SeleccionarImagenGaleria();
+                }else{
+                    Toast.makeText(this, "Permiso denegado", Toast.LENGTH_SHORT).show();
+                }
+            }
+    );
 
 
     private void InicializarVistas(){
@@ -161,18 +171,7 @@ public class Actualizar_Contactos extends AppCompatActivity {
         Telefono_C_A.setText(telefono_c);
         Direccion_C_A.setText(direccion_c);
     }
-    private void ObtenerImagen(){
-        String imagen = getIntent().getStringExtra("imagen_c");
 
-        try {
-
-            Glide.with(getApplicationContext()).load(imagen).placeholder(R.drawable.contacto).into( Imagen_C_A);
-
-        }catch (Exception e){
-
-            Toast.makeText(this, "Esperando imagen", Toast.LENGTH_SHORT).show();
-        }
-    }
     private void Establecer_telefono_contacto(){
         CountryCodePicker ccp;
         EditText Establecer_Telefono;
@@ -235,12 +234,6 @@ DatabaseReference databaseReference =  firebaseDatabase.getReference("Usuarios")
             }
         });
     }
-
-
-
-
-
-
     private void ActualizarImagenBD(String uriIMAGEN) {
 
         progressDialog.setMessage("Actualizando la imagen");
@@ -271,4 +264,42 @@ DatabaseReference databaseReference =  firebaseDatabase.getReference("Usuarios")
                     }
                 });
 
-    }}
+    }
+    private void ObtenerImagen(){
+        String imagen = getIntent().getStringExtra("imagen_c");
+
+        try {
+
+            Glide.with(getApplicationContext()).load(imagen).placeholder(R.drawable.contacto).into( Imagen_C_A);
+
+        }catch (Exception e){
+
+            Toast.makeText(this, "Esperando imagen", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void subirImagenStorage() {
+        progressDialog.setMessage("Subiendo imagen");
+        progressDialog.show();
+        String id_c = getIntent().getStringExtra("id_c");
+
+        String carpetaImagenesContactos = "ImagenesPerfilContactos/";
+        String NombreImagen = carpetaImagenesContactos + id_c;
+        StorageReference reference = FirebaseStorage.getInstance().getReference(NombreImagen);
+        reference.putFile(imagenUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                        while (!uriTask.isSuccessful()) ;
+                        String UriIMAGEN = "" + uriTask.getResult();
+                        ActualizarImagenBD(UriIMAGEN);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Actualizar_Contactos.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+}

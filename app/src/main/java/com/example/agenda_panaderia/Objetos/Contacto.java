@@ -7,7 +7,7 @@ public class Contacto {
 
     }
 
-    public Contacto(String id_contacto, String uid_contacto, String nombres, String apellidos, String correo, String telefono, String direccion) {
+    public Contacto(String id_contacto, String uid_contacto, String nombres, String apellidos, String correo, String telefono, String direccion, String imagen) {
         this.id_contacto = id_contacto;
         this.uid_contacto = uid_contacto;
         this.nombres = nombres;
@@ -75,5 +75,8 @@ public class Contacto {
     }
 
     public String getImagen() {return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
