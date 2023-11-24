@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,6 +52,7 @@ public class Actualizar_Contactos extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     Uri imagenUri;
+    String nombre= " ", Apellido= " ", correo=" ", telefono= " ", direccion = " ";
     ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,17 +78,10 @@ public class Actualizar_Contactos extends AppCompatActivity {
             }
         });
         Btn_Actualizar_C_A.setOnClickListener(new View.OnClickListener() {
-
             @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(Actualizar_Contactos.this, Listar_Contactos.class);
-                startActivity(intent);
-                ActualizarInformacionContacto();
-
-                //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
-                //uno dos tres
+            public void onClick(View v) {
+                ValidarDatos();
             }
-
         });
         regresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +104,7 @@ public class Actualizar_Contactos extends AppCompatActivity {
 
 
     }
+
 
     private void SeleccionarImagenGaleria() {
 
@@ -234,6 +230,8 @@ DatabaseReference databaseReference =  firebaseDatabase.getReference("Usuarios")
                     ds.getRef().child("direccion").setValue(DireccionActualizar);
                 }
 
+                Intent intent= new Intent(Actualizar_Contactos.this, Listar_Contactos.class);
+                startActivity(intent);
                 Toast.makeText(Actualizar_Contactos.this, "Información actualizada", Toast.LENGTH_SHORT).show();
             }
 
@@ -310,5 +308,50 @@ DatabaseReference databaseReference =  firebaseDatabase.getReference("Usuarios")
                     }
                 });
 
+    }
+
+    private void ValidarDatos() {
+        nombre = Nombres_C_A.getText().toString().trim();
+        Apellido = Apellidos_C_A.getText().toString().trim();
+        correo = Correo_C_A.getText().toString().trim();
+        telefono = Telefono_C_A.getText().toString().trim();
+        direccion = Direccion_C_A.getText().toString().trim();
+
+        if (TextUtils.isEmpty(nombre)) {
+            Toast.makeText(this, "Ingrese un nombre", Toast.LENGTH_SHORT).show();
+        } else if (!esSoloLetras(nombre)) {
+            Toast.makeText(this, "El nombre solo debe contener letras", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(Apellido)) {
+            Toast.makeText(this, "Ingrese un apellido", Toast.LENGTH_SHORT).show();
+        } else if (!esSoloLetras(Apellido)) {
+            Toast.makeText(this, "El apellido solo debe contener letras", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(correo)) {
+            Toast.makeText(this, "Ingrese un correo electrónico", Toast.LENGTH_SHORT).show();
+        } else if (!isValidEmail(correo)) {
+            Toast.makeText(this, "Ingrese un correo electrónico válido", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(telefono)) {
+            Toast.makeText(this, "Ingrese un número de teléfono", Toast.LENGTH_SHORT).show();
+        } else if (!isValidPhoneNumber(telefono)) {
+            Toast.makeText(this, "Ingrese un número de teléfono válido de 8 dígitos", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(direccion)) {
+            Toast.makeText(this, "Ingrese una dirección", Toast.LENGTH_SHORT).show();
+        } else {
+            ActualizarInformacionContacto();
+        }
+    }
+
+    private boolean isValidEmail(String email) {
+        // Puedes implementar una lógica más avanzada para validar correos electrónicos.
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    private boolean esSoloLetras(String input) {
+        // Validar que la cadena contenga solo letras.
+        return input.matches("[a-zA-Z]+");
+    }
+
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        // Validar que el número de teléfono tenga exactamente 8 dígitos.
+        return android.util.Patterns.PHONE.matcher(phoneNumber).matches() && phoneNumber.length() == 12;
     }
 }

@@ -27,7 +27,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:padding="8dp"
-                android:src="@drawable/back"
+                android:src="@drawable/retro"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 />
@@ -176,6 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Btn_Calendario"
+                android:textColor="@color/white"
                 android:id="@+id/Btn_Calendario"
                 android:fontFamily="@font/font"
                 android:layout_marginStart="40dp"

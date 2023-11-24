@@ -31,7 +31,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:padding="8dp"
-                android:src="@drawable/back"
+                android:src="@drawable/retro"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 />
@@ -93,11 +93,18 @@
         android:id="@+id/Nombre_C_D"
         android:text="@string/Nombre_C_D"
         android:textSize="20sp"
+        android:layout_gravity="center"
         android:textColor="@color/white"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/font"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#000"/>
 
     <TextView
         android:id="@+id/Apellidos_C_D"
@@ -105,9 +112,16 @@
         android:textSize="20sp"
         android:fontFamily="@font/font"
         android:textColor="@color/white"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#000"/>
 
     <TextView
         android:id="@+id/Correo_C_D"
@@ -115,9 +129,16 @@
         android:textSize="20sp"
         android:fontFamily="@font/font"
         android:textColor="@color/white"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#000"/>
 
     <TextView
         android:id="@+id/Direccion_C_D"
@@ -125,6 +146,7 @@
         android:textSize="20sp"
         android:fontFamily="@font/font"
         android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:textColor="@color/white"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"/>
@@ -147,7 +169,15 @@
         android:layout_gravity="center"
         android:layout_width="220dp"
         android:layout_height="50dp"/>
+
+
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="#000"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

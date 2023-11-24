@@ -3,6 +3,7 @@ package com.example.agenda_panaderia.Contactos;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,8 @@ Button Btn_guardar_contacto;
 Dialog  dialog_establecer_telefono;
 DatabaseReference BD_Contactos;
 FirebaseAuth firebaseAuth;
+
+String nombre= " ", Apellido= " ", correo=" ", telefono= " ", direccion = " ";
 FirebaseUser user;
 
     @Override
@@ -49,7 +52,7 @@ FirebaseUser user;
 
             @Override
             public void onClick(View view) {
-                AgregarContacto();
+                ValidarDatos();
             }
         });
         atras1.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +154,51 @@ FirebaseUser user;
 
         dialog_establecer_telefono.show();
         dialog_establecer_telefono.setCanceledOnTouchOutside(true);
+    }
+
+    private void ValidarDatos() {
+        nombre = Nombre_c.getText().toString().trim();
+        Apellido = Apellido_c.getText().toString().trim();
+        correo = Correo_c.getText().toString().trim();
+        telefono = Telefono_c.getText().toString().trim();
+        direccion = Direccion_c.getText().toString().trim();
+
+        if (TextUtils.isEmpty(nombre)) {
+            Toast.makeText(this, "Ingrese un nombre", Toast.LENGTH_SHORT).show();
+        } else if (!esSoloLetras(nombre)) {
+            Toast.makeText(this, "El nombre solo debe contener letras", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(Apellido)) {
+            Toast.makeText(this, "Ingrese un apellido", Toast.LENGTH_SHORT).show();
+        } else if (!esSoloLetras(Apellido)) {
+            Toast.makeText(this, "El apellido solo debe contener letras", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(correo)) {
+            Toast.makeText(this, "Ingrese un correo electrónico", Toast.LENGTH_SHORT).show();
+        } else if (!isValidEmail(correo)) {
+            Toast.makeText(this, "Ingrese un correo electrónico válido", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(telefono)) {
+            Toast.makeText(this, "Ingrese un número de teléfono", Toast.LENGTH_SHORT).show();
+        } else if (!isValidPhoneNumber(telefono)) {
+            Toast.makeText(this, "Ingrese un número de teléfono válido de 8 dígitos", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(direccion)) {
+            Toast.makeText(this, "Ingrese una dirección", Toast.LENGTH_SHORT).show();
+        } else {
+            AgregarContacto();
+        }
+    }
+
+    private boolean isValidEmail(String email) {
+        // Puedes implementar una lógica más avanzada para validar correos electrónicos.
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    private boolean esSoloLetras(String input) {
+        // Validar que la cadena contenga solo letras.
+        return input.matches("[a-zA-Z]+");
+    }
+
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        // Validar que el número de teléfono tenga exactamente 8 dígitos.
+        return android.util.Patterns.PHONE.matcher(phoneNumber).matches() && phoneNumber.length() == 12;
     }
 
 }

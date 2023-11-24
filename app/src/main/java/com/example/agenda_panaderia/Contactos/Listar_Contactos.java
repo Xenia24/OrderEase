@@ -373,27 +373,4 @@ public class Listar_Contactos extends AppCompatActivity {
             firebaseRecyclerAdapter.startListening();
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_agregar_contactos, menu);
-        MenuItem item = menu.findItem(R.id.Buscar_contactos);
-        SearchView searchView = (SearchView) item.getActionView();
-        searchView.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-               BuscarContacto(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                BuscarContacto(newText);
-                return false;
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
-    }
 }

@@ -293,7 +293,7 @@
                         android:textColor="@color/white"
                         android:backgroundTint="@color/md_orange_800"
                         android:layout_marginTop="95dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="20dp"
                         android:id="@+id/Btn_Importantes"
                         android:fontFamily="@font/font"/>
 
@@ -334,7 +334,7 @@
                         android:textColor="@color/white"
                         android:id="@+id/Btn_Contactos"
                         android:layout_marginTop="95dp"
-                        android:layout_marginLeft="35dp"
+                        android:layout_marginLeft="20dp"
                         android:backgroundTint="@color/md_orange_800"
                         android:fontFamily="@font/font"/>
 
