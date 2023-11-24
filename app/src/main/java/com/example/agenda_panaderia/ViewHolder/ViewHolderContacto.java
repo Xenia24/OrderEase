@@ -2,11 +2,13 @@ package com.example.agenda_panaderia.ViewHolder;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.agenda_panaderia.R;
 
 public class ViewHolderContacto extends RecyclerView.ViewHolder {
@@ -52,8 +54,9 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
                                     String apellidos,
                                     String correo,
                                     String telefono,
-                                    String direccion){
-
+                                    String direccion,
+                                    String imagen){
+        ImageView Imagen_c_Item;
         TextView Id_c_Item, Uid_c_Item,nombre_c_Item,apellido_c_Item,Correo_c_Item,telefono_c_Item,direccion_c_Item;
 
 
@@ -64,6 +67,7 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
         Correo_c_Item=mView.findViewById(R.id.Correo_c_Item);
         telefono_c_Item=mView.findViewById(R.id.telefono_c_Item);
         direccion_c_Item=mView.findViewById(R.id.direccion_c_Item);
+        Imagen_c_Item=mView.findViewById(R.id.Imagen_c_Item);
 
         Id_c_Item.setText(id_contacto);
         Uid_c_Item.setText(uid_contacto);
@@ -72,6 +76,11 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
         Correo_c_Item.setText(correo);
         telefono_c_Item.setText(telefono);
         direccion_c_Item.setText(direccion);
+        try{
+            Glide.with(context).load(imagen).placeholder(R.drawable.conta).into(Imagen_c_Item);
+        }catch (Exception e){
+            Glide.with(context).load(R.drawable.conta).into(Imagen_c_Item);
+        }
 
     }
 

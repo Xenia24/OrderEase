@@ -129,7 +129,8 @@ public class Listar_Contactos extends AppCompatActivity {
                         contacto.getApellidos(),
                         contacto.getCorreo(),
                         contacto.getTelefono(),
-                        contacto.getDireccion()
+                        contacto.getDireccion(),
+                        contacto.getImagen()
                 );
 
             }
@@ -155,6 +156,7 @@ public class Listar_Contactos extends AppCompatActivity {
                         String Correo_c = getItem(position).getCorreo();
                         String Telefono_c = getItem(position).getTelefono();
                         String Direccion_c = getItem(position).getDireccion();
+                        String Imagen_c = getItem(position).getImagen();
                         //Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
                                                 Button CD_Eliminar,Btn_Actualizar_C_A;
 
@@ -188,6 +190,7 @@ public class Listar_Contactos extends AppCompatActivity {
                                 intent.putExtra("Correo_c", Correo_c);
                                 intent.putExtra("Telefono_c", Telefono_c);
                                 intent.putExtra("Direccion_C_A", Direccion_c);
+                                intent.putExtra("Imagen_c",Imagen_c);
                                 startActivity(intent);
 
                             }
@@ -224,7 +227,8 @@ public class Listar_Contactos extends AppCompatActivity {
                         contacto.getApellidos(),
                         contacto.getCorreo(),
                         contacto.getTelefono(),
-                        contacto.getDireccion()
+                        contacto.getDireccion(),
+                        contacto.getImagen()
                 );
 
             }
@@ -250,6 +254,7 @@ public class Listar_Contactos extends AppCompatActivity {
                         String Correo_c = getItem(position).getCorreo();
                         String Telefono_c = getItem(position).getTelefono();
                         String Direccion_c = getItem(position).getDireccion();
+                        String Imagen_c = getItem(position).getImagen();
                         //Toast.makeText(Listar_Contactos.this, "On item long click", Toast.LENGTH_SHORT).show();
                         Button CD_Eliminar,Btn_Actualizar_C_A;
 
@@ -283,6 +288,7 @@ public class Listar_Contactos extends AppCompatActivity {
                                 intent.putExtra("Correo_c", Correo_c);
                                 intent.putExtra("Telefono_c", Telefono_c);
                                 intent.putExtra("Direccion_C_A", Direccion_c);
+                                intent.putExtra("Imagen_c", Imagen_c);
                                 startActivity(intent);
 
                             }

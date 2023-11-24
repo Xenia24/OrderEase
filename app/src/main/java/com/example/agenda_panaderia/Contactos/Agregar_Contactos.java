@@ -1,6 +1,7 @@
 package com.example.agenda_panaderia.Contactos;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,8 +52,22 @@ FirebaseUser user;
                 AgregarContacto();
             }
         });
+        atras1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Agregar_Contactos.this, Listar_Contactos.class);
+                startActivity(intent);
+                //Toast.makeText(Menu_Principal.this,"Contactos", Toast.LENGTH_SHORT).show();
+                //uno dos tres
+            }
+        });
+
+
 
     }
+
+
     private void InicializarVariables(){
         //uno dos tres
         Uid_Usuario= findViewById(R.id.Uid_Usuario);
@@ -88,11 +103,10 @@ FirebaseUser user;
         String correo= Correo_c.getText().toString();
         String telefono= Telefono_c.getText().toString();
         String direccion= Direccion_c.getText().toString();
-
         String id_contacto = BD_Contactos.push().getKey();
 
         if (!uid.equals("") && !nombres.equals("")){
-            Contacto contacto = new Contacto(id_contacto,uid,nombres,apellidos, correo,telefono,direccion);
+            Contacto contacto = new Contacto(id_contacto,uid,nombres,apellidos, correo,telefono,direccion,"");
 
             String Nombre_BD = "Contactos";
             assert id_contacto != null;
