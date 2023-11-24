@@ -266,7 +266,7 @@ DatabaseReference databaseReference =  firebaseDatabase.getReference("Usuarios")
 
     }
     private void ObtenerImagen(){
-        String imagen = getIntent().getStringExtra("imagen_c");
+        String imagen = getIntent().getStringExtra("Imagen_c");
 
         try {
 
